@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exam Blueprint — Data Structures Using C</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#555; --accent:#2c5f8a; --bg:#faf9f7; --card:#fff;
+    --border:#ddd; --code-bg:#f4f1eb;
+    --t1:#b5153f; --t1bg:#fdeef2; --t2:#b5760f; --t2bg:#fdf6e9; --t3:#2d6a4f; --t3bg:#edf7f1;
+    --truth:#2c5f8a; --truthbg:#e8f4f8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Georgia','Times New Roman',serif;font-size:1.02rem;line-height:1.7;color:var(--ink);background:var(--bg);max-width:820px;margin:0 auto;padding:2.5rem 1.5rem 6rem}
+  h1{font-size:2rem;font-weight:normal;color:var(--accent);margin-bottom:.2rem}
+  .sub{color:var(--muted);font-family:sans-serif;font-size:.82rem;margin-bottom:.4rem}
+  .legend{font-family:sans-serif;font-size:.8rem;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:6px;padding:.6rem .9rem;margin:1.2rem 0 2rem}
+  h2{font-size:1.3rem;margin:2.5rem 0 .6rem;color:var(--ink);border-bottom:2px solid var(--accent);padding-bottom:.25rem}
+  h3{font-size:1.05rem;margin:1.4rem 0 .4rem;color:var(--accent)}
+  p{margin-bottom:.7rem}
+  ul,ol{padding-left:1.4rem;margin-bottom:.7rem}
+  li{margin-bottom:.3rem}
+  code{font-family:'Courier New',monospace;font-size:.88rem;background:var(--code-bg);padding:.08em .35em;border-radius:3px}
+  pre{background:var(--code-bg);border-left:3px solid var(--accent);padding:.9rem 1.1rem;overflow-x:auto;margin:1rem 0;border-radius:0 4px 4px 0}
+  pre code{background:none;padding:0;font-size:.85rem;line-height:1.5}
+  table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.88rem}
+  th{background:var(--accent);color:#fff;text-align:left;padding:.5rem .65rem;font-family:sans-serif}
+  td{padding:.45rem .65rem;border-bottom:1px solid var(--border);vertical-align:top}
+  tr:nth-child(even) td{background:#f7f5f2}
+  .tier{display:inline-block;font-family:sans-serif;font-size:.7rem;font-weight:bold;padding:.12em .5em;border-radius:3px;vertical-align:middle;margin-left:.4rem;letter-spacing:.03em}
+  .tier1{background:var(--t1bg);color:var(--t1);border:1px solid var(--t1)}
+  .tier2{background:var(--t2bg);color:var(--t2);border:1px solid var(--t2)}
+  .tier3{background:var(--t3bg);color:var(--t3);border:1px solid var(--t3)}
+  .quote{font-family:sans-serif;font-size:.82rem;color:var(--muted);border-left:3px solid var(--border);padding:.3rem .8rem;margin:.5rem 0 .9rem;font-style:italic}
+  .truth{background:var(--truthbg);border-left:4px solid var(--truth);padding:.7rem 1rem;margin:1rem 0;border-radius:0 4px 4px 0;font-size:.9rem;font-family:sans-serif}
+  .truth::before{content:"📘 SLM (source of truth): ";font-weight:bold}
+  .warn{background:var(--t1bg);border-left:4px solid var(--t1);padding:.7rem 1rem;margin:1rem 0;border-radius:0 4px 4px 0;font-size:.9rem;font-family:sans-serif}
+  .warn::before{content:"⚠ Conflict / Trap: ";font-weight:bold;color:var(--t1)}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.1rem 1.3rem;margin:1.2rem 0}
+  .toc{font-family:sans-serif;font-size:.9rem}
+  .toc a{color:var(--accent);text-decoration:none}
+  .toc a:hover{text-decoration:underline}
+  a{color:var(--accent)}
+  .src{font-family:sans-serif;font-size:.72rem;color:#999}
+  hr{border:none;border-top:1px solid var(--border);margin:2rem 0}
+</style>
+</head>
+<body>
+
+<div style="font-family:sans-serif;font-size:.8rem;padding:.5rem 0 1.2rem;border-bottom:1px solid var(--border);margin-bottom:1.3rem"><a href="../index.html" style="color:var(--accent);text-decoration:none">🏠 Home &amp; all lessons</a></div>
+<p class="sub">Reference Document · BCA Exam Prep · built from 4 lecture transcripts, cross-checked against the SLM textbook</p>
+<h1>Exam Blueprint</h1>
+<p>Everything the lecturer flagged as <strong>important</strong> or <strong>examinable</strong>, pulled from the four recorded classes and verified against the official SLM (PDF). Master the <span class="tier tier1">TIER 1</span> items first — these are near-certain to appear.</p>
+
+<div class="legend">
+  <span class="tier tier1">TIER 1</span> Teacher said it <em>will</em> be in the exam — master fully. &nbsp;
+  <span class="tier tier2">TIER 2</span> Flagged important / likely — study well. &nbsp;
+  <span class="tier tier3">TIER 3</span> Understand the concept; lower odds of a direct question.
+</div>
+
+<div class="card toc">
+<strong>Contents</strong>
+<ul>
+  <li><a href="#pattern">0. Paper Pattern &amp; How to Answer</a></li>
+  <li><a href="#m1">Module 1 — Intro, Algorithms &amp; Arrays</a></li>
+  <li><a href="#m2">Module 2 — Stacks &amp; Queues</a></li>
+  <li><a href="#m3">Module 3 — Linked Lists</a></li>
+  <li><a href="#m4">Module 4 — Trees &amp; Graphs</a></li>
+  <li><a href="#m5">Module 5 — Searching &amp; Sorting</a></li>
+  <li><a href="#hitlist">The Hit List (study order)</a></li>
+</ul>
+</div>
+
+<h2 id="pattern">0. Paper Pattern &amp; How to Answer</h2>
+<p class="src">Source: 16th May (revision/LMR class) + 12th April</p>
+<ul>
+  <li><strong>Section A — MCQs.</strong> Test basics: definitions, complexity values, LIFO/FIFO. E.g. <em>"worst-case complexity of binary search?"</em> → answer <code>O(log n + 1)</code>.</li>
+  <li><strong>Section B — Case study + write C code.</strong> Each descriptive/code question is <strong>7.5 marks</strong>.</li>
+  <li>Questions test <strong>fundamental understanding</strong>, not deep theory. But framed slightly <strong>tricky</strong> on purpose ("to confuse you").</li>
+</ul>
+<div class="card">
+<strong>Scoring rules the lecturer stated outright:</strong>
+<ul>
+  <li><strong>Code + short line-by-line explanation</strong> → best score (max ~7, he "never gives 7.5").</li>
+  <li><strong>Code only, no explanation</strong> → ~4.5–5 (two marks deducted).</li>
+  <li><strong>Pseudocode WITH explanation</strong> → partial marks (won't get zero). Pseudocode <em>without</em> explanation = "nothing."</li>
+  <li><strong>Never leave a blank.</strong> Even just header files + basic syntax earns something.</li>
+  <li><strong>A missing semicolon loses marks</strong> when a real code answer is expected. Be careful with syntax.</li>
+  <li><strong>Don't overwrite.</strong> Align the answer to exactly what's asked.</li>
+</ul>
+</div>
+<div class="quote">"Write the code and then write a slight explanation… coding along with a small explanation will be a better approach for tackling the 7.5 marks." — 16th May</div>
+<p><strong>Method the teacher taught for any code question:</strong> draw the <strong>flowchart first</strong>, then translate it line-by-line into C. "If my flowchart is clear, I can easily write the code."</p>
+
+<!-- ===================== MODULE 1 ===================== -->
+<h2 id="m1">Module 1 — Introduction, Algorithms &amp; Arrays</h2>
+<p class="src">Source: 11th April + 16th May</p>
+
+<h3>Data vs Information <span class="tier tier2">TIER 2</span></h3>
+<ul>
+  <li><strong>Data</strong> = raw facts, figures, values / set of values. Means nothing on its own.</li>
+  <li><strong>Information</strong> = data after <strong>processing</strong>.</li>
+</ul>
+<div class="quote">Example the teacher uses: "80 marks" alone is data — you can't say pass/fail without the denominator. Once processed → information.</div>
+
+<h3>Data Structure — definition &amp; types <span class="tier tier1">TIER 1</span></h3>
+<div class="truth">"A data structure is a way to store and organise data to facilitate the access and modifications." (SLM, Module 1)</div>
+<ul>
+  <li><strong>Primitive data types</strong> (NOT data structures): int, float, char.</li>
+  <li><strong>Non-primitive data structures:</strong>
+    <ul>
+      <li><strong>Linear</strong> (data in a sequence): Array, Stack, Queue, Linked List.</li>
+      <li><strong>Non-linear</strong> (hierarchical/graph): Tree, Graph, Tables, Sets.</li>
+    </ul>
+  </li>
+</ul>
+<div class="warn">Common student error the teacher called out: answering "int, char, float" when asked <em>"what is a data structure?"</em> — those are data <em>types</em>, not data structures.</div>
+
+<h3>Algorithm — definition &amp; characteristics <span class="tier tier2">TIER 2</span></h3>
+<p>Definition: a <strong>step-by-step procedure to solve a given problem</strong> (sequence matters — the "making tea" example).</p>
+<div class="truth">Characteristics per the SLM: <strong>Input</strong> — zero or more well-defined inputs · <strong>Output</strong> — one or more well-defined outputs · <strong>Finiteness</strong> — must terminate · <strong>Effectiveness</strong> — steps must be basic/doable · <strong>Definiteness / Unambiguous</strong> — each step clear.</div>
+<div class="warn">In the 11th-April class the teacher <em>said</em> "an algorithm should have at least one input" and called the slide wrong. The <strong>SLM (truth) says "zero or more inputs."</strong> In the exam, go with the SLM: <strong>zero or more inputs, one or more outputs.</strong></div>
+
+<h3>Complexity &amp; Asymptotic Notation <span class="tier tier2">TIER 2</span></h3>
+<p>Time complexity = how runtime grows with input size <em>n</em>; space complexity = memory used. Expressed with <strong>asymptotic notation</strong>: Big-O, little-o, Big-Ω (omega), Θ (theta).</p>
+<div class="warn">In the revision class almost <strong>no student had read this chapter</strong> — yet the teacher confirmed it IS in the syllabus and feeds MCQs. This is a high-value gap: learn the common complexity values (table below).</div>
+<table>
+  <tr><th>Algorithm</th><th>Best</th><th>Worst / Average</th></tr>
+  <tr><td>Linear search</td><td>O(1)</td><td>O(n)</td></tr>
+  <tr><td>Binary search</td><td>O(1)</td><td>O(log n + 1)</td></tr>
+  <tr><td>Array access by index</td><td>O(1)</td><td>O(1)</td></tr>
+</table>
+
+<h3>Arrays <span class="tier tier1">TIER 1</span></h3>
+<div class="quote">"Focus on the data structure part, the types… specifically the array, because the array is the basic one." — 16th May</div>
+<ul>
+  <li>Array = collection of <strong>homogeneous</strong> elements in <strong>contiguous</strong> memory.</li>
+  <li>Index <strong>starts at 0</strong>; for size <em>n</em>, last index = <strong>n − 1</strong>. (This single fact drives stack-full, binary-search bounds, etc. — know it cold.)</li>
+  <li>Static: size fixed at compile time. This is the array's main <em>limitation</em> vs linked list.</li>
+  <li>Operations: traversal, insertion, deletion, searching. SLM topics: 1-D, 2-D, multi-dimensional arrays, sparse matrix, strings.</li>
+</ul>
+
+<!-- ===================== MODULE 2 ===================== -->
+<h2 id="m2">Module 2 — Stacks &amp; Queues</h2>
+<p class="src">Source: 12th April (full class on this) + 16th May</p>
+<div class="quote">"There will be a lot of questions from the stack in your exam." — 12th April</div>
+
+<h3>Stack basics <span class="tier tier1">TIER 1</span></h3>
+<ul>
+  <li><strong>LIFO</strong> — Last In, First Out (plate-stack analogy).</li>
+  <li>Insertion &amp; deletion happen at the <strong>same end</strong> = the <strong>top</strong>.</li>
+  <li><strong>push</strong> = insert, <strong>pop</strong> = delete.</li>
+  <li>Array empty test: <code>top == -1</code>. Linked-list empty test: <code>top == NULL</code>.</li>
+  <li><strong>Overflow</strong> = push onto a full stack. <strong>Underflow</strong> = pop from an empty stack.</li>
+  <li>Stack-full test (array, size MAX): <code>top == MAX - 1</code>.</li>
+</ul>
+
+<h3>Push &amp; Pop code <span class="tier tier1">TIER 1</span></h3>
+<div class="quote">"They may ask you to write a code where you are inserting the data into the stack → write the push code. Delete an element → write the pop code." — 12th April. ("Pretty easy" questions.)</div>
+<pre><code>#define MAX 5
+int stack[MAX];
+int top = -1;          // empty
+
+void push(int item){
+    if(top == MAX - 1){            // overflow check
+        printf("Stack Overflow");
+        return;
+    }
+    top = top + 1;                 // move top up
+    stack[top] = item;             // place item
+}
+
+int pop(){
+    if(top == -1){                 // underflow check
+        printf("Stack Underflow");
+        return 0;
+    }
+    int item = stack[top];         // read top
+    top = top - 1;                 // move top down
+    return item;
+}</code></pre>
+
+<h3>Infix → Postfix conversion <span class="tier tier1">TIER 1</span></h3>
+<div class="quote">"You will get at least one question from this in your exam." — 12th April</div>
+<div class="warn">The teacher banned the "shortcut technique" — last semester students lost marks for it. <strong>Always use the TABLE method</strong> (scan / stack / output columns).</div>
+<p><strong>Rules:</strong> scan left→right. Operand → send to <em>output</em>. Operator → push to <em>stack</em>, but first pop any stack operator of <strong>higher-or-equal precedence</strong> to output. At end, pop the rest of the stack to output.</p>
+<div class="truth">Precedence high→low: <code>( )</code> &gt; <code>^</code> (power) &gt; <code>* / %</code> &gt; <code>+ −</code> &gt; <code>=</code> (assignment). Same-level operators: left-to-right associativity (so <code>*</code> before <code>/</code> when adjacent).</div>
+<p>Worked example from class — <code>A + B * D / E</code> → <code>A B D * E / +</code>.</p>
+
+<h3>Infix → Prefix conversion <span class="tier tier2">TIER 2</span></h3>
+<div class="truth">SLM steps: (1) <strong>Reverse</strong> the infix expression, (2) convert the reversed expression to <strong>postfix</strong> (table method), (3) <strong>reverse</strong> the result → prefix.</div>
+
+<h3>Postfix evaluation <span class="tier tier2">TIER 2</span></h3>
+<p>Scan left→right; push operands; on an operator, pop the last two operands, apply, push the result. Example: <code>1 2 3 + *</code> → (2+3)=5 → (1*5)=5.</p>
+
+<h3>Queue <span class="tier tier3">TIER 3</span> (concept only — no direct code question)</h3>
+<div class="quote">"There will be no direct question on the Q in your exam… you can't expect any direct question on the programming." — 12th April</div>
+<ul>
+  <li><strong>FIFO</strong> — First In, First Out (people in a line).</li>
+  <li>Two ends: <strong>rear</strong> = insertion (enqueue), <strong>front</strong> = deletion (dequeue).</li>
+  <li>Both front and rear values <strong>increment</strong> on their operation.</li>
+  <li>SLM extras: priority queue, circular queue, deque.</li>
+</ul>
+<div class="warn">Likely Section-A style trap: they give a <strong>random sequence of enqueue/dequeue and ask for the output</strong>. Practice tracing FIFO by hand. (16th May)</div>
+
+<!-- ===================== MODULE 3 ===================== -->
+<h2 id="m3">Module 3 — Linked Lists</h2>
+<p class="src">Source: 19th April + 16th May</p>
+
+<h3>Concept <span class="tier tier1">TIER 1</span> (flagged "focus on … the linked list")</h3>
+<ul>
+  <li>Linear collection of <strong>nodes</strong>; each node = <strong>data + pointer</strong> to the next node.</li>
+  <li>Stored in <strong>non-contiguous</strong> memory (vs array's contiguous) — the railway-coach analogy: coach position is adjacent, coach number (the memory address) is scattered, a pointer links them.</li>
+  <li>First node = <strong>start</strong>; last node's pointer = <strong>NULL</strong> (no next node).</li>
+  <li>Why <code>struct</code>? It stores <strong>heterogeneous</strong> data — the value AND the pointer. Why pointer? It holds the <strong>address</strong> of the next node.</li>
+</ul>
+<table>
+  <tr><th></th><th>Array</th><th>Linked List</th></tr>
+  <tr><td>Memory</td><td>Contiguous</td><td>Scattered (linked by pointers)</td></tr>
+  <tr><td>Size</td><td>Fixed (static)</td><td>Dynamic</td></tr>
+  <tr><td>Access speed</td><td>Faster (data only)</td><td>Slower (extra pointer)</td></tr>
+</table>
+
+<h3>Node definition &amp; operations <span class="tier tier2">TIER 2</span></h3>
+<pre><code>struct Node {
+    int data;
+    struct Node *next;   // pointer to next node
+};</code></pre>
+<p>Six operations: <strong>create, traverse, search, insert, delete, sort</strong>. Insertion can be at beginning, end, or any position.</p>
+<p>SLM types: <strong>singly</strong>, <strong>doubly</strong>, <strong>circular</strong>, circular-doubly. Applications: build stacks/queues, polynomial representation.</p>
+
+<!-- ===================== MODULE 4 ===================== -->
+<h2 id="m4">Module 4 — Trees &amp; Graphs</h2>
+<p class="src">Source: 12th April + 16th May (case-study guidance). Note: revision class ran out of time before covering trees in depth — lean on the SLM here.</p>
+
+<h3>Case-study source <span class="tier tier2">TIER 2</span></h3>
+<div class="quote">"Case study can be from… stack, array, trees, and shortest-distance algorithms — Prim's, Kruskal's." / "You can expect [case studies] mostly from the searching and sorting part… and tree traversal." — 12th &amp; 16th</div>
+<ul>
+  <li><strong>Tree traversal</strong> (inorder / preorder / postorder) — likely case-study / code.</li>
+  <li><strong>Binary Search Tree (BST)</strong> — searching, insertion, deletion.</li>
+  <li><strong>Spanning trees:</strong> Prim's algorithm, Kruskal's algorithm (shortest-distance case study).</li>
+  <li>Terminology (SLM): root, leaf, complete binary tree, extended binary tree, AVL, threaded, B-tree.</li>
+</ul>
+
+<!-- ===================== MODULE 5 ===================== -->
+<h2 id="m5">Module 5 — Searching &amp; Sorting</h2>
+<p class="src">Source: 16th May (covered in detail) — biggest case-study source</p>
+<div class="quote">"You can expect [case study] mostly from the searching and sorting part." — 16th May</div>
+
+<h3>Linear (Sequential) Search <span class="tier tier1">TIER 1</span></h3>
+<p>Check each element one by one from index 0 until the key is found. Complexity: best <code>O(1)</code>, worst/avg <code>O(n)</code>.</p>
+<pre><code>for(i = 0; i < n; i++){
+    if(a[i] == key){ flag = 1; break; }   // flag is optional
+}
+if(flag == 0) printf("Not found");
+else printf("Found at index %d", i);</code></pre>
+
+<h3>Binary Search <span class="tier tier1">TIER 1</span></h3>
+<ul>
+  <li>Requires a <strong>sorted</strong> array. Repeatedly halve the search range.</li>
+  <li><code>L = 0</code>, <code>U = n − 1</code>, <code>mid = (L + U) / 2</code>.</li>
+  <li>key == a[mid] → found. key &lt; a[mid] → search left (<code>U = mid − 1</code>). key &gt; a[mid] → search right (<code>L = mid + 1</code>). If <code>L &gt; U</code> → not found.</li>
+  <li>Complexity: best <code>O(1)</code>, worst <code>O(log n + 1)</code> (an MCQ answer).</li>
+</ul>
+<pre><code>L = 0; U = n - 1;
+while(L <= U){
+    mid = (L + U) / 2;
+    if(a[mid] == key){ printf("Found at %d", mid + 1); break; }
+    else if(a[mid] < key) L = mid + 1;   // go right
+    else                  U = mid - 1;   // go left
+}
+if(L > U) printf("Not found");</code></pre>
+<div class="warn">Binary search <strong>with recursion will NOT be asked</strong> (that's MCA). Write the <em>iterative</em> version above.</div>
+
+<h3>Sorting <span class="tier tier1">TIER 1</span></h3>
+<div class="quote">"Go with the quick, merge, or insertion sort only — these are the important ones." — 16th May</div>
+<ul>
+  <li><strong>Insertion sort</strong> — build a sorted block, insert each next element into its place (playing-cards analogy). <em>Recommended.</em></li>
+  <li><strong>Quick sort</strong> — partition-exchange. <em>Recommended.</em></li>
+  <li><strong>Merge sort</strong> — divide &amp; merge. <em>Recommended.</em></li>
+  <li><strong>Selection sort</strong> — pick smallest, swap to front (easy "example" sort).</li>
+</ul>
+
+<h3>Recursion <span class="tier tier2">TIER 2</span></h3>
+<div class="quote">"There will be a question on the recursion side… it may be optional." — 16th May</div>
+<ul>
+  <li>A function that calls itself (factorial, Fibonacci).</li>
+  <li>The examiner asks you to <strong>write the recursive function only</strong> — not a full program. Don't waste time writing input/output scaffolding.</li>
+  <li>e.g. factorial: <code>fact(n) = n * fact(n-1)</code> with base case.</li>
+</ul>
+
+<!-- ===================== HIT LIST ===================== -->
+<h2 id="hitlist">The Hit List — study in this order</h2>
+<ol>
+  <li><strong>Infix → Postfix (table method)</strong> — guaranteed ≥1 question. <span class="tier tier1">TIER 1</span></li>
+  <li><strong>Stack push / pop code</strong> + overflow/underflow. <span class="tier tier1">TIER 1</span></li>
+  <li><strong>Linear &amp; Binary search code</strong> (iterative) + their complexities. <span class="tier tier1">TIER 1</span></li>
+  <li><strong>One sorting algorithm cold</strong> (insertion) + know quick/merge ideas. <span class="tier tier1">TIER 1</span></li>
+  <li><strong>Arrays</strong> (index 0..n−1, contiguous, static) &amp; <strong>Array vs Linked List</strong>. <span class="tier tier1">TIER 1</span></li>
+  <li><strong>Definitions:</strong> data vs information, data structure types, algorithm characteristics (SLM version). <span class="tier tier2">TIER 2</span></li>
+  <li><strong>Complexity values table</strong> for MCQs. <span class="tier tier2">TIER 2</span></li>
+  <li><strong>Infix → Prefix</strong>, <strong>postfix evaluation</strong>, <strong>recursion function</strong>. <span class="tier tier2">TIER 2</span></li>
+  <li><strong>Tree traversal + BST</strong> and <strong>Prim's/Kruskal's</strong> for case studies. <span class="tier tier2">TIER 2</span></li>
+  <li><strong>Queue</strong>: trace FIFO output; concept only. <span class="tier tier3">TIER 3</span></li>
+</ol>
+
+<hr>
+<p class="src">Every claim here is sourced to a specific recorded class and checked against the SLM PDF. Where the lecturer and the SLM disagree, the SLM wins (flagged ⚠). Ask your teacher (in chat) to expand any item into a full lesson.</p>
+
+</body>
+</html>

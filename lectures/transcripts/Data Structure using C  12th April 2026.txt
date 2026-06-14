@@ -1,0 +1,4330 @@
+00:06 All right. Yeah, let me share.
+00:13 
+
+00:13 So, I hope my screen is visible to you
+00:15 
+
+00:15 guys. So, let's start with our first
+00:18 
+
+00:18 topic.
+00:19 
+
+00:19 So, at the end of this session, you will
+00:21 
+
+00:21 be able to understand the stacks and the
+00:23 
+
+00:23 queue concept.
+00:25 
+
+00:25 So, today what we are going to cover is
+00:27 
+
+00:27 we are going to cover the stacks, the
+00:30 
+
+00:30 basic principle of a stack,
+00:32 
+
+00:32 uh what are the operations of the stack,
+00:34 
+
+00:34 what are the stacks using an array that
+00:36 
+
+00:36 means the implementation of the stacks,
+00:38 
+
+00:38 and certain applications of a stack.
+00:41 
+
+00:41 Similarly, on the queue side as well, we
+00:44 
+
+00:44 will discuss the basic principles, we
+00:46 
+
+00:46 will discuss the operations of the
+00:47 
+
+00:47 queue, the implementation of the queue
+00:49 
+
+00:49 using array and linked list, and some
+00:51 
+
+00:51 sort of applications of the queue. Okay?
+00:55 
+
+00:55 Now, moving on to
+00:58 
+
+00:58 uh
+00:58 
+
+00:58 the conditions we have. Okay, this will
+01:01 
+
+01:01 be an interactive session. I want
+01:02 
+
+01:02 everyone to equally participate in
+01:04 
+
+01:04 today's class.
+01:05 
+
+01:05 If you have any doubts, any queries,
+01:07 
+
+01:07 feel free to ask in the chat window or
+01:10 
+
+01:10 directly into the questions. Okay? I
+01:12 
+
+01:12 will try to answer as much as I can.
+01:17 
+
+01:17 Okay.
+01:18 
+
+01:18 So, stack. What do we mean by stack? Any
+01:21 
+
+01:21 idea?
+01:23 
+
+01:23 Stack.
+01:28 
+
+01:28 Have you seen a stack?
+01:30 
+
+01:30 Suppose you are going to a wedding
+01:31 
+
+01:31 party.
+01:33 
+
+01:33 Okay. And you want to have a dinner.
+01:36 
+
+01:36 So, the first thing that you will do is
+01:38 
+
+01:38 you will pick up a plate.
+01:40 
+
+01:40 Yes or no?
+01:44 
+
+01:44 Being on the top of each other.
+01:47 
+
+01:47 Sir, I mean being on top of each other
+01:48 
+
+01:48 what? The plates?
+01:50 
+
+01:50 Yes, obviously.
+01:52 
+
+01:52 Uh so, yeah. So, you go you go to the
+01:54 
+
+01:54 wedding. Okay, you will pick up a plate
+01:56 
+
+01:56 for the dinner. So, how the plates are
+01:57 
+
+01:57 organized?
+01:59 
+
+01:59 Have you ever seen? The plates are
+02:01 
+
+02:01 organized in the form of stack.
+02:03 
+
+02:03 A one plate over the other.
+02:06 
+
+02:06 Okay. Now, is it possible to pick a
+02:09 
+
+02:09 plate from the middle of the stack?
+02:14 
+
+02:14 Any idea?
+02:16 
+
+02:16 Is it possible to pick a plate from the
+02:17 
+
+02:17 middle of the stack? No. No, I mean yes,
+02:20 
+
+02:20 we can. If you are If you are a more
+02:22 
+
+02:22 crazy enough, you can definitely do
+02:24 
+
+02:24 that. But, ultimately you will break
+02:25 
+
+02:25 down all the plates.
+02:27 
+
+02:27 Okay. So, yeah. I mean, that is possible
+02:29 
+
+02:29 if you can I mean, in the wedding
+02:31 
+
+02:31 definitely. If you want to create a
+02:32 
+
+02:32 scene, you can definitely do that. But,
+02:35 
+
+02:35 in the programming no. Okay, that is not
+02:37 
+
+02:37 possible.
+02:38 
+
+02:38 So, similarly
+02:40 
+
+02:40 uh stack is a way in which the data is
+02:43 
+
+02:43 organized over one top over the another.
+02:46 
+
+02:46 Okay. The stack always works on the
+02:49 
+
+02:49 principle of last in first out. That is
+02:53 
+
+02:53 the LIFO principle. So, the plate which
+02:56 
+
+02:56 is always at the top
+02:58 
+
+02:58 will always be picked up first.
+03:01 
+
+03:01 Am I right? The plate which will always
+03:03 
+
+03:03 at the top will always be picked up
+03:04 
+
+03:04 first. So, that means that whatever the
+03:07 
+
+03:07 plate the last plate that is inserted
+03:10 
+
+03:10 will be the first one who will that
+03:12 
+
+03:12 plate will be picked up.
+03:14 
+
+03:14 So, last in first out.
+03:17 
+
+03:17 Okay. So, stack will always works on the
+03:20 
+
+03:20 principle of the LIFO.
+03:22 
+
+03:22 It is again a linear data structure or a
+03:25 
+
+03:25 non-linear data structure? What do you
+03:26 
+
+03:26 guys think?
+03:31 
+
+03:31 Is it a linear or non-linear? It is a
+03:33 
+
+03:33 linear data structure. Why? Because the
+03:35 
+
+03:35 data is organized in a linear way, in a
+03:38 
+
+03:38 linear manner.
+03:42 
+
+03:42 So, as I mentioned the stacks always
+03:44 
+
+03:44 works on the principle of LIFO. That is
+03:47 
+
+03:47 the last in first out. So, there are two
+03:50 
+
+03:50 basic operations we have on the stack.
+03:52 
+
+03:52 The first we have is the push.
+03:54 
+
+03:54 The second we have is the pop. Push
+03:57 
+
+03:57 means you are pushing your data. That
+03:59 
+
+03:59 means you are inserting your data into
+04:01 
+
+04:01 the stack.
+04:02 
+
+04:02 Popping means you are removing the data.
+04:04 
+
+04:04 You're popping out your data.
+04:06 
+
+04:06 Okay, you are deleting the data from the
+04:08 
+
+04:08 stack.
+04:09 
+
+04:09 Okay, so understand from that
+04:11 
+
+04:11 perspective that there are only two
+04:13 
+
+04:13 operations that can be implemented on a
+04:14 
+
+04:14 stack. Either you are inserting any data
+04:17 
+
+04:17 or you are removing the data.
+04:22 
+
+04:22 Now, the third characteristic we have on
+04:24 
+
+04:24 the stack is
+04:25 
+
+04:25 that the stack can either be fixed size
+04:27 
+
+04:27 or a dynamic.
+04:29 
+
+04:29 Okay, just like a I mean always consider
+04:31 
+
+04:31 an example of the wedding scenario.
+04:34 
+
+04:34 Okay, where the plates are already piled
+04:35 
+
+04:35 up.
+04:36 
+
+04:36 So, we never have the plate size fixed.
+04:39 
+
+04:39 Okay, suppose uh someone is having a 50
+04:42 
+
+04:42 a bundle of 50 plates. Okay, and later
+04:45 
+
+04:45 on they're keeping a bundle of 100
+04:46 
+
+04:46 plates in a pile.
+04:48 
+
+04:48 Okay, so stack can either be a fixed
+04:50 
+
+04:50 size or a dynamic size depending on the
+04:53 
+
+04:53 requirement.
+04:54 
+
+04:54 Plus,
+04:55 
+
+04:55 the insertion and the deletion will
+04:58 
+
+04:58 always occur from the same end.
+05:01 
+
+05:01 Okay, there is no different end.
+05:03 
+
+05:03 So, the end where the insertion is
+05:05 
+
+05:05 happening, the deletion will also occur
+05:08 
+
+05:08 from the same end.
+05:10 
+
+05:10 Is that clear?
+05:12 
+
+05:12 The LIFO principle of a stack.
+05:16 
+
+05:16 Push, pop.
+05:19 
+
+05:19 Is there anyone who is not aware of
+05:21 
+
+05:21 these two operations?
+05:27 
+
+05:27 All right.
+05:30 
+
+05:30 So, these are the basic principles we
+05:32 
+
+05:32 have uh
+05:33 
+
+05:33 the operations. So, in your exam, okay,
+05:36 
+
+05:36 you may get a question where they may
+05:38 
+
+05:38 ask you to okay, then write a code where
+05:41 
+
+05:41 you are inserting the data into the
+05:43 
+
+05:43 stack. Okay, so you have to simply write
+05:46 
+
+05:46 the push code.
+05:47 
+
+05:47 Okay, or if they ask you to write a code
+05:50 
+
+05:50 to delete any element, then simply write
+05:52 
+
+05:52 the pop code. Now, they are not going to
+05:55 
+
+05:55 ask you a too much difficult question in
+05:58 
+
+05:58 your exam. Okay? So, just keep in your
+05:60 
+
+05:60 mind that you are not going to get any
+06:02 
+
+06:02 difficult question. The question will be
+06:04 
+
+06:04 pretty easy. So, if you understand the
+06:06 
+
+06:06 concept of a stack, okay? If you know
+06:09 
+
+06:09 the basic principle of a stack, you will
+06:11 
+
+06:11 be able to answer that question.
+06:13 
+
+06:13 Okay? And those concepts we will cover
+06:16 
+
+06:16 in today's class.
+06:18 
+
+06:18 Okay? So, now these are the basic stack
+06:21 
+
+06:21 functions we have.
+06:23 
+
+06:23 Okay? So, we have the push functions, we
+06:25 
+
+06:25 have the int pop, we have the create, we
+06:28 
+
+06:28 have the is empty, which will check that
+06:30 
+
+06:30 whether the stack is empty or not. And
+06:32 
+
+06:32 then we have a stack full.
+06:35 
+
+06:35 Is full that mean whether the stack is
+06:36 
+
+06:36 full or not. Okay? And the assumption we
+06:39 
+
+06:39 are having that suppose there's a stack
+06:40 
+
+06:40 which contains an integer element.
+06:45 
+
+06:45 Uh can you repeat question, please? Uh
+06:49 
+
+06:49 Harmit, I haven't asked any questions
+06:51 
+
+06:51 yet.
+06:52 
+
+06:52 Um I don't know which question you are
+06:54 
+
+06:54 referring to.
+06:56 
+
+06:56 Um
+06:58 
+
+06:58 Okay.
+07:00 
+
+07:00 But yeah, Harmit, this is my I mean this
+07:02 
+
+07:02 is what I was telling to everyone that
+07:05 
+
+07:05 you need not to worry about any
+07:07 
+
+07:07 difficult question on the stack.
+07:10 
+
+07:10 Okay? You may find very easy if you know
+07:12 
+
+07:12 the basic principle of the stack. Okay?
+07:15 
+
+07:15 And the basic things we will cover in
+07:17 
+
+07:17 today's class. Okay? That how you can
+07:19 
+
+07:19 write your stack code anytime.
+07:25 
+
+07:25 Cool.
+07:27 
+
+07:27 Moving on to the next.
+07:31 
+
+07:31 Oh oh oh oh oh oh oh.
+07:33 
+
+07:33 Okay.
+07:34 
+
+07:34 Now, let's see how you can implement an
+07:37 
+
+07:37 array,
+07:38 
+
+07:38 uh sorry, the stack using an array.
+07:42 
+
+07:42 So, first understand the concept of a
+07:44 
+
+07:44 stack, okay? By you know, having a
+07:46 
+
+07:46 having a visual architecture.
+07:48 
+
+07:48 So suppose this is a stack. Now, as I
+07:51 
+
+07:51 mentioned that the insertion and
+07:53 
+
+07:53 deletion will always occur from the same
+07:56 
+
+07:56 end, okay? It is not going to perform at
+07:59 
+
+07:59 the different different end. Just like
+08:01 
+
+08:01 what we have in the queue. In queue we
+08:02 
+
+08:02 have a different um
+08:05 
+
+08:05 you know, end for the insertion, we have
+08:07 
+
+08:07 a different end for deletion. But in a
+08:09 
+
+08:09 stack there is nothing like that.
+08:11 
+
+08:11 Okay? So a stack in the stack always the
+08:14 
+
+08:14 uh whatever the changes that you have to
+08:16 
+
+08:16 perform, either you are inserting
+08:17 
+
+08:17 anything or you are deleting anything,
+08:20 
+
+08:20 it will always occur from the top. And
+08:22 
+
+08:22 that is the only condition that you have
+08:24 
+
+08:24 to check.
+08:25 
+
+08:25 Okay? So suppose this is a stack and
+08:27 
+
+08:27 this is my position, the position of my
+08:30 
+
+08:30 current top, that okay, where my top
+08:32 
+
+08:32 location as I reside. Now,
+08:35 
+
+08:35 the next thing is we are going to insert
+08:37 
+
+08:37 an element here.
+08:39 
+
+08:39 So suppose I'm going to push any
+08:40 
+
+08:40 element. Push means that I am inserting
+08:42 
+
+08:42 any element.
+08:45 
+
+08:45 So now my top will shift from this
+08:48 
+
+08:48 location to the top. Okay? So now my top
+08:51 
+
+08:51 location has been changed.
+08:54 
+
+08:54 Is that clear?
+08:56 
+
+08:56 How my top location is getting changed
+08:58 
+
+08:58 if I'm inserting any element?
+09:04 
+
+09:04 Good.
+09:06 
+
+09:06 Now, let's see the pop using a stack.
+09:08 
+
+09:08 Suppose my top is located at this
+09:10 
+
+09:10 position.
+09:12 
+
+09:12 Um
+09:14 
+
+09:14 Okay, let me clear my drawing first.
+09:17 
+
+09:17 Okay, suppose my top is located at this
+09:19 
+
+09:19 position. And now suppose if I'm
+09:21 
+
+09:21 deleting this element, so ideally my
+09:23 
+
+09:23 top, I mean if I'm deleting anything, my
+09:26 
+
+09:26 top should come at this position.
+09:31 
+
+09:31 Okay? Now, let's see how it works.
+09:38 
+
+09:38 So if I'm performing any pop operation,
+09:39 
+
+09:39 my top will be removed and then my new
+09:42 
+
+09:42 top will be decremented.
+09:45 
+
+09:45 Okay. So this is how, you know, you
+09:47 
+
+09:47 know, how you can, you know, implement a
+09:50 
+
+09:50 pop and push in the stack. This is how
+09:52 
+
+09:52 the internal working of push and pop.
+09:54 
+
+09:54 Now we will see
+09:56 
+
+09:56 that how we can code,
+09:58 
+
+09:58 okay, on the the stack.
+10:04 
+
+10:04 So first we will see that how we can
+10:06 
+
+10:06 implement in stack using a linked list.
+10:10 
+
+10:10 I hope everyone is clear with the
+10:11 
+
+10:11 concept of linked list.
+10:15 
+
+10:15 Is there anyone who is not aware what
+10:16 
+
+10:16 the linked list is?
+10:19 
+
+10:19 All right. Okay. So we will discuss the
+10:21 
+
+10:21 concept of a stack using an array and a
+10:24 
+
+10:24 stack using a linked list that how we
+10:25 
+
+10:25 can implement the stack.
+10:29 
+
+10:29 No voice, Palak. Uh if you are clear
+10:31 
+
+10:31 with the concept of array, you will be
+10:33 
+
+10:33 able to answer, uh you know, all the
+10:35 
+
+10:35 questions.
+10:39 
+
+10:39 Okay. Now let's see
+10:41 
+
+10:41 how Uh Anmol, you are writing, "Can you
+10:44 
+
+10:44 code it live and show the output?" So uh
+10:47 
+
+10:47 Anmol, I will show you the code. I will
+10:50 
+
+10:50 tell you that how the output will look
+10:51 
+
+10:51 like, but the coding live is not
+10:54 
+
+10:54 possible in this class.
+10:56 
+
+10:56 Okay. So what we can do is we can have a
+10:59 
+
+10:59 separate lab classes and then we can do.
+11:06 
+
+11:06 Okay. Now those who are not aware of the
+11:09 
+
+11:09 linked list, so let me tell you the
+11:10 
+
+11:10 linked list is what. Okay. So suppose
+11:12 
+
+11:12 linked list means it is a type of a list
+11:15 
+
+11:15 which is linked. That means a one node
+11:18 
+
+11:18 is connected with any other node.
+11:20 
+
+11:20 Okay. Suppose this is a node one. This
+11:23 
+
+11:23 is a node two.
+11:24 
+
+11:24 Okay. So there will be a connection
+11:27 
+
+11:27 between one and two. And that is why we
+11:29 
+
+11:29 are calling it as a linked list. That
+11:31 
+
+11:31 means a list is there, but the list is
+11:34 
+
+11:34 connected.
+11:35 
+
+11:35 Okay, the list is linked.
+11:38 
+
+11:38 Now, suppose the stack is implemented in
+11:40 
+
+11:40 this way. This is Suppose this is a
+11:42 
+
+11:42 stack.
+11:43 
+
+11:43 Now, my top is at first position.
+11:47 
+
+11:47 Now, if I am inserting anything, so as
+11:50 
+
+11:50 we already know that the insertion will
+11:52 
+
+11:52 always happen at only one end, that is
+11:55 
+
+11:55 the top. Now, if I'm inserting any
+11:57 
+
+11:57 element here, so suppose a new node is
+11:60 
+
+11:60 inserted in this way.
+12:03 
+
+12:03 Okay, so now the first position node
+12:05 
+
+12:05 will be this.
+12:07 
+
+12:07 The second position will be this, and
+12:09 
+
+12:09 then this position get changed.
+12:13 
+
+12:13 Okay, and now my top will be linked to
+12:16 
+
+12:16 this node.
+12:17 
+
+12:17 And then this was first node will be
+12:20 
+
+12:20 connected with second, and then second
+12:22 
+
+12:22 will be connected to the third.
+12:24 
+
+12:24 Okay, so this is how it works.
+12:28 
+
+12:28 Right, so this is This is how the push
+12:31 
+
+12:31 works on the linked list. Okay, I can
+12:34 
+
+12:34 see
+12:35 
+
+12:35 Aditya has written the code also. Right,
+12:38 
+
+12:38 Aditya? I mean, I don't think so you you
+12:41 
+
+12:41 you have to attend this class. You
+12:44 
+
+12:44 already know the concept. Okay, so if
+12:46 
+
+12:46 you have other work,
+12:48 
+
+12:48 you can, you know, leave or you can do
+12:51 
+
+12:51 your other work also. I mean, this is
+12:53 
+
+12:53 class for the other student who is want
+12:55 
+
+12:55 to study the data structure. You I think
+12:58 
+
+12:58 that you have already gone through all
+12:59 
+
+12:59 these things.
+13:05 
+
+13:05 Okay.
+13:06 
+
+13:06 So, this is how it works. Okay, so we
+13:07 
+
+13:07 are performing the push operations.
+13:09 
+
+13:09 Okay, so in the push operations,
+13:11 
+
+13:11 obviously we are going to delete Sorry,
+13:14 
+
+13:14 we are going to insert any new thing, so
+13:16 
+
+13:16 the top will position will get changed,
+13:19 
+
+13:19 and then the new top will be assigned to
+13:20 
+
+13:20 the new node. Okay, this is how it
+13:23 
+
+13:23 works.
+13:24 
+
+13:24 Now, similarly, if you go Go the pop,
+13:26 
+
+13:26 pop means that we are deleting any node.
+13:28 
+
+13:28 So, the top position will be deleted and
+13:31 
+
+13:31 the new top will be assigned to a new
+13:33 
+
+13:33 location.
+13:35 
+
+13:35 So, now this row has been removed and
+13:37 
+
+13:37 then the top is linked to the
+13:40 
+
+13:40 another node.
+13:42 
+
+13:42 Okay? So, this is again the pop
+13:44 
+
+13:44 operation works. Now, let's see.
+13:46 
+
+13:46 So,
+13:48 
+
+13:48 coming to the basic idea, in the array
+13:50 
+
+13:50 implementation, we would declare an
+13:52 
+
+13:52 array of the fixed size, okay, which
+13:54 
+
+13:54 determined the maximum size of the stack
+13:57 
+
+13:57 and then we will keep a variable which
+13:59 
+
+13:59 always points to the top of the stack
+14:02 
+
+14:02 and it contains the array index of the
+14:04 
+
+14:04 top element. Okay, so again, these are
+14:06 
+
+14:06 theory things, so I'm not going to
+14:08 
+
+14:08 cover. I will simply directly jump into
+14:09 
+
+14:09 the code so that
+14:12 
+
+14:12 you guys can understand. So, those who
+14:15 
+
+14:15 are not clear
+14:17 
+
+14:17 with the concept of
+14:19 
+
+14:19 the implementation of a stack, let me
+14:21 
+
+14:21 show you.
+14:23 
+
+14:23 Okay, so now, what we are going what we
+14:25 
+
+14:25 are going to do here is we are declaring
+14:28 
+
+14:28 the stack using an array and using a
+14:31 
+
+14:31 linked list.
+14:33 
+
+14:33 Okay, and now you guys will tell me
+14:35 
+
+14:35 which implementation is easy.
+14:38 
+
+14:38 Now,
+14:39 
+
+14:39 coming to the point, so first we will
+14:41 
+
+14:41 declare the header file hash include
+14:43 
+
+14:43 stdi.h.
+14:45 
+
+14:45 Any doubts, any queries in hash include
+14:47 
+
+14:47 stdi.h? I hope this is clear to
+14:50 
+
+14:50 everyone.
+14:51 
+
+14:51 Hash include header file inclusion.
+14:57 
+
+14:57 All right. Okay. Now, the next thing is
+14:60 
+
+14:60 hash define max five.
+15:03 
+
+15:03 What is the meaning of this line?
+15:05 
+
+15:05 I hope everyone knows hash define max
+15:08 
+
+15:08 five.
+15:09 
+
+15:09 What does that mean?
+15:12 
+
+15:12 That means we are defining a constant.
+15:14 
+
+15:14 Max is a constant.
+15:16 
+
+15:16 Okay, and what is the value of max is
+15:20 
+
+15:20 five.
+15:21 
+
+15:21 That means we can maximum store five
+15:26 
+
+15:26 values into the stack.
+15:28 
+
+15:28 Okay, and that is the array. Okay, that
+15:31 
+
+15:31 is the limitation of the array because
+15:33 
+
+15:33 in array we have to define that element
+15:36 
+
+15:36 in advance and that is why we are
+15:38 
+
+15:38 defining the limit of the stack. So,
+15:41 
+
+15:41 hash define max five means we are
+15:43 
+
+15:43 defining an array and the maximum
+15:46 
+
+15:46 capacity of an array is five.
+15:50 
+
+15:50 Any doubts in this statement? Hash
+15:53 
+
+15:53 define max five.
+15:58 
+
+15:58 All clear everyone? Hash define max five
+16:01 
+
+16:01 is
+16:03 
+
+16:03 Okay.
+16:06 
+
+16:06 Cool.
+16:07 
+
+16:07 And then what we are having is
+16:09 
+
+16:09 the value which we have defined the
+16:11 
+
+16:11 value of max is now the value of the
+16:14 
+
+16:14 stack.
+16:15 
+
+16:15 Okay, so int stack max that means now
+16:19 
+
+16:19 the value of the stack is five. That
+16:22 
+
+16:22 means we can only store five values into
+16:25 
+
+16:25 the stack.
+16:28 
+
+16:28 Okay? Now.
+16:31 
+
+16:31 Okay, Maria you are saying explain
+16:33 
+
+16:33 again. Okay, because I have not reached
+16:35 
+
+16:35 to top minus one. I will come to top
+16:37 
+
+16:37 minus one.
+16:39 
+
+16:39 Okay, I'm I have reached up to this
+16:41 
+
+16:41 point. So, what we are having here is we
+16:43 
+
+16:43 have defined a constant max. The value
+16:46 
+
+16:46 of constant is five.
+16:48 
+
+16:48 And then what we are having is we are
+16:51 
+
+16:51 keeping the value of a stack to five
+16:53 
+
+16:53 only that it can only store it can only
+16:56 
+
+16:56 holds up to five values. Not greater
+16:59 
+
+16:59 than that.
+17:00 
+
+17:00 Now, what we are doing is we are
+17:04 
+
+17:04 performing a condition here. Int top
+17:07 
+
+17:07 minus one. Top is equal to is equal to
+17:10 
+
+17:10 minus one. Meaning the stack is empty.
+17:14 
+
+17:14 Now, the question arise that why top is
+17:17 
+
+17:17 equal to is equal to minus one means
+17:19 
+
+17:19 empty?
+17:23 
+
+17:23 Any idea?
+17:26 
+
+17:26 Any idea why we are having top is equal
+17:28 
+
+17:28 to is equal to minus one as empty?
+17:34 
+
+17:34 Uh Priyanshu, can we change the max
+17:36 
+
+17:36 value? Yes, we can. We can. We can
+17:38 
+
+17:38 change the max value.
+17:47 
+
+17:47 Any idea, guys?
+17:58 
+
+17:58 See, so we know that in the array we
+18:01 
+
+18:01 always start our index from 0 1 2 3.
+18:06 
+
+18:06 Yes or no?
+18:09 
+
+18:09 In array we always start our index with
+18:10 
+
+18:10 0 1 2 3.
+18:12 
+
+18:12 Now, if the array is empty, if there is
+18:15 
+
+18:15 if no element exist,
+18:17 
+
+18:17 then there is no valid index.
+18:20 
+
+18:20 So, we will use it as minus one
+18:24 
+
+18:24 just to indicate that nothing is stored
+18:25 
+
+18:25 yet.
+18:29 
+
+18:29 Right?
+18:30 
+
+18:30 So, that is why we are keeping it as top
+18:32 
+
+18:32 is equal to minus one. That means the
+18:35 
+
+18:35 stack is empty.
+18:39 
+
+18:39 Is that clear? Why we are having the
+18:41 
+
+18:41 purpose of top is equal to minus one?
+18:50 
+
+18:50 All right.
+18:52 
+
+18:52 Any doubts
+18:53 
+
+18:53 in top is equal to minus one?
+19:01 
+
+19:01 Just give me a second, guys.
+19:16 
+
+19:16 >> Okay.
+19:17 
+
+19:17 -2, -3, and 0.
+19:20 
+
+19:20 Uh see, 0 can't we can't use. 0 means
+19:22 
+
+19:22 that there's that the array is already
+19:24 
+
+19:24 already initialized. If we have to
+19:26 
+
+19:26 define that there is nothing in the
+19:27 
+
+19:27 array.
+19:28 
+
+19:28 Okay? That then that's why we have to
+19:30 
+
+19:30 use the minus one, the negative index.
+19:32 
+
+19:32 We can keep the minus two and minus
+19:34 
+
+19:34 three also. Okay, Anmol, so that is not
+19:36 
+
+19:36 a issue. Okay, but just because the all
+19:40 
+
+19:40 index always start from zero.
+19:43 
+
+19:43 So, that means
+19:44 
+
+19:44 uh anything which is less than zero. I
+19:46 
+
+19:46 mean, the first value that comes in our
+19:47 
+
+19:47 mind is minus one. Okay? So, if top is
+19:50 
+
+19:50 equal to minus one, that means the stack
+19:52 
+
+19:52 is clearly empty.
+19:54 
+
+19:54 Okay? And there's no element inside the
+19:55 
+
+19:55 stack.
+20:01 
+
+20:01 Any doubts?
+20:03 
+
+20:03 Any doubt in the array implementation?
+20:16 
+
+20:16 All right.
+20:19 
+
+20:19 So, those uh so, Anmol, I hope now your
+20:21 
+
+20:21 doubt is clear. I mean, you can
+20:23 
+
+20:23 technically use minus two and minus
+20:25 
+
+20:25 three also, but normally you should not
+20:27 
+
+20:27 because it will create a confusion. And
+20:30 
+
+20:30 and then, you know, it will break the
+20:32 
+
+20:32 standard logic also.
+20:36 
+
+20:36 Okay? Now, moving on to the next
+20:38 
+
+20:38 implementation, that is
+20:40 
+
+20:40 the linked list implementation. So, I
+20:42 
+
+20:42 hope everyone's clear with the array
+20:43 
+
+20:43 implementation. Now, go with the next
+20:44 
+
+20:44 one, that is
+20:46 
+
+20:46 the node implementation, the linked list
+20:48 
+
+20:48 implementation. So, here in the linked
+20:50 
+
+20:50 list, we already know that in the linked
+20:53 
+
+20:53 list
+20:54 
+
+20:54 a node will be there.
+20:57 
+
+20:57 Okay? So, a node is divided into two
+20:60 
+
+20:60 parts.
+21:02 
+
+21:02 Okay? The The middle node will contain
+21:05 
+
+21:05 the data.
+21:07 
+
+21:07 And then, there will be a left pointer
+21:10 
+
+21:10 and there will be a right pointer.
+21:13 
+
+21:13 So, this is how the node is the link
+21:15 
+
+21:15 list is implemented. So, if I want to
+21:17 
+
+21:17 connect any any new node
+21:19 
+
+21:19 towards the right of the existing node,
+21:22 
+
+21:22 so I can connect with a right pointer.
+21:24 
+
+21:24 Okay? If I want to add any new node in
+21:27 
+
+21:27 the beginning of the this existing node,
+21:29 
+
+21:29 I can connect with the left pointer.
+21:33 
+
+21:33 Okay? So, this is how the node is
+21:35 
+
+21:35 defined.
+21:38 
+
+21:38 So, what we are having here is we know
+21:40 
+
+21:40 that each node contains the data and the
+21:44 
+
+21:44 link to the next node. Okay? So, either
+21:46 
+
+21:46 if we are adding a node, we are adding
+21:49 
+
+21:49 we are joining it in the left side. If
+21:51 
+
+21:51 we are adding a node on the right side,
+21:52 
+
+21:52 we are we are adding it via the right
+21:54 
+
+21:54 side.
+21:56 
+
+21:56 So, we are creating an a structure here.
+21:59 
+
+21:59 Okay? First, we will define the node
+22:01 
+
+22:01 structure. Now, the question arises,
+22:04 
+
+22:04 what do we mean by structure?
+22:07 
+
+22:07 Have you guys
+22:10 
+
+22:10 and I mean studied anywhere
+22:12 
+
+22:12 what do we mean by structure in C?
+22:16 
+
+22:16 Do you know what is structure in C?
+22:17 
+
+22:17 Structure and union?
+22:26 
+
+22:26 Uh Pranay, the array is basically a
+22:28 
+
+22:28 collection of homogeneous data element.
+22:33 
+
+22:33 Okay, Wanshika, you are right.
+22:35 
+
+22:35 Collection of heterogeneous data types.
+22:36 
+
+22:36 Okay, so this is a structure. Okay, and
+22:38 
+
+22:38 what about union?
+22:43 
+
+22:43 What about union?
+22:51 
+
+22:51 Okay, so uh Afia, you are saying the
+22:53 
+
+22:53 same as structures.
+22:55 
+
+22:55 Okay.
+22:57 
+
+22:57 Uh-huh.
+22:58 
+
+22:58 Union may be type of set. Uh-huh.
+23:01 
+
+23:01 The only difference between structure
+23:02 
+
+23:02 and union is
+23:04 
+
+23:04 Okay, they both are used to store the
+23:05 
+
+23:05 heterogeneous data. But the structure
+23:08 
+
+23:08 occupies more memory because for each
+23:10 
+
+23:10 data, for each node, it will it will
+23:14 
+
+23:14 allocate a separate memory space.
+23:16 
+
+23:16 Okay? While in the union, everything
+23:19 
+
+23:19 will be stored in a same memory space.
+23:21 
+
+23:21 So, that is why the memory capacity of
+23:25 
+
+23:25 or you can say the memory consumption of
+23:27 
+
+23:27 the structure is more as compared to the
+23:30 
+
+23:30 union.
+23:31 
+
+23:31 Okay? But both can be used to store the
+23:34 
+
+23:34 heterogeneous data. So, just because
+23:38 
+
+23:38 we want to have because if we are having
+23:40 
+
+23:40 a linked list implementations, so we
+23:42 
+
+23:42 have want to store the data also. Okay?
+23:45 
+
+23:45 And we want to store the link also. Now,
+23:48 
+
+23:48 the link will always be in the form of
+23:50 
+
+23:50 pointer. I hope everyone is clear with
+23:52 
+
+23:52 the concept of pointer in C.
+23:55 
+
+23:55 Okay? The pointer is a variable which is
+23:57 
+
+23:57 used to hold the address.
+23:59 
+
+23:59 Okay? The memory address. So, if you
+24:01 
+
+24:01 want if you want to store the link, link
+24:04 
+
+24:04 means the memory address.
+24:06 
+
+24:06 So, obviously we need a pointer variable
+24:08 
+
+24:08 which can hold the memory address. And
+24:10 
+
+24:10 that is why we are keeping a pointer
+24:12 
+
+24:12 variable here.
+24:16 
+
+24:16 Okay? So, once you have defined your
+24:19 
+
+24:19 node, once you have defined the data,
+24:21 
+
+24:21 once you have defined the pointer
+24:23 
+
+24:23 variable, you have to set your top
+24:27 
+
+24:27 to the pointer variable and keep it as
+24:29 
+
+24:29 null.
+24:30 
+
+24:30 That's it.
+24:32 
+
+24:32 You are done.
+24:35 
+
+24:35 The top is equal to null means the stack
+24:37 
+
+24:37 is empty. So, what you guys think? Which
+24:40 
+
+24:40 one is easy to implement? An array
+24:41 
+
+24:41 implementation or a linked list
+24:43 
+
+24:43 implementation?
+24:50 
+
+24:50 Okay?
+24:55 
+
+24:55 Okay, Arjit, you are saying get to the
+24:56 
+
+24:56 stack, it is a necessary to define the
+24:58 
+
+24:58 maximum
+24:59 
+
+24:59 contiguous memory location of the
+25:01 
+
+25:01 array then play. No, that is the
+25:02 
+
+25:02 limitation we have, Arjit. In array we
+25:05 
+
+25:05 have to first define the size of the
+25:06 
+
+25:06 stack.
+25:11 
+
+25:11 Okay, people are saying linked list,
+25:13 
+
+25:13 array is simpler, yes.
+25:15 
+
+25:15 Ishan, you are right.
+25:17 
+
+25:17 Linked list is more efficient, correct.
+25:19 
+
+25:19 Mhm.
+25:21 
+
+25:21 Mhm.
+25:23 
+
+25:23 Okay, so this is how. So,
+25:27 
+
+25:27 the only difference between the array
+25:29 
+
+25:29 and the linked list is is that
+25:32 
+
+25:32 in the array
+25:33 
+
+25:33 there will be an always a fixed size of
+25:35 
+
+25:35 stack.
+25:36 
+
+25:36 While in the linked list, you can have a
+25:39 
+
+25:39 dynamic size stack.
+25:41 
+
+25:41 But obviously,
+25:43 
+
+25:43 just because array only have the data,
+25:47 
+
+25:47 so faster access will be there. Okay,
+25:49 
+
+25:49 just because the linked list is having a
+25:52 
+
+25:52 extra memory for the pointer, so that is
+25:54 
+
+25:54 why the access will be little bit
+25:58 
+
+25:58 delayed in the linked list
+25:59 
+
+25:59 implementations.
+26:02 
+
+26:02 So, that is the only difference that we
+26:04 
+
+26:04 have in the array and linked list.
+26:07 
+
+26:07 Okay,
+26:09 
+
+26:09 and
+26:11 
+
+26:11 Mayank, you are explaining the node. So,
+26:13 
+
+26:13 in the linked list, Mayank, okay, we
+26:15 
+
+26:15 have a node, we have a node which is
+26:18 
+
+26:18 basically consists of your data.
+26:20 
+
+26:20 Okay, and your node is actually divided
+26:22 
+
+26:22 into three parts. The first The middle
+26:24 
+
+26:24 part will contain your data. The left
+26:27 
+
+26:27 hand side will contain the memory
+26:28 
+
+26:28 location of your of your previous node,
+26:31 
+
+26:31 and the right hand side will contain the
+26:32 
+
+26:32 memory address of your
+26:34 
+
+26:34 immediately next node.
+26:40 
+
+26:40 I hope this is clear to everyone, right?
+26:44 
+
+26:44 Top is equal to null not understood? Top
+26:46 
+
+26:46 is equal to null means that you are you
+26:49 
+
+26:49 you are saying that your stack is empty
+26:51 
+
+26:51 because your pointer variable, the
+26:53 
+
+26:53 memory location which is located at the
+26:55 
+
+26:55 top, it doesn't have any value. That
+26:58 
+
+26:58 means there is no memory address
+27:00 
+
+27:00 associated with that. That means there
+27:03 
+
+27:03 is no block associated. There is no
+27:05 
+
+27:05 data. And if there is no data, that
+27:07 
+
+27:07 means the stack is empty.
+27:11 
+
+27:11 Is it clear, Ishan?
+27:20 
+
+27:20 All right.
+27:23 
+
+27:23 We're moving on to the next. So, that
+27:25 
+
+27:25 was the implementation of array and
+27:26 
+
+27:26 stack.
+27:28 
+
+27:28 Uh,
+27:29 
+
+27:29 let me see what else we have.
+27:31 
+
+27:31 Okay, a stack creation. Now, a stack
+27:33 
+
+27:33 creation is comparatively easy. Okay, so
+27:35 
+
+27:35 now, once you know that okay, my stack
+27:38 
+
+27:38 has been declared, okay, now the only
+27:41 
+
+27:41 thing that we have is
+27:44 
+
+27:44 the creation of the stack. Okay. So,
+27:47 
+
+27:47 first we will create a method, void
+27:48 
+
+27:48 create. Okay, we will define and a stack
+27:51 
+
+27:51 here. And then first we will check if S
+27:54 
+
+27:54 top is equal to is equal to minus one.
+27:57 
+
+27:57 Okay, that means that we are checking
+27:60 
+
+27:60 that whether my stack is empty or not.
+28:02 
+
+28:02 And this is called a underflow
+28:04 
+
+28:04 condition.
+28:06 
+
+28:06 I hope everyone knows what is underflow
+28:08 
+
+28:08 and overflow.
+28:09 
+
+28:09 Underflow means that if there is nothing
+28:12 
+
+28:12 inside the stack and you're still
+28:14 
+
+28:14 performing the deletion, that is called
+28:16 
+
+28:16 the under stack condition.
+28:18 
+
+28:18 Okay, overflow means that if the stack
+28:21 
+
+28:21 is already full and you are trying to
+28:23 
+
+28:23 push another element into the stack,
+28:25 
+
+28:25 that is called the overflow.
+28:27 
+
+28:27 Okay, so validating the top is equal to
+28:30 
+
+28:30 is equal to minus one, that means that
+28:33 
+
+28:33 you are validating the underflow
+28:35 
+
+28:35 condition.
+28:38 
+
+28:38 Okay?
+28:40 
+
+28:40 Similarly, in the linked list also, if
+28:42 
+
+28:42 you are simply validating if top is
+28:44 
+
+28:44 equal to null, that means your condition
+28:46 
+
+28:46 is satisfied.
+28:48 
+
+28:48 Okay, so always a linked list
+28:50 
+
+28:50 implementation is comparatively easy for
+28:52 
+
+28:52 the stack.
+28:54 
+
+28:54 Okay, if you want I can explain you with
+28:56 
+
+28:56 a code also.
+28:57 
+
+28:57 Then how it works.
+28:59 
+
+28:59 Do you want to see the actual code?
+29:02 
+
+29:02 The actual pseudo code for the stack.
+29:06 
+
+29:06 All right, let me show you the actual
+29:08 
+
+29:08 code there.
+29:11 
+
+29:11 Pushing an element no, then we can skip
+29:13 
+
+29:13 this part.
+29:15 
+
+29:15 Okay, so now let me go with this slides.
+29:19 
+
+29:19 So that you guys can understand it
+29:21 
+
+29:21 better.
+29:23 
+
+29:23 Hmm.
+29:24 
+
+29:24 So I mean this is what we were you know
+29:27 
+
+29:27 discussing that a stack is already full
+29:29 
+
+29:29 and then you know once we deleted the
+29:31 
+
+29:31 value of top will get
+29:33 
+
+29:33 decreased
+29:35 
+
+29:35 by any deletion.
+29:38 
+
+29:38 Okay, and then when the stack is empty
+29:40 
+
+29:40 and it is not possible to delete any
+29:42 
+
+29:42 item at this situation. Okay, we will
+29:44 
+
+29:44 call it as the stack underflow.
+29:48 
+
+29:48 Okay, so now this is a push element.
+29:50 
+
+29:50 Okay, now understand the code here.
+29:52 
+
+29:52 Okay, those who are getting a confusion.
+29:55 
+
+29:55 So we are performing the push. Push
+29:57 
+
+29:57 means we are inserting an element into
+29:59 
+
+29:59 the stack. So what I mean if you want to
+30:02 
+
+30:02 insert any element into the stack, what
+30:04 
+
+30:04 are the what are the things that we need
+30:06 
+
+30:06 as a parameter? We need an item.
+30:09 
+
+30:09 Yes or no? We need an item that we want
+30:11 
+
+30:11 to insert.
+30:13 
+
+30:13 We need a stack, an empty stack where we
+30:16 
+
+30:16 have to insert our element and we need
+30:18 
+
+30:18 the memory location of the top where we
+30:21 
+
+30:21 have to insert. Okay, the these three
+30:23 
+
+30:23 things we need for the insertion, the
+30:26 
+
+30:26 item, the empty stack and the location
+30:29 
+
+30:29 where we want to stack where we want to
+30:31 
+
+30:31 insert. Now, check the condition. If top
+30:34 
+
+30:34 is equal to stack size minus one.
+30:37 
+
+30:37 Why we are validating this condition?
+30:40 
+
+30:40 Understand, if the stack size is five,
+30:42 
+
+30:42 understand the I mean just remember the
+30:45 
+
+30:45 previous example. If the stack size is
+30:46 
+
+30:46 equal to five,
+30:48 
+
+30:48 so obviously the index will be 0 1 2 3
+30:50 
+
+30:50 4.
+30:52 
+
+30:52 That means we already know that the top
+30:55 
+
+30:55 will always be at the
+30:57 
+
+30:57 fourth position.
+30:59 
+
+30:59 So, if we are validating that if the
+31:02 
+
+31:02 value of top is stack size minus one,
+31:05 
+
+31:05 that means the stack size we already
+31:07 
+
+31:07 know, five,
+31:08 
+
+31:08 minus one, that is four. That means the
+31:12 
+
+31:12 top is already full. The stack is
+31:14 
+
+31:14 already full. So, if the stack is
+31:16 
+
+31:16 already full, what we will write? We
+31:18 
+
+31:18 will write print stack overflow.
+31:24 
+
+31:24 Okay, and then return.
+31:26 
+
+31:26 And now,
+31:28 
+
+31:28 if there is no element, I mean suppose
+31:30 
+
+31:30 if the stack is not already full, if
+31:32 
+
+31:32 there is some space that is still
+31:34 
+
+31:34 pending, that is still remaining in the
+31:36 
+
+31:36 stack, so what we will do is we will
+31:39 
+
+31:39 increment the value of top.
+31:42 
+
+31:42 Okay, what we will do is we will
+31:43 
+
+31:43 increase the value of top and then we
+31:46 
+
+31:46 will insert our element.
+31:50 
+
+31:50 Is that clear? How to insert an element
+31:53 
+
+31:53 into an stack?
+31:58 
+
+31:58 Any doubts?
+32:08 
+
+32:08 Okay.
+32:10 
+
+32:10 I can I can further repeat. Okay. So,
+32:13 
+
+32:13 what you are doing is we are performing
+32:14 
+
+32:14 an insertion.
+32:16 
+
+32:16 Insertion means so why So, whenever we
+32:18 
+
+32:18 have to insert anything into the stack,
+32:21 
+
+32:21 so what are the things that we need? The
+32:23 
+
+32:23 first, the element, which I want to
+32:25 
+
+32:25 insert.
+32:26 
+
+32:26 Okay.
+32:27 
+
+32:27 The location of the top, because that is
+32:30 
+
+32:30 the only position where I can insert.
+32:32 
+
+32:32 I've already told you that in a stack,
+32:35 
+
+32:35 the insertion and deletion will always
+32:37 
+
+32:37 be occur from the top only. Okay, not
+32:40 
+
+32:40 from anywhere else. So we need a
+32:42 
+
+32:42 location of the top
+32:43 
+
+32:43 and location means the memory address
+32:46 
+
+32:46 and the memory address means a pointer
+32:48 
+
+32:48 is the only variable which can hold the
+32:50 
+
+32:50 memory address and that is why we need a
+32:52 
+
+32:52 pointer variable.
+32:55 
+
+32:55 Okay, and then in stack.
+32:58 
+
+32:58 Now, the first thing we which we have to
+33:00 
+
+33:00 check is whether the memory location of
+33:03 
+
+33:03 the top that means the pointer top
+33:05 
+
+33:05 variable is equal to stack size minus
+33:08 
+
+33:08 one. Suppose the stack size is five.
+33:12 
+
+33:12 Okay, suppose the stack size is five and
+33:14 
+
+33:14 we know in the array it the index will
+33:17 
+
+33:17 always start from zero. So zero, one,
+33:20 
+
+33:20 two, three, four that means the five
+33:22 
+
+33:22 element can be inserted.
+33:24 
+
+33:24 And we are saying that the top is equal
+33:28 
+
+33:28 to stack size minus one that means stack
+33:30 
+
+33:30 size is five. Five minus one is equal to
+33:32 
+
+33:32 four that means the top is already at
+33:35 
+
+33:35 the fourth position.
+33:36 
+
+33:36 That means the top is the stack is
+33:38 
+
+33:38 already full.
+33:40 
+
+33:40 We don't have enough space
+33:42 
+
+33:42 inside our stack to insert any new
+33:44 
+
+33:44 element.
+33:45 
+
+33:45 So if that is the case, what we will
+33:47 
+
+33:47 write? We will write print f stack
+33:50 
+
+33:50 overflow that means
+33:51 
+
+33:51 the stack is already full. You can't
+33:53 
+
+33:53 insert and then return.
+33:55 
+
+33:55 But if not, suppose the if condition
+33:57 
+
+33:57 gets failed.
+33:59 
+
+33:59 There is some space in the stack. So
+34:01 
+
+34:01 what you will do is you will simply
+34:03 
+
+34:03 increment the value of top. You will
+34:05 
+
+34:05 simply go to the above box. Okay, and
+34:08 
+
+34:08 then you will insert your element.
+34:15 
+
+34:15 Is that clear?
+34:20 
+
+34:20 For inserting an element, can we use
+34:22 
+
+34:22 some other function? Which function
+34:23 
+
+34:23 Priyanshu?
+34:25 
+
+34:25 I mean don't ask these random I mean
+34:27 
+
+34:27 very generic question. Can we use some
+34:29 
+
+34:29 other function? What function do you
+34:30 
+
+34:30 want to use.
+34:36 
+
+34:36 Okay, so if you have any specific
+34:37 
+
+34:37 function, then let me know. See, because
+34:39 
+
+34:39 this is simply an assignment operator.
+34:41 
+
+34:41 What you are doing is you are simply
+34:43 
+
+34:43 assigning the value of item, the item
+34:45 
+
+34:45 which you want to insert at the top.
+34:48 
+
+34:48 Okay, so I hope everyone is clear with
+34:50 
+
+34:50 the concept of operator.
+34:52 
+
+34:52 A single equal to and double equal to.
+34:55 
+
+34:55 Single equal to is an assignment
+34:56 
+
+34:56 operator.
+34:57 
+
+34:57 Okay, if we are writing A is equal to A
+34:60 
+
+34:60 is equal to 2.
+35:01 
+
+35:01 Okay, so that means
+35:04 
+
+35:04 that means that we are assigning the
+35:05 
+
+35:05 value of 2 to A.
+35:07 
+
+35:07 But if we are writing A double equal to
+35:09 
+
+35:09 2, that means we are comparing the value
+35:11 
+
+35:11 of A with 2.
+35:13 
+
+35:13 Okay, so what we are doing is we are
+35:15 
+
+35:15 simply assigning the value of item to
+35:17 
+
+35:17 the top.
+35:21 
+
+35:21 I hope now
+35:24 
+
+35:24 this should be clear to everyone.
+35:30 
+
+35:30 All right. All right.
+35:37 
+
+35:37 Okay, so that was push.
+35:40 
+
+35:40 Similarly, if you want to perform a pop,
+35:43 
+
+35:43 okay, the pop means again we have to
+35:45 
+
+35:45 check we have to check whether the value
+35:48 
+
+35:48 is empty or not. If the stack is already
+35:50 
+
+35:50 empty, that means that top is equal to
+35:52 
+
+35:52 is equal to minus one. That means there
+35:54 
+
+35:54 is no element in the stack. That means
+35:56 
+
+35:56 the stack is already underflow.
+35:59 
+
+35:59 Okay. So what you will do is first you
+36:02 
+
+36:02 will check whether the top is equal to
+36:04 
+
+36:04 is equal to minus one. If yes, return
+36:06 
+
+36:06 zero, which indicates that this is an
+36:08 
+
+36:08 empty stack. If not, what you will do is
+36:11 
+
+36:11 you will decrement the value of top.
+36:15 
+
+36:15 Okay, and then you will perform into the
+36:17 
+
+36:17 item deleted.
+36:28 
+
+36:28 Uh Nitish, I'm sorry but
+36:30 
+
+36:30 your
+36:31 
+
+36:31 I've already explained the same concept
+36:33 
+
+36:33 three times. And then still you are
+36:36 
+
+36:36 asking that can you explain a
+36:37 
+
+36:37 step-by-step? I would recommend then,
+36:39 
+
+36:39 you know, if you want further
+36:41 
+
+36:41 clarification, either we can connect
+36:43 
+
+36:43 offline.
+36:44 
+
+36:44 Okay? Or you can send an email to the
+36:49 
+
+36:49 respective faculty, you know, for your
+36:51 
+
+36:51 data structure class because, you know,
+36:54 
+
+36:54 this is the simplest example which I
+36:56 
+
+36:56 have given to you.
+36:58 
+
+36:58 Okay?
+37:03 
+
+37:03 All right. So, moving on to the next
+37:05 
+
+37:05 part, that is the display procedure.
+37:08 
+
+37:08 Okay? Now, display means that now you
+37:10 
+
+37:10 want to traverse your stack. So, first
+37:13 
+
+37:13 you will check. So, if you want to
+37:15 
+
+37:15 traverse your stack, you have to use a
+37:17 
+
+37:17 for loop. I hope everybody is clear with
+37:19 
+
+37:19 the looping part.
+37:20 
+
+37:20 Okay? You have to traverse this by using
+37:22 
+
+37:22 a for loop. You have to start from the
+37:24 
+
+37:24 zero. You have to go to the top. You
+37:26 
+
+37:26 have to increment the value by plus
+37:28 
+
+37:28 plus. And then you have to print F each
+37:30 
+
+37:30 and every element of the stack.
+37:33 
+
+37:33 Okay? So, before traversing the element,
+37:35 
+
+37:35 the first thing you have to check is
+37:37 
+
+37:37 whether my stack is empty or not. If my
+37:39 
+
+37:39 stack is empty, I can't print anything.
+37:41 
+
+37:41 So, first check the underflow condition.
+37:43 
+
+37:43 If top is equal to is equal to minus
+37:45 
+
+37:45 one, that means the stack is empty.
+37:47 
+
+37:47 There is nothing in the stack. Return.
+37:49 
+
+37:49 If the stack is not empty, apply the
+37:52 
+
+37:52 loop.
+37:53 
+
+37:53 Print each and every element. That's it.
+37:55 
+
+37:55 Done. Your all element will be printed.
+37:58 
+
+37:58 Is it clear to everyone?
+37:60 
+
+37:60 How to display
+38:01 
+
+38:01 the element of the stack?
+38:06 
+
+38:06 Yes, no?
+38:09 
+
+38:09 Yeah, so I mean there will be a lot of
+38:10 
+
+38:10 questions from the stack in your exam.
+38:14 
+
+38:14 Okay. Now, coming to the applications of
+38:16 
+
+38:16 the stack. So, there are certain
+38:17 
+
+38:17 applications like infix to postfix,
+38:19 
+
+38:19 postfix to prefix, prefix to infix, and
+38:22 
+
+38:22 vice versa. Okay, so you will get at
+38:24 
+
+38:24 least one question from this
+38:27 
+
+38:27 in your exam. Okay, so I will tell you
+38:29 
+
+38:29 that how you can convert infix to
+38:31 
+
+38:31 postfix.
+38:32 
+
+38:32 Uh
+38:33 
+
+38:33 do you know how you can convert infix
+38:35 
+
+38:35 conversion or postfix conversion using
+38:36 
+
+38:36 an stack?
+38:40 
+
+38:40 Anyone?
+38:45 
+
+38:45 Okay, I can see
+38:47 
+
+38:47 Vanshika is aware. Okay.
+38:52 
+
+38:52 All right.
+38:53 
+
+38:53 If not, let me show you a very basic
+38:56 
+
+38:56 example. Okay, then how you can do.
+38:59 
+
+38:59 So suppose you have
+39:02 
+
+39:02 a string here. Okay, this is your
+39:04 
+
+39:04 string.
+39:06 
+
+39:06 And now what you want to do is you want
+39:08 
+
+39:08 to convert infix to postfix. Now, for
+39:10 
+
+39:10 those who are not clear with the infix
+39:12 
+
+39:12 and postfix, infix means
+39:15 
+
+39:15 if the operator, this is the operator,
+39:17 
+
+39:17 if the operator lies between the
+39:19 
+
+39:19 operand, the these are the operand.
+39:22 
+
+39:22 If the operator lies between the
+39:23 
+
+39:23 operand, this is called infix.
+39:26 
+
+39:26 If the operator lies after the operand,
+39:30 
+
+39:30 like this.
+39:31 
+
+39:31 All the operators are lying after the
+39:33 
+
+39:33 operand, then it will be called as
+39:35 
+
+39:35 postfix.
+39:36 
+
+39:36 So the task is that this is the infix
+39:39 
+
+39:39 expression. Why? Because here the
+39:42 
+
+39:42 operator is lying in between the
+39:44 
+
+39:44 operands. And now what we have to do is
+39:46 
+
+39:46 we have to convert it into a postfix
+39:49 
+
+39:49 format.
+39:50 
+
+39:50 So the concept is pretty easy.
+39:53 
+
+39:53 What you have to do is you have to
+39:54 
+
+39:54 create a three table. Okay, write each
+39:57 
+
+39:57 and every
+39:59 
+
+39:59 character from
+40:01 
+
+40:01 left to right. Okay, here.
+40:04 
+
+40:04 Okay, A plus B star D slash E. And then
+40:08 
+
+40:08 at the end simply have to put end.
+40:11 
+
+40:11 Okay, now
+40:12 
+
+40:12 what you have to do is whenever you
+40:14 
+
+40:14 encounter any operand,
+40:16 
+
+40:16 you simply move it to the output column.
+40:19 
+
+40:19 And whenever you move whenever you
+40:20 
+
+40:20 encounter any operator, you move it into
+40:23 
+
+40:23 the stack.
+40:24 
+
+40:24 Okay, so we will start with the first
+40:26 
+
+40:26 one. A is a operator or operand?
+40:33 
+
+40:33 A is a operator or operand? Operand,
+40:36 
+
+40:36 right. So, if A is a operand, then we
+40:38 
+
+40:38 will move it to the output. Okay, the
+40:41 
+
+40:41 stack will be empty here.
+40:43 
+
+40:43 Now, moving on to the plus.
+40:45 
+
+40:45 The plus will go into the
+40:47 
+
+40:47 stack, because this is a operator.
+40:50 
+
+40:50 Okay, so the output will remain as it
+40:53 
+
+40:53 is. Now, moving on to the next part,
+40:55 
+
+40:55 that is B.
+40:57 
+
+40:57 B is a operand. So, the stack will
+40:59 
+
+40:59 remain as it is, and then B will
+41:02 
+
+41:02 will be appended into the output. Now,
+41:04 
+
+41:04 the Now, my output is AB.
+41:07 
+
+41:07 Again, the multiply operator.
+41:09 
+
+41:09 Again, it will go into the stack, and
+41:12 
+
+41:12 then it will be go into the AB. AB will
+41:14 
+
+41:14 remain as it is.
+41:17 
+
+41:17 Now, again, the my next is
+41:20 
+
+41:20 the D. D is an operand. So, again, plus
+41:23 
+
+41:23 multiply will remain as it is, and then
+41:25 
+
+41:25 my output will be ABD.
+41:27 
+
+41:27 Now, here comes the next operator, that
+41:30 
+
+41:30 is divide. So, as soon as the divide
+41:33 
+
+41:33 will come, the multiply will move from
+41:36 
+
+41:36 stack to the output. Can you tell me
+41:38 
+
+41:38 why?
+41:43 
+
+41:43 Can you tell me why? Why the multiply is
+41:45 
+
+41:45 moving from a stack to the output?
+41:53 
+
+41:53 Yes, because of the operator precedence.
+41:56 
+
+41:56 Okay, operator precedence is basically
+41:58 
+
+41:58 the priority.
+42:00 
+
+42:00 So, multiply is having a higher priority
+42:03 
+
+42:03 than divide.
+42:05 
+
+42:05 Okay, so this is a basic rule that a
+42:08 
+
+42:08 higher priority operator cannot reside
+42:12 
+
+42:12 with a lower priority operator. So, that
+42:15 
+
+42:15 is why the multiply will automatically
+42:17 
+
+42:17 move from a stack to the output.
+42:21 
+
+42:21 And then, the plus and divide can stay
+42:24 
+
+42:24 together.
+42:26 
+
+42:26 And suppose again the new variable came,
+42:28 
+
+42:28 E came, so E will be appended into the
+42:31 
+
+42:31 output. And now, once everything is
+42:34 
+
+42:34 done, so what will happen?
+42:36 
+
+42:36 You have to go from right to left. Okay?
+42:40 
+
+42:40 So, first divide will go and then plus
+42:42 
+
+42:42 will go
+42:44 
+
+42:44 into the output. And now, this is your
+42:46 
+
+42:46 final infix to postfix conversion.
+42:52 
+
+42:52 Is it clear? How we can convert infix to
+42:54 
+
+42:54 postfix?
+43:03 
+
+43:03 Okay, so this was the question in your
+43:04 
+
+43:04 exam.
+43:05 
+
+43:05 That uh you know, they will give you an
+43:07 
+
+43:07 expression in infix and they will ask
+43:09 
+
+43:09 you to convert into the postfix. So, I
+43:12 
+
+43:12 would ask everyone, don't use a shortcut
+43:15 
+
+43:15 technique in your exam.
+43:17 
+
+43:17 Okay? Because in the last semester I saw
+43:19 
+
+43:19 a few students, they used this shortcut
+43:21 
+
+43:21 technique. Okay? So, don't use this
+43:23 
+
+43:23 shortcut technique, always apply the
+43:26 
+
+43:26 table.
+43:27 
+
+43:27 Okay? Use the table and then perform the
+43:29 
+
+43:29 output.
+43:33 
+
+43:33 All right. Good.
+43:37 
+
+43:37 Moving on to the next.
+43:42 
+
+43:42 So, this is the precedence table which I
+43:43 
+
+43:43 was talking about. Okay? So, the bracket
+43:45 
+
+43:45 is always So, you guys can take a
+43:47 
+
+43:47 screenshot of this.
+43:48 
+
+43:48 The
+43:49 
+
+43:49 the bracket operator
+43:51 
+
+43:51 uh will always be on the
+43:53 
+
+43:53 um highest priority, okay, the
+43:55 
+
+43:55 parenthesis one. Okay? And the
+43:57 
+
+43:57 associativity will be left to right.
+43:59 
+
+43:59 Similarly, the next highest priority
+44:01 
+
+44:01 will be the power sign, the exponential
+44:03 
+
+44:03 sign.
+44:04 
+
+44:04 Okay? Then, multiply, divide, and the
+44:07 
+
+44:07 modulo. Okay? They have the same
+44:09 
+
+44:09 priority, but if they come together,
+44:11 
+
+44:11 okay, then ultimately left to right.
+44:14 
+
+44:14 That means the multiply will go first.
+44:16 
+
+44:16 Okay? And that And that was And that
+44:18 
+
+44:18 happened in the last case. Okay? Where
+44:20 
+
+44:20 the multiply and divide they both come
+44:21 
+
+44:21 together. So, multiply will
+44:23 
+
+44:23 automatically move because the
+44:24 
+
+44:24 associativity will be left to right.
+44:27 
+
+44:27 Then similarly, the plus and minus they
+44:29 
+
+44:29 both are the same operators. Okay? They
+44:31 
+
+44:31 have the same
+44:32 
+
+44:32 priority. And the lowest priority we
+44:35 
+
+44:35 have is for the assignment operator.
+44:40 
+
+44:40 Moving on to the next.
+44:43 
+
+44:43 Okay. Now, let's see how you can convert
+44:45 
+
+44:45 an infix to prefix.
+44:47 
+
+44:47 Okay? So, in the last example we saw
+44:50 
+
+44:50 that
+44:51 
+
+44:51 you know, we convert the infix to
+44:52 
+
+44:52 postfix. Now, let's see how we can
+44:54 
+
+44:54 convert an infix to prefix.
+45:04 
+
+45:04 So, what we will do is uh
+45:07 
+
+45:07 let's see.
+45:09 
+
+45:09 So, these are the manual one. Okay? Now,
+45:11 
+
+45:11 let's see what are the
+45:13 
+
+45:13 Yeah.
+45:14 
+
+45:14 This one.
+45:15 
+
+45:15 Okay.
+45:17 
+
+45:17 Suppose this is the expression which we
+45:18 
+
+45:18 have.
+45:21 
+
+45:21 This is the infix expression. And what
+45:23 
+
+45:23 we have to do is we have to convert this
+45:26 
+
+45:26 into prefix.
+45:28 
+
+45:28 Prefix means the operator should come
+45:30 
+
+45:30 before the operand.
+45:32 
+
+45:32 Now, what are the steps we have is first
+45:35 
+
+45:35 we have to reverse the infix expression.
+45:38 
+
+45:38 So, whatever the infix expression you
+45:39 
+
+45:39 have, just reverse it.
+45:41 
+
+45:41 So, this your this will be your reversed
+45:43 
+
+45:43 string. E {slash} T * B + A. This will
+45:47 
+
+45:47 be your reverse.
+45:48 
+
+45:48 Okay? This is simply a reversing of the
+45:50 
+
+45:50 string.
+45:51 
+
+45:51 Okay? You just write from right to left.
+45:54 
+
+45:54 Now, once it is done, again you have to
+45:57 
+
+45:57 apply the same
+45:59 
+
+45:59 logic. You have to write the scan and
+46:01 
+
+46:01 the stack and the output.
+46:04 
+
+46:04 Okay. So, now go away one by one. The
+46:06 
+
+46:06 first we will uh having an operand.
+46:09 
+
+46:09 Okay, then it will go into the output,
+46:11 
+
+46:11 then operator, then you know, it will go
+46:13 
+
+46:13 into the stack, then again an operand.
+46:16 
+
+46:16 ED will be there, stack will remain as
+46:17 
+
+46:17 it is, then multiply. Multiply will go
+46:20 
+
+46:20 into this and as we know that the
+46:22 
+
+46:22 precedence operator, the divide and
+46:24 
+
+46:24 multiply, divide is already there,
+46:27 
+
+46:27 multiply came. So, now whatever that is
+46:30 
+
+46:30 already available, it will move out. So,
+46:32 
+
+46:32 divide will move out.
+46:34 
+
+46:34 Ishant, so that was your question,
+46:36 
+
+46:36 right? So, if both the operator having
+46:38 
+
+46:38 the same precedency, if they come
+46:39 
+
+46:39 together, so whatever the operator that
+46:41 
+
+46:41 is already lies in into the stack, that
+46:44 
+
+46:44 will come out of the stack.
+46:47 
+
+46:47 Okay. So, multiplying and divide, they
+46:48 
+
+46:48 both have the same precedency. So, the
+46:51 
+
+46:51 divide will come out of the stack and it
+46:53 
+
+46:53 will be appended into the output.
+46:55 
+
+46:55 Then again, B will come. Again, B is an
+46:58 
+
+46:58 operand, so it will go into the output.
+47:00 
+
+47:00 Again, plus will come. Again, the lower
+47:03 
+
+47:03 precedence operator is there.
+47:05 
+
+47:05 Okay, and then uh
+47:07 
+
+47:07 uh plus is the lower precedence
+47:08 
+
+47:08 operator, multiply is a higher
+47:10 
+
+47:10 precedence operator. So, obviously the
+47:12 
+
+47:12 multiply will go outside.
+47:15 
+
+47:15 Okay. And then A is an operand. A again,
+47:18 
+
+47:18 it will go to the output. And then, once
+47:21 
+
+47:21 it is done, again you will reverse the
+47:23 
+
+47:23 result.
+47:25 
+
+47:25 So, once you reverse the result, you
+47:26 
+
+47:26 will get a
+47:28 
+
+47:28 prefix
+47:29 
+
+47:29 expression.
+47:33 
+
+47:33 Is that clear?
+47:39 
+
+47:39 How we can convert an infix to prefix?
+47:44 
+
+47:44 Okay. So, then the first step you have
+47:46 
+
+47:46 to reverse, and once it is done, you
+47:48 
+
+47:48 have to reverse the result also. So, you
+47:50 
+
+47:50 will get the infix to prefix.
+47:57 
+
+47:57 All right.
+48:00 
+
+48:00 Moving on to the next.
+48:04 
+
+48:04 Again, they may ask you to you know
+48:06 
+
+48:06 evaluate any post fix evaluation also.
+48:09 
+
+48:09 Okay, so for example, they may give you
+48:11 
+
+48:11 that okay, suppose this is the string.
+48:13 
+
+48:13 Okay, and then they ask you to evaluate
+48:15 
+
+48:15 it. So in case of evaluation also,
+48:18 
+
+48:18 simply apply the same formula. Okay.
+48:21 
+
+48:21 Just write your post fix
+48:23 
+
+48:23 string. Okay, then you know, whatever
+48:26 
+
+48:26 the op- so first one will come operand,
+48:29 
+
+48:29 then two will come, then three will
+48:31 
+
+48:31 come, and then plus will come. So
+48:33 
+
+48:33 whatever the operator that is coming,
+48:35 
+
+48:35 okay, you have to perform into the last
+48:37 
+
+48:37 two one.
+48:38 
+
+48:38 Okay, so 3 + 2 will be 5, and then 5 * 1
+48:41 
+
+48:41 will be 5. Okay, so this is how you can
+48:44 
+
+48:44 evaluate any expression also.
+48:48 
+
+48:48 I mean, it is very easy, I mean, in the
+48:50 
+
+48:50 implementation of the stack. Okay,
+48:52 
+
+48:52 there's no rocket science. You just have
+48:53 
+
+48:53 to understand the concept. That's it.
+48:58 
+
+48:58 All right, so that is done. So we can
+49:00 
+
+49:00 skip this part.
+49:03 
+
+49:03 Now, moving on to the next part. Okay,
+49:05 
+
+49:05 queue.
+49:06 
+
+49:06 So queue, I hope everyone is clear.
+49:07 
+
+49:07 Queue is again a linear data structures,
+49:09 
+
+49:09 which is somehow, you know,
+49:12 
+
+49:12 very similar to whenever you are
+49:13 
+
+49:13 standing in a row.
+49:17 
+
+49:17 Okay, now the only thing that we have is
+49:20 
+
+49:20 that in the stack, it always works on
+49:22 
+
+49:22 the principle of LIFO, that is last in
+49:24 
+
+49:24 first out. But in queue,
+49:27 
+
+49:27 okay, in queue, the only principle we
+49:29 
+
+49:29 have is the first in first out.
+49:32 
+
+49:32 I mean, whoever comes first, it will go
+49:34 
+
+49:34 out first.
+49:36 
+
+49:36 Okay, so that means
+49:38 
+
+49:38 now, the the same operation will be
+49:40 
+
+49:40 performed, the insertion, deletion, and
+49:42 
+
+49:42 the traversal. Okay, these are the three
+49:43 
+
+49:43 operations we can have on the queue.
+49:46 
+
+49:46 But in the queue, just like we have the
+49:48 
+
+49:48 top, the on- the deletion and insertion
+49:50 
+
+49:50 can only happen at the one end, that is
+49:52 
+
+49:52 top. But in queue, the deletion can
+49:55 
+
+49:55 happen from one end and the insertion
+49:57 
+
+49:57 can happen at the other end. Just like a
+50:00 
+
+50:00 Just like you are standing in a queue.
+50:02 
+
+50:02 So, if another person wants to join your
+50:04 
+
+50:04 line, that person will That that person
+50:07 
+
+50:07 will stand next to you. Not next to you,
+50:10 
+
+50:10 behind you.
+50:11 
+
+50:11 Okay, that means the insertion is always
+50:14 
+
+50:14 happening at the one end. And the person
+50:16 
+
+50:16 who is standing in front of you, okay,
+50:19 
+
+50:19 that the person will be removed first.
+50:22 
+
+50:22 Why? Because his work is over now.
+50:25 
+
+50:25 So, the insertion will happen at the one
+50:27 
+
+50:27 end that And that end will be called as
+50:30 
+
+50:30 the rear end.
+50:31 
+
+50:31 While the end where the deletion is
+50:34 
+
+50:34 performed, that end will be called as
+50:36 
+
+50:36 the front end. Okay, so in queue, there
+50:39 
+
+50:39 will be two end, front end and rear end.
+50:43 
+
+50:43 Rear end is used for the insertion and
+50:45 
+
+50:45 front end is used for deletion.
+50:50 
+
+50:50 Okay?
+50:51 
+
+50:51 So,
+50:53 
+
+50:53 we have the in queue and de queue just
+50:55 
+
+50:55 like we have push and pop. Similarly, in
+50:57 
+
+50:57 the queue, we have the in queue and de
+50:59 
+
+50:59 queue. In queue means you are inserting
+51:00 
+
+51:00 an element. De queue means you are
+51:03 
+
+51:03 deleting an element from the queue.
+51:05 
+
+51:05 And then rest everything will be same.
+51:07 
+
+51:07 Create, is empty and the size of the
+51:09 
+
+51:09 queue.
+51:12 
+
+51:12 Now, moving on to the first part.
+51:15 
+
+51:15 Okay, so these are the methods that we
+51:17 
+
+51:17 have. In queue, in queue and de queue.
+51:19 
+
+51:19 So, whenever you have to perform any
+51:21 
+
+51:21 insertion in the queue, you need a
+51:22 
+
+51:22 queue.
+51:23 
+
+51:23 Okay, you need an element.
+51:25 
+
+51:25 Similarly, if you want to perform any
+51:27 
+
+51:27 deletion, we know that deletion can only
+51:29 
+
+51:29 be happen at one end. So, we can simply
+51:32 
+
+51:32 use the pointer, the location of the
+51:36 
+
+51:36 uh the front.
+51:39 
+
+51:39 Then we can easily create a new queue
+51:41 
+
+51:41 also. So, let me show you a code so that
+51:43 
+
+51:43 you can understand it better.
+51:45 
+
+51:45 Okay, this is again a very basic example
+51:47 
+
+51:47 that how you can create a queue by using
+51:49 
+
+51:49 a linked list. Okay.
+51:51 
+
+51:51 So, suppose this is a linked list we
+51:52 
+
+51:52 have and this is this will be your front
+51:55 
+
+51:55 end and this will be your
+51:59 
+
+51:59 deletion end. Okay, so whenever the
+52:00 
+
+52:00 deletion will happen the deletion will
+52:02 
+
+52:02 always happen from the front end.
+52:05 
+
+52:05 And this is your rear end. Rear end
+52:07 
+
+52:07 means that anything that needs to be
+52:09 
+
+52:09 inserted that will always happen at the
+52:11 
+
+52:11 rear end.
+52:13 
+
+52:13 Now, suppose if I want to
+52:16 
+
+52:16 perform any in-queue. In-queue means
+52:18 
+
+52:18 that I'm inserting an element. So, what
+52:20 
+
+52:20 will happen? I will insert a new node
+52:22 
+
+52:22 here. Okay, and now my position of rear
+52:25 
+
+52:25 will get changed.
+52:26 
+
+52:26 Okay. So, now my position of rear will
+52:29 
+
+52:29 change to the new node that is inserted.
+52:32 
+
+52:32 Okay, similarly if I want to perform any
+52:35 
+
+52:35 DQ operations. That means I'm deleting
+52:37 
+
+52:37 an element from the stack.
+52:39 
+
+52:39 So, what will happen? The front node
+52:41 
+
+52:41 will be deleted.
+52:43 
+
+52:43 Right? And now my front position will
+52:46 
+
+52:46 get changed.
+52:48 
+
+52:48 Okay. So, in case of queue
+52:51 
+
+52:51 whenever you perform any insertion or
+52:53 
+
+52:53 deletion the value of front will be
+52:57 
+
+52:57 changed or value of rear will change.
+53:00 
+
+53:00 Okay, and in both the case the value
+53:02 
+
+53:02 will be incremented. So, in case of
+53:05 
+
+53:05 insertion also the value of rear will be
+53:07 
+
+53:07 increased by one.
+53:09 
+
+53:09 In case of deletion also the value of
+53:11 
+
+53:11 front will be increased by one.
+53:14 
+
+53:14 Okay. Just to ensure that the deletion
+53:17 
+
+53:17 is happening or the insertion is
+53:18 
+
+53:18 happening.
+53:21 
+
+53:21 Okay, these are the some basic codes we
+53:23 
+
+53:23 have of the queue. Okay. So, again this
+53:26 
+
+53:26 is very much similar to what we studied
+53:28 
+
+53:28 in the stack. So, I'm not going to cover
+53:30 
+
+53:30 in that much depth. Okay, because we
+53:32 
+
+53:32 have already covered a lot.
+53:34 
+
+53:34 Okay. So, again we will use and
+53:36 
+
+53:36 structure. Okay. I hope everyone is now
+53:39 
+
+53:39 clear that why we are using a structure
+53:41 
+
+53:41 because we have to store
+53:43 
+
+53:43 a heterogeneous data. So, it will store
+53:45 
+
+53:45 the value also and it will store the the
+53:48 
+
+53:48 location of the next node.
+53:50 
+
+53:50 Okay, so we will create a Q node. Okay.
+53:54 
+
+53:54 We will having a value which is of
+53:56 
+
+53:56 integer type. We will having node, the
+53:59 
+
+53:59 location of the next node.
+54:01 
+
+54:01 And then what we are doing is we are
+54:03 
+
+54:03 simply creating a Q.
+54:07 
+
+54:07 Okay, with a front and rear end. That's
+54:10 
+
+54:10 it. Done. Your Q Your Q creation is
+54:13 
+
+54:13 done.
+54:14 
+
+54:14 Now, if you want to insert any element
+54:17 
+
+54:17 into the Q, so what you have to do is
+54:19 
+
+54:19 if you want to perform any insertion, so
+54:21 
+
+54:21 first you need a Q you and you need an
+54:24 
+
+54:24 element.
+54:25 
+
+54:25 Now, first thing is you have to find out
+54:27 
+
+54:27 that what is my the location of my
+54:29 
+
+54:29 front.
+54:30 
+
+54:30 If you have to find out the location of
+54:31 
+
+54:31 the front, you will have to use this
+54:34 
+
+54:34 command, malloc.
+54:36 
+
+54:36 Now, the question arise why we are using
+54:38 
+
+54:38 a malloc function here in the Q.
+54:41 
+
+54:41 Any idea?
+54:48 
+
+54:48 Any idea why we are using a malloc?
+54:51 
+
+54:51 Because Q is a dynamic in nature.
+54:53 
+
+54:53 So, malloc is a memory allocation
+54:55 
+
+54:55 function if you remember then the C
+54:57 
+
+54:57 programming. Malloc, calloc, realloc and
+54:59 
+
+54:59 free, these are the memory management
+55:01 
+
+55:01 functions.
+55:03 
+
+55:03 Okay, so just because Q is a dynamic in
+55:05 
+
+55:05 nature because we can't define the size
+55:07 
+
+55:07 of the
+55:09 
+
+55:09 size of the Q in advance. And that is
+55:11 
+
+55:11 why
+55:12 
+
+55:12 the Q can't be implemented by using an
+55:14 
+
+55:14 array.
+55:15 
+
+55:15 Q can only be implemented by using a
+55:17 
+
+55:17 linked list.
+55:19 
+
+55:19 Okay, I guess someone was asking
+55:21 
+
+55:21 uh Q is implemented by a tree data
+55:23 
+
+55:23 structure. No. No. Q can be implemented
+55:26 
+
+55:26 by a linked list just because of his
+55:28 
+
+55:28 dynamic nature.
+55:31 
+
+55:31 Okay, let me clear my screen also.
+55:37 
+
+55:37 Okay, is it clear, Sarah?
+55:41 
+
+55:41 Okay, yeah.
+55:42 
+
+55:42 So, so what we are having is we are
+55:44 
+
+55:44 performing the NQ. Okay, we are giving
+55:47 
+
+55:47 them the Q, the element which we want to
+55:50 
+
+55:50 insert, and then we are allocating that
+55:53 
+
+55:53 okay, whatever the node, the Q1,
+55:55 
+
+55:55 okay, that that is my front. That is the
+55:58 
+
+55:58 value of my front. Okay, it should be
+56:01 
+
+56:01 dynamically allocated a memory because
+56:03 
+
+56:03 we know that whenever we perform any NQ
+56:05 
+
+56:05 or DQ or rear, okay, the value get
+56:08 
+
+56:08 changed.
+56:11 
+
+56:11 So, what we are doing is we are
+56:12 
+
+56:12 dynamically allocating a memory here. We
+56:15 
+
+56:15 are inserting an element into the value
+56:17 
+
+56:17 part.
+56:18 
+
+56:18 And the next node will be null because
+56:21 
+
+56:21 we are performing an insertion. The
+56:22 
+
+56:22 insertion will always be happen at the
+56:24 
+
+56:24 rear end. And at the rear end, the last
+56:27 
+
+56:27 node will be the one which will be
+56:28 
+
+56:28 inserted. So, the next pointer will
+56:31 
+
+56:31 always be null because there is no
+56:33 
+
+56:33 another node.
+56:35 
+
+56:35 Okay, and the element will be inserted
+56:36 
+
+56:36 into the value.
+56:38 
+
+56:38 Because we know that in the structure,
+56:41 
+
+56:41 okay, we have the value and the location
+56:44 
+
+56:44 of the next node. So, location of the
+56:46 
+
+56:46 next node will be null because this is
+56:48 
+
+56:48 the last node,
+56:49 
+
+56:49 and the value will be your element.
+56:52 
+
+56:52 And then you will check if the Q value
+56:54 
+
+56:54 of Q rear is null, that means there is
+56:58 
+
+56:58 no element inside after that. Okay, you
+57:01 
+
+57:01 have to set the value of front and rear
+57:04 
+
+57:04 same. Otherwise, what you have to do is
+57:08 
+
+57:08 you have to insert your element into the
+57:10 
+
+57:10 rear end and then set up the value.
+57:12 
+
+57:12 Okay, so again, the implementation of Q
+57:15 
+
+57:15 is little bit different and little bit
+57:18 
+
+57:18 difficult also as compared to the stack.
+57:21 
+
+57:21 Okay. But just for an understanding
+57:23 
+
+57:23 because there will be no direct question
+57:25 
+
+57:25 on the Q in your exam.
+57:27 
+
+57:27 Okay, so you simply can understand the
+57:30 
+
+57:30 concept of Qs,
+57:32 
+
+57:32 okay, but you can't expect any direct
+57:35 
+
+57:35 question on the programming.
+57:39 
+
+57:39 All right, I think we are
+57:42 
+
+57:42 we are done, okay, with our time.
+57:45 
+
+57:45 Okay, so let me quickly take any any
+57:48 
+
+57:48 questions or any queries so far we have.
+57:55 
+
+57:55 Okay, we have
+57:58 
+
+57:58 Let me see, stack is the LIFO. Can you
+57:60 
+
+57:60 please explain the prefix and postfix
+58:01 
+
+58:01 again?
+58:03 
+
+58:03 Okay.
+58:07 
+
+58:07 int top is equal to minus one, that
+58:09 
+
+58:09 means that stack is empty, Komal.
+58:11 
+
+58:11 Uh
+58:13 
+
+58:13 Okay, will you please tell the
+58:14 
+
+58:14 descriptive topic of questions that can
+58:16 
+
+58:16 come in the exam for 7.5 marks? 7.5
+58:19 
+
+58:19 marks means that you are talking about
+58:20 
+
+58:20 the case study, right? Jasmine.
+58:25 
+
+58:25 Okay, the Jas- Jasmine, the case study
+58:28 
+
+58:28 will be based out of
+58:30 
+
+58:30 um I mean, you can't
+58:32 
+
+58:32 predict as much because it depending on
+58:35 
+
+58:35 the examiner to examiner that you know
+58:37 
+
+58:37 what they want and which topic he is
+58:39 
+
+58:39 referring to because I have never seen
+58:42 
+
+58:42 any specific case study from Q. Okay, so
+58:44 
+
+58:44 definitely Q will not be on the case
+58:46 
+
+58:46 study part. Stack can be one of them,
+58:49 
+
+58:49 array can be one of them.
+58:51 
+
+58:51 Okay, and
+58:52 
+
+58:52 trees can be one of them.
+58:54 
+
+58:54 Okay, and then there are certain areas
+58:57 
+
+58:57 like
+58:58 
+
+58:58 the shortest distance algorithms, Prim's
+59:01 
+
+59:01 algorithms, Kruskal's algorithms. So,
+59:03 
+
+59:03 that you can expect in your case study,
+59:05 
+
+59:05 but yeah, nothing more specific on the Q
+59:08 
+
+59:08 side.
+59:15 
+
+59:15 Uh okay.
+59:18 
+
+59:18 All right, I think we are done.
+59:21 
+
+59:21 Uh
+59:22 
+
+59:22 Cool. Thank you so much, guys, for
+59:24 
+
+59:24 joining today and see you all in the
+59:26 
+
+59:26 next class then.
+59:28 
+
+59:28 Have a great weekend.

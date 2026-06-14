@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9 — Queues (FIFO)</title>
+<style>
+  :root{--ink:#1a1a1a;--muted:#555;--accent:#2c5f8a;--bg:#faf9f7;--card:#fff;--border:#ddd;--code-bg:#f4f1eb;--correct:#2d6a4f;--wrong:#b5153f;--hl:#fff3cd}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Georgia','Times New Roman',serif;font-size:1.05rem;line-height:1.7;color:var(--ink);background:var(--bg);max-width:740px;margin:0 auto;padding:1.5rem 1.5rem 6rem}
+  .topbar{font-family:sans-serif;font-size:.8rem;padding:.5rem 0 1.5rem;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
+  .topbar a{color:var(--accent);text-decoration:none}.topbar a:hover{text-decoration:underline}
+  h1{font-size:1.9rem;font-weight:normal;color:var(--accent);margin-bottom:.2rem}
+  .meta{color:var(--muted);font-size:.82rem;font-family:sans-serif;margin-bottom:1.6rem}
+  h2{font-size:1.25rem;margin:2.3rem 0 .7rem;border-bottom:1px solid var(--border);padding-bottom:.25rem}
+  h3{font-size:1rem;margin:1.4rem 0 .4rem;color:var(--accent)}
+  p{margin-bottom:1rem}ul,ol{padding-left:1.5rem;margin-bottom:1rem}li{margin-bottom:.35rem}
+  code{font-family:'Courier New',monospace;font-size:.9rem;background:var(--code-bg);padding:.1em .35em;border-radius:3px}
+  .callout{background:var(--hl);border-left:4px solid #e6a817;padding:.85rem 1.1rem;margin:1.2rem 0;border-radius:0 4px 4px 0;font-size:.95rem}
+  .exam{background:#e8f4f8;border-left:4px solid var(--accent);padding:.85rem 1.1rem;margin:1.2rem 0;border-radius:0 4px 4px 0;font-size:.92rem;font-family:sans-serif}
+  .exam::before{content:"📋 Exam: ";font-weight:bold}
+  table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.9rem}
+  th{background:var(--accent);color:#fff;text-align:left;padding:.55rem .7rem;font-family:sans-serif}
+  td{padding:.5rem .7rem;border-bottom:1px solid var(--border)}
+  tr:nth-child(even) td{background:#f7f5f2}
+  .trace th,.trace td{text-align:center;font-family:'Courier New',monospace;font-size:.92rem}
+  .trace td:last-child{text-align:left;font-family:sans-serif;font-size:.82rem;color:var(--muted)}
+  .quiz{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.6rem;margin-top:2.5rem}
+  .quiz h2{border:none;margin-top:0}
+  .q{margin-bottom:1.8rem}.q p{font-weight:bold;margin-bottom:.7rem}
+  .opts{list-style:none;padding:0}
+  .opts li{padding:.55rem .85rem;border:1px solid var(--border);border-radius:5px;margin-bottom:.4rem;cursor:pointer;font-family:'Courier New',monospace;font-size:.9rem;transition:background .15s;user-select:none}
+  .opts li:hover{background:#f0f0f0}
+  .opts li.correct{background:#d4edda;border-color:var(--correct);color:var(--correct);font-weight:bold}
+  .opts li.wrong{background:#fce4ec;border-color:var(--wrong);color:var(--wrong)}
+  .opts li.reveal{background:#d4edda;border-color:var(--correct)}
+  .fb{font-family:sans-serif;font-size:.86rem;margin-top:.5rem;min-height:1.1rem;color:var(--muted)}
+  .score{text-align:center;padding:1.4rem;display:none;background:#f0f7ff;border-radius:6px;margin-top:1.4rem;font-family:sans-serif}
+  .score h3{font-size:1.35rem;color:var(--accent)}
+  .src{background:#f0f7f0;border:1px solid #a8d5a2;border-radius:6px;padding:1rem 1.2rem;margin-top:2.4rem;font-family:sans-serif;font-size:.86rem}
+  .ask{background:#fdf0f5;border:1px solid #e0a0b8;border-radius:6px;padding:1rem 1.2rem;margin-top:1.2rem;font-family:sans-serif;font-size:.86rem}
+  .nav{display:flex;justify-content:space-between;margin-top:2.5rem;font-family:sans-serif;font-size:.85rem}
+  .nav a{color:var(--accent);text-decoration:none}.nav a:hover{text-decoration:underline}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<div class="topbar"><a href="../index.html">🏠 Home</a> &nbsp;·&nbsp; <a href="../reference/exam-blueprint.html">📋 Exam Blueprint</a></div>
+
+<p class="meta">Lesson 9 · Module 2 · BCA Exam Prep</p>
+<h1>Queues (FIFO)</h1>
+
+<div class="exam">12th-April, stated plainly: <em>"There will be no direct question on the Q in your exam… you can't expect any direct question on the programming."</em> So this is concept + tracing only — but a trace-the-output MCQ is likely. Low effort, easy marks.</div>
+
+<h2>1. The model (FIFO)</h2>
+<ul>
+  <li><strong>FIFO</strong> — First In, First Out. Like people in a line: first to arrive is first served.</li>
+  <li>Two ends: <strong>rear</strong> = where you insert, <strong>front</strong> = where you remove.</li>
+  <li><strong>enqueue</strong> = insert (at rear). <strong>dequeue</strong> = remove (from front).</li>
+</ul>
+<div class="callout">Contrast with a <a href="0003-stack-push-pop.html">stack</a>: a stack is LIFO and uses <em>one</em> end (top). A queue is FIFO and uses <em>two</em> ends (front + rear).</div>
+
+<h2>2. How front &amp; rear move</h2>
+<p>Both pointers only ever <strong>increment</strong>: enqueue increases <code>rear</code>, dequeue increases <code>front</code> (the dequeued element is left behind, front moves past it).</p>
+
+<h3>Trace: enqueue 10, 20, 30; dequeue; enqueue 40</h3>
+<table class="trace">
+  <tr><th>Operation</th><th>front</th><th>rear</th><th>Queue (front→rear)</th></tr>
+  <tr><td>enqueue 10</td><td>10</td><td>10</td><td>10</td></tr>
+  <tr><td>enqueue 20</td><td>10</td><td>20</td><td>10 20</td></tr>
+  <tr><td>enqueue 30</td><td>10</td><td>30</td><td>10 20 30</td></tr>
+  <tr><td>dequeue</td><td>20</td><td>30</td><td>20 30 &nbsp;<span style="color:#999">(removed 10)</span></td></tr>
+  <tr><td>enqueue 40</td><td>20</td><td>40</td><td>20 30 40</td></tr>
+</table>
+<p>First out was <strong>10</strong> — the first one in. That's FIFO.</p>
+
+<h2>3. Variants (SLM — names only)</h2>
+<table>
+  <tr><th>Variant</th><th>Idea</th></tr>
+  <tr><td><strong>Circular queue</strong></td><td>Rear wraps back to index 0 to reuse freed front slots.</td></tr>
+  <tr><td><strong>Priority queue</strong></td><td>Elements served by priority, not arrival order.</td></tr>
+  <tr><td><strong>Deque</strong></td><td>Double-ended — insert/remove at <em>both</em> ends.</td></tr>
+</table>
+
+<h2>4. Scoring in the exam</h2>
+<div class="exam">No full queue program will be asked. Expect: a random enqueue/dequeue sequence → "what is the output?" or "what's at the front now?" Trace it row by row like the table above. Also know the stack-vs-queue one-liner: LIFO/one-end vs FIFO/two-ends.</div>
+
+<!-- QUIZ -->
+<div class="quiz">
+  <h2>Drill — recall, don't peek</h2>
+  <p style="color:var(--muted);font-family:sans-serif;font-size:.86rem;margin-bottom:1.4rem">Trace where needed, then click.</p>
+
+  <div class="q" id="q1">
+    <p>1. A queue follows which principle?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q1','Correct — First In, First Out.')">FIFO....</li>
+      <li onclick="ans(this,0,'q1','LIFO is the stack.')">LIFO....</li>
+      <li onclick="ans(this,0,'q1','Not a standard principle name.')">LILO....</li>
+      <li onclick="ans(this,0,'q1','Random order is neither.')">random..</li>
+    </ul>
+    <div class="fb" id="q1f"></div>
+  </div>
+
+  <div class="q" id="q2">
+    <p>2. Insertion in a queue happens at the…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q2','Correct — rear end is for enqueue.')">rear....</li>
+      <li onclick="ans(this,0,'q2','Front is for removal (dequeue).')">front...</li>
+      <li onclick="ans(this,0,'q2','Top is the stack, not a queue.')">top.....</li>
+      <li onclick="ans(this,0,'q2','Middle insertion is not allowed.')">middle..</li>
+    </ul>
+    <div class="fb" id="q2f"></div>
+  </div>
+
+  <div class="q" id="q3">
+    <p>3. enqueue 5, enqueue 9, dequeue. What is removed?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q3','Correct — 5 was first in, so first out.')">5.......</li>
+      <li onclick="ans(this,0,'q3','9 came second; FIFO removes the first.')">9.......</li>
+      <li onclick="ans(this,0,'q3','Nothing? The queue is not empty.')">nothing.</li>
+      <li onclick="ans(this,0,'q3','14 is a sum; dequeue returns one value.')">14......</li>
+    </ul>
+    <div class="fb" id="q3f"></div>
+  </div>
+
+  <div class="q" id="q4">
+    <p>4. The main difference between a stack and a queue is…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q4','Correct — stack one end (LIFO), queue two ends (FIFO).')">ends/ord</li>
+      <li onclick="ans(this,0,'q4','Both can hold integers — not the difference.')">data typ</li>
+      <li onclick="ans(this,0,'q4','Both are linear data structures.')">linearty</li>
+      <li onclick="ans(this,0,'q4','Both can be array-based.')">array yn</li>
+    </ul>
+    <div class="fb" id="q4f"></div>
+  </div>
+
+  <div class="q" id="q5">
+    <p>5. Which variant lets you insert/remove at BOTH ends?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q5','Correct — deque = double-ended queue.')">deque...</li>
+      <li onclick="ans(this,0,'q5','A circular queue still has one front, one rear.')">circular</li>
+      <li onclick="ans(this,0,'q5','A priority queue orders by priority, not both ends.')">priority</li>
+      <li onclick="ans(this,0,'q5','A simple queue is single-ended each way.')">simple q</li>
+    </ul>
+    <div class="fb" id="q5f"></div>
+  </div>
+
+  <div class="score" id="score"><h3 id="st"></h3><p id="sm" style="margin-top:.4rem;color:var(--muted)"></p></div>
+</div>
+
+<div class="src"><strong>Primary source:</strong> SLM §2.2 (Queue, Representation, Insert/Delete, Priority Queue, Circular Queue, Deque).</div>
+<div class="ask"><strong>Ask your teacher:</strong> <em>"give me a queue trace problem"</em> or <em>"explain a circular queue with a diagram"</em> or <em>"stack vs queue — full comparison."</em></div>
+
+<div class="nav">
+  <a href="0008-trees-and-graphs.html">← Lesson 8: Trees &amp; Graphs</a>
+  <a href="../index.html">🏠 Home · all lessons</a>
+</div>
+
+<script>
+  const answered={}, correct={}, total=5;
+  function ans(el,ok,q,msg){
+    if(answered[q])return; answered[q]=true; correct[q]=!!ok;
+    const lis=el.parentElement.querySelectorAll('li'); lis.forEach(o=>o.style.pointerEvents='none');
+    if(ok){el.classList.add('correct');}else{el.classList.add('wrong');
+      lis.forEach(o=>{if(o!==el&&o.getAttribute('onclick').includes(',1,'))o.classList.add('reveal');});}
+    document.getElementById(q+'f').textContent=msg;
+    if(Object.keys(answered).length===total)show();
+  }
+  function show(){
+    const n=Object.values(correct).filter(Boolean).length;
+    const b=document.getElementById('score'); b.style.display='block';
+    document.getElementById('st').textContent=n+' / '+total+' correct';
+    const m={5:"Queue locked. Easy marks secured.",4:"Strong. Review the miss.",3:"Redo the trace table, then retry.",2:"Re-read sections 1–2 slowly.",1:"Trace the FIFO example by hand.",0:"Restart from the model."};
+    document.getElementById('sm').textContent=m[n];
+  }
+</script>
+</body>
+</html>

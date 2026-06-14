@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1 — Introduction to Data Structures</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #555;
+    --accent: #2c5f8a;
+    --bg: #faf9f7;
+    --card: #ffffff;
+    --border: #ddd;
+    --code-bg: #f4f1eb;
+    --correct: #2d6a4f;
+    --wrong: #b5153f;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--ink);
+    background: var(--bg);
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 6rem;
+  }
+  h1 { font-size: 2rem; font-weight: normal; color: var(--accent); margin-bottom: 0.25rem; }
+  .meta { color: var(--muted); font-size: 0.85rem; font-family: sans-serif; margin-bottom: 2.5rem; }
+  h2 { font-size: 1.25rem; margin: 2.5rem 0 0.75rem; color: var(--ink); border-bottom: 1px solid var(--border); padding-bottom: 0.25rem; }
+  h3 { font-size: 1rem; margin: 1.5rem 0 0.5rem; color: var(--accent); }
+  p { margin-bottom: 1rem; }
+  ul, ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+  li { margin-bottom: 0.35rem; }
+  code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    background: var(--code-bg);
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+    color: #333;
+  }
+  pre {
+    background: var(--code-bg);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    border-radius: 0 4px 4px 0;
+  }
+  pre code { background: none; padding: 0; font-size: 0.88rem; }
+  .callout {
+    background: var(--highlight);
+    border-left: 4px solid #e6a817;
+    padding: 0.85rem 1.1rem;
+    margin: 1.25rem 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.95rem;
+  }
+  .exam-tip {
+    background: #e8f4f8;
+    border-left: 4px solid var(--accent);
+    padding: 0.85rem 1.1rem;
+    margin: 1.25rem 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.92rem;
+  }
+  .exam-tip::before { content: "📋 Exam Tip: "; font-weight: bold; font-family: sans-serif; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.92rem;
+  }
+  th { background: var(--accent); color: white; text-align: left; padding: 0.6rem 0.75rem; font-family: sans-serif; }
+  td { padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--border); }
+  tr:nth-child(even) td { background: #f7f5f2; }
+
+  /* Quiz */
+  .quiz-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.75rem;
+    margin-top: 3rem;
+  }
+  .quiz-section h2 { border: none; margin-top: 0; }
+  .question { margin-bottom: 2rem; }
+  .question p { font-weight: bold; margin-bottom: 0.75rem; }
+  .options { list-style: none; padding: 0; }
+  .options li {
+    padding: 0.55rem 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    margin-bottom: 0.4rem;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 0.93rem;
+    transition: background 0.15s;
+    user-select: none;
+  }
+  .options li:hover { background: #f0f0f0; }
+  .options li.correct { background: #d4edda; border-color: var(--correct); color: var(--correct); font-weight: bold; }
+  .options li.wrong { background: #fce4ec; border-color: var(--wrong); color: var(--wrong); }
+  .options li.reveal-correct { background: #d4edda; border-color: var(--correct); }
+  .feedback { font-family: sans-serif; font-size: 0.88rem; margin-top: 0.5rem; min-height: 1.2rem; color: var(--muted); }
+  .score-bar {
+    text-align: center;
+    padding: 1.5rem;
+    display: none;
+    background: #f0f7ff;
+    border-radius: 6px;
+    margin-top: 1.5rem;
+    font-family: sans-serif;
+  }
+  .score-bar h3 { font-size: 1.4rem; color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    font-family: sans-serif;
+    font-size: 0.85rem;
+  }
+  .nav-links a { color: var(--accent); text-decoration: none; }
+  .nav-links a:hover { text-decoration: underline; }
+  .primary-source {
+    background: #f0f7f0;
+    border: 1px solid #a8d5a2;
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    margin-top: 2.5rem;
+    font-family: sans-serif;
+    font-size: 0.88rem;
+  }
+  .primary-source strong { display: block; margin-bottom: 0.3rem; }
+  .ask-teacher {
+    background: #fdf0f5;
+    border: 1px solid #e0a0b8;
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    margin-top: 1.25rem;
+    font-family: sans-serif;
+    font-size: 0.88rem;
+  }
+</style>
+</head>
+<body>
+
+<div style="font-family:sans-serif;font-size:.8rem;padding:.5rem 0 1.2rem;border-bottom:1px solid var(--border);margin-bottom:1.3rem"><a href="../index.html" style="color:var(--accent);text-decoration:none">🏠 Home</a> &nbsp;·&nbsp; <a href="../reference/exam-blueprint.html" style="color:var(--accent);text-decoration:none">📋 Exam Blueprint</a></div>
+<p class="meta">Lesson 1 · Module 1 · Data Structures Using C &nbsp;·&nbsp; BCA Exam Prep</p>
+<h1>Introduction to Data Structures</h1>
+
+<p>Before writing a single line of C code for a data structure, you need to understand <em>what</em> a data structure is and <em>why</em> it exists. Every exam question on DS ultimately tests this foundation.</p>
+
+<h2>1. What is a Data Structure?</h2>
+<p>A <strong>data structure</strong> is a way of organising and storing data in memory so it can be accessed and modified efficiently.</p>
+
+<div class="callout">
+  Think of it like storage at home. You can throw everything into one big box (an array), hang items on hooks in a line (a linked list), or stack plates (a stack). The structure you choose determines how fast you can find and use things.
+</div>
+
+<p>Formally, a data structure defines:</p>
+<ul>
+  <li>How data is <strong>stored</strong> in memory</li>
+  <li>What <strong>operations</strong> can be performed on it (insert, delete, search, traverse)</li>
+  <li>The <strong>relationship</strong> between data elements</li>
+</ul>
+
+<div class="exam-tip">
+Exam definition: "A data structure is a particular way of organizing data in a computer so that it can be used efficiently. It defines the relationship between the data and the operations that can be performed on the data."
+</div>
+
+<h2>2. Types of Data Structures</h2>
+
+<table>
+  <tr><th>Category</th><th>Type</th><th>Examples</th></tr>
+  <tr><td><strong>Primitive</strong></td><td>Basic built-in types</td><td>int, float, char, double</td></tr>
+  <tr><td rowspan="2"><strong>Non-Primitive</strong></td><td>Linear</td><td>Array, Linked List, Stack, Queue</td></tr>
+  <tr><td>Non-Linear</td><td>Tree, Graph</td></tr>
+</table>
+
+<h3>Linear vs Non-Linear</h3>
+<ul>
+  <li><strong>Linear:</strong> Elements arranged in a sequence. Each element has one predecessor and one successor (except first and last). Example: Array, Stack.</li>
+  <li><strong>Non-Linear:</strong> Elements arranged in a hierarchy or network. One element can connect to many. Example: Tree, Graph.</li>
+</ul>
+
+<h3>Static vs Dynamic</h3>
+<ul>
+  <li><strong>Static:</strong> Size fixed at compile time. Memory allocated before program runs. Example: Array.</li>
+  <li><strong>Dynamic:</strong> Size can grow/shrink at runtime. Memory allocated using <code>malloc()</code>/<code>free()</code>. Example: Linked List.</li>
+</ul>
+
+<div class="exam-tip">
+Common exam question: "Differentiate between linear and non-linear data structures." Give the definition, one example each, and one key difference (sequence vs hierarchy).
+</div>
+
+<h2>3. Abstract Data Type (ADT)</h2>
+
+<p>An <strong>Abstract Data Type (ADT)</strong> describes:</p>
+<ol>
+  <li>The <strong>data</strong> stored</li>
+  <li>The <strong>operations</strong> on that data</li>
+  <li>Without specifying <em>how</em> it is implemented</li>
+</ol>
+
+<p>ADT is the <em>what</em>, not the <em>how</em>. A Stack ADT says "push and pop from the top" — it doesn't say whether you use an array or a linked list to implement it.</p>
+
+<div class="callout">
+  ADT is like a TV remote's interface: you know pressing "Volume+" increases volume. You don't care if it sends infrared or Bluetooth. The implementation is hidden.
+</div>
+
+<div class="exam-tip">
+"What is an ADT?" — Answer: It is a logical description of how data is viewed and what operations are allowed, independent of implementation. It provides data abstraction and encapsulation.
+</div>
+
+<h2>4. Why Data Structures Matter — Time Complexity</h2>
+
+<p>Different data structures perform operations at different speeds. We measure this using <strong>Big O notation</strong> — a way to express how performance scales with input size <em>n</em>.</p>
+
+<table>
+  <tr><th>Big O</th><th>Name</th><th>Example</th></tr>
+  <tr><td><code>O(1)</code></td><td>Constant</td><td>Access array[5] directly</td></tr>
+  <tr><td><code>O(log n)</code></td><td>Logarithmic</td><td>Binary search</td></tr>
+  <tr><td><code>O(n)</code></td><td>Linear</td><td>Search unsorted array</td></tr>
+  <tr><td><code>O(n²)</code></td><td>Quadratic</td><td>Bubble sort</td></tr>
+</table>
+
+<p>Choosing the right data structure is about choosing the right Big O for the operations you need most.</p>
+
+<h2>5. Operations on Data Structures</h2>
+<p>Every data structure supports some set of these operations:</p>
+<ul>
+  <li><strong>Traversal</strong> — Visit each element once</li>
+  <li><strong>Insertion</strong> — Add a new element</li>
+  <li><strong>Deletion</strong> — Remove an element</li>
+  <li><strong>Searching</strong> — Find a specific element</li>
+  <li><strong>Sorting</strong> — Arrange elements in order</li>
+  <li><strong>Merging</strong> — Combine two structures</li>
+</ul>
+
+<h2>6. A First Look at C Structures</h2>
+<p>In C, we use <code>struct</code> to define the building blocks of most data structures:</p>
+
+<pre><code>/* A node — the fundamental unit of linked lists, trees, etc. */
+struct Node {
+    int data;           /* the value stored */
+    struct Node *next;  /* pointer to the next node */
+};</code></pre>
+
+<p>You already know <code>struct</code> and pointers — this is all it takes to start building any dynamic data structure in C.</p>
+
+<div class="primary-source">
+  <strong>Primary Source for This Lesson</strong>
+  GeeksForGeeks — <a href="https://www.geeksforgeeks.org/data-structures/" target="_blank">Data Structures Overview</a><br>
+  Read the "Introduction" and "Classification" sections. Matches exam-level depth exactly.
+</div>
+
+<hr style="margin: 3rem 0 1.5rem; border: none; border-top: 1px solid var(--border);">
+
+<div class="quiz-section">
+  <h2>Quick Quiz — Test Your Recall</h2>
+  <p style="color: var(--muted); font-family: sans-serif; font-size: 0.88rem; margin-bottom: 1.5rem;">
+    Don't look up. Try from memory. Feedback appears immediately.
+  </p>
+
+  <div class="question" id="q1">
+    <p>Q1. Which of these is a non-linear data structure?</p>
+    <ul class="options">
+      <li onclick="answer(this, false, 'q1', 'Stack is linear — elements in a sequence.')">Stack</li>
+      <li onclick="answer(this, true,  'q1', 'Correct! Trees have a hierarchy, not a sequence.')">Tree</li>
+      <li onclick="answer(this, false, 'q1', 'Queue is linear — first in, first out.')">Queue</li>
+      <li onclick="answer(this, false, 'q1', 'Array is linear — indexed sequence.')">Array</li>
+    </ul>
+    <div class="feedback" id="q1-fb"></div>
+  </div>
+
+  <div class="question" id="q2">
+    <p>Q2. An ADT defines data and operations but hides the ___?</p>
+    <ul class="options">
+      <li onclick="answer(this, false, 'q2', 'Input is not what ADT hides.')">Input</li>
+      <li onclick="answer(this, false, 'q2', 'Output is not what ADT hides.')">Output</li>
+      <li onclick="answer(this, true,  'q2', 'Correct! ADT hides implementation — the how.')">Implementation</li>
+      <li onclick="answer(this, false, 'q2', 'Data is part of what ADT defines, not what it hides.')">Data</li>
+    </ul>
+    <div class="feedback" id="q2-fb"></div>
+  </div>
+
+  <div class="question" id="q3">
+    <p>Q3. Array is a __ data structure because its size is fixed at compile time.</p>
+    <ul class="options">
+      <li onclick="answer(this, false, 'q3', 'Dynamic means size can change at runtime.')">Dynamic</li>
+      <li onclick="answer(this, true,  'q3', 'Correct! Static — size is fixed at compile time.')">Static</li>
+      <li onclick="answer(this, false, 'q3', 'Linear describes arrangement, not how memory is allocated.')">Linear</li>
+      <li onclick="answer(this, false, 'q3', 'Primitive refers to basic data types like int, char.')">Primitive</li>
+    </ul>
+    <div class="feedback" id="q3-fb"></div>
+  </div>
+
+  <div class="question" id="q4">
+    <p>Q4. Accessing an element directly by index (e.g., arr[5]) is which time complexity?</p>
+    <ul class="options">
+      <li onclick="answer(this, false, 'q4', 'O(n) means you check n elements — not direct access.')">O(n)</li>
+      <li onclick="answer(this, false, 'q4', 'O(log n) is for binary search, not direct index access.')">O(log n)</li>
+      <li onclick="answer(this, true,  'q4', 'Correct! O(1) — direct index access, no looping needed.')">O(1)</li>
+      <li onclick="answer(this, false, 'q4', 'O(n²) is for nested loops — far too slow for index access.')">O(n²)</li>
+    </ul>
+    <div class="feedback" id="q4-fb"></div>
+  </div>
+
+  <div class="question" id="q5">
+    <p>Q5. Which operation visits every element of a data structure exactly once?</p>
+    <ul class="options">
+      <li onclick="answer(this, false, 'q5', 'Insertion adds a new element, does not visit all.')">Insertion</li>
+      <li onclick="answer(this, false, 'q5', 'Searching may stop early — it finds one element.')">Searching</li>
+      <li onclick="answer(this, false, 'q5', 'Sorting rearranges elements but is not defined as visiting each once.')">Sorting</li>
+      <li onclick="answer(this, true,  'q5', 'Correct! Traversal visits each element exactly once.')">Traversal</li>
+    </ul>
+    <div class="feedback" id="q5-fb"></div>
+  </div>
+
+  <div class="score-bar" id="score-display">
+    <h3 id="score-text"></h3>
+    <p id="score-msg" style="margin-top:0.5rem; color: var(--muted);"></p>
+  </div>
+</div>
+
+<div class="ask-teacher">
+  <strong>Something unclear? Ask your teacher.</strong><br>
+  Type your question directly in the Claude Code chat. Examples:<br>
+  <em>"What's the difference between ADT and data structure?"</em><br>
+  <em>"Can you show me more examples of O(1) vs O(n)?"</em>
+</div>
+
+<div class="nav-links">
+  <a href="../index.html">🏠 Home</a>
+  <a href="0002-infix-to-postfix.html">Next: Infix → Postfix →</a>
+</div>
+
+<script>
+  const answered = {};
+  const correct = {};
+  const total = 5;
+
+  function answer(el, isCorrect, qid, msg) {
+    if (answered[qid]) return;
+    answered[qid] = true;
+    correct[qid] = isCorrect;
+
+    const options = el.parentElement.querySelectorAll('li');
+    options.forEach(o => o.style.pointerEvents = 'none');
+
+    if (isCorrect) {
+      el.classList.add('correct');
+    } else {
+      el.classList.add('wrong');
+      options.forEach(o => {
+        if (o !== el && o.getAttribute('onclick').includes('true')) {
+          o.classList.add('reveal-correct');
+        }
+      });
+    }
+
+    document.getElementById(qid + '-fb').textContent = msg;
+
+    if (Object.keys(answered).length === total) showScore();
+  }
+
+  function showScore() {
+    const n = Object.values(correct).filter(Boolean).length;
+    const bar = document.getElementById('score-display');
+    bar.style.display = 'block';
+    document.getElementById('score-text').textContent = `${n} / ${total} correct`;
+    const msgs = {
+      5: "Perfect! You've got this lesson. Move on to Lesson 2.",
+      4: "Strong. Review the one you missed, then move on.",
+      3: "Decent. Re-read sections for the ones you got wrong.",
+      2: "Go back through the lesson once more, then retry.",
+      1: "Read the full lesson again carefully — don't rush.",
+      0: "Start from the top. Read each section slowly."
+    };
+    document.getElementById('score-msg').textContent = msgs[n];
+  }
+</script>
+
+</body>
+</html>

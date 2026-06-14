@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6 — Arrays & Array vs Linked List</title>
+<style>
+  :root{--ink:#1a1a1a;--muted:#555;--accent:#2c5f8a;--bg:#faf9f7;--card:#fff;--border:#ddd;--code-bg:#f4f1eb;--correct:#2d6a4f;--wrong:#b5153f;--hl:#fff3cd}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Georgia','Times New Roman',serif;font-size:1.05rem;line-height:1.7;color:var(--ink);background:var(--bg);max-width:740px;margin:0 auto;padding:1.5rem 1.5rem 6rem}
+  .topbar{font-family:sans-serif;font-size:.8rem;padding:.5rem 0 1.5rem;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
+  .topbar a{color:var(--accent);text-decoration:none}.topbar a:hover{text-decoration:underline}
+  h1{font-size:1.9rem;font-weight:normal;color:var(--accent);margin-bottom:.2rem}
+  .meta{color:var(--muted);font-size:.82rem;font-family:sans-serif;margin-bottom:1.6rem}
+  h2{font-size:1.25rem;margin:2.3rem 0 .7rem;border-bottom:1px solid var(--border);padding-bottom:.25rem}
+  h3{font-size:1rem;margin:1.4rem 0 .4rem;color:var(--accent)}
+  p{margin-bottom:1rem}ul,ol{padding-left:1.5rem;margin-bottom:1rem}li{margin-bottom:.35rem}
+  code{font-family:'Courier New',monospace;font-size:.9rem;background:var(--code-bg);padding:.1em .35em;border-radius:3px}
+  pre{background:var(--code-bg);border-left:3px solid var(--accent);padding:1rem 1.2rem;overflow-x:auto;margin:1.2rem 0;border-radius:0 4px 4px 0}
+  pre code{background:none;padding:0;font-size:.86rem;line-height:1.55}
+  .cmt{color:#7a8a6a}
+  .callout{background:var(--hl);border-left:4px solid #e6a817;padding:.85rem 1.1rem;margin:1.2rem 0;border-radius:0 4px 4px 0;font-size:.95rem}
+  .exam{background:#e8f4f8;border-left:4px solid var(--accent);padding:.85rem 1.1rem;margin:1.2rem 0;border-radius:0 4px 4px 0;font-size:.92rem;font-family:sans-serif}
+  .exam::before{content:"📋 Exam: ";font-weight:bold}
+  table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.9rem}
+  th{background:var(--accent);color:#fff;text-align:left;padding:.55rem .7rem;font-family:sans-serif}
+  td{padding:.5rem .7rem;border-bottom:1px solid var(--border);vertical-align:top}
+  tr:nth-child(even) td{background:#f7f5f2}
+  .quiz{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.6rem;margin-top:2.5rem}
+  .quiz h2{border:none;margin-top:0}
+  .q{margin-bottom:1.8rem}.q p{font-weight:bold;margin-bottom:.7rem}
+  .opts{list-style:none;padding:0}
+  .opts li{padding:.55rem .85rem;border:1px solid var(--border);border-radius:5px;margin-bottom:.4rem;cursor:pointer;font-family:'Courier New',monospace;font-size:.9rem;transition:background .15s;user-select:none}
+  .opts li:hover{background:#f0f0f0}
+  .opts li.correct{background:#d4edda;border-color:var(--correct);color:var(--correct);font-weight:bold}
+  .opts li.wrong{background:#fce4ec;border-color:var(--wrong);color:var(--wrong)}
+  .opts li.reveal{background:#d4edda;border-color:var(--correct)}
+  .fb{font-family:sans-serif;font-size:.86rem;margin-top:.5rem;min-height:1.1rem;color:var(--muted)}
+  .score{text-align:center;padding:1.4rem;display:none;background:#f0f7ff;border-radius:6px;margin-top:1.4rem;font-family:sans-serif}
+  .score h3{font-size:1.35rem;color:var(--accent)}
+  .src{background:#f0f7f0;border:1px solid #a8d5a2;border-radius:6px;padding:1rem 1.2rem;margin-top:2.4rem;font-family:sans-serif;font-size:.86rem}
+  .ask{background:#fdf0f5;border:1px solid #e0a0b8;border-radius:6px;padding:1rem 1.2rem;margin-top:1.2rem;font-family:sans-serif;font-size:.86rem}
+  .nav{display:flex;justify-content:space-between;margin-top:2.5rem;font-family:sans-serif;font-size:.85rem}
+  .nav a{color:var(--accent);text-decoration:none}.nav a:hover{text-decoration:underline}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<div class="topbar"><a href="../index.html">🏠 Home</a> &nbsp;·&nbsp; <a href="../reference/exam-blueprint.html">📋 Exam Blueprint</a></div>
+
+<p class="meta">Lesson 6 · Modules 1 &amp; 3 · BCA Exam Prep</p>
+<h1>Arrays &amp; Array vs Linked List</h1>
+
+<div class="exam">16th-May: <em>"Focus on the data structure part, the types… specifically the array, because the array is the basic one."</em> The array-vs-linked-list comparison is a classic short-answer. This is the foundation everything else sits on.</div>
+
+<h2>1. What an array is</h2>
+<ul>
+  <li>A collection of <strong>homogeneous</strong> elements (all same type) in <strong>contiguous</strong> memory.</li>
+  <li>Index <strong>starts at 0</strong>. For size <em>n</em>, the last valid index is <strong>n − 1</strong>.</li>
+  <li><strong>Static:</strong> size is fixed at declaration. This is the array's main limitation.</li>
+</ul>
+<pre><code>int a[5];          <span class="cmt">// indices 0,1,2,3,4 — five slots, fixed</span></code></pre>
+<div class="callout">That "<strong>n − 1</strong>" fact is everywhere: stack-full is <code>top == MAX-1</code>, binary search uses <code>U = n-1</code>, loops run <code>i &lt; n</code>. Know it cold.</div>
+
+<h2>2. Array operations</h2>
+<table>
+  <tr><th>Operation</th><th>What happens</th></tr>
+  <tr><td>Access a[i]</td><td>Direct — <code>O(1)</code>. No looping.</td></tr>
+  <tr><td>Traverse</td><td>Visit each element once with a for loop — <code>O(n)</code>.</td></tr>
+  <tr><td>Insert at position</td><td>Shift later elements <em>right</em> to make space — <code>O(n)</code>.</td></tr>
+  <tr><td>Delete at position</td><td>Shift later elements <em>left</em> to fill the gap — <code>O(n)</code>.</td></tr>
+</table>
+<pre><code><span class="cmt">// insert value v at index p in array of length n</span>
+for(i = n; i > p; i--) a[i] = a[i-1];   <span class="cmt">// shift right</span>
+a[p] = v;
+n++;</code></pre>
+
+<h2>3. Linked list — the contrast</h2>
+<p>A linked list stores data in <strong>nodes</strong> scattered in memory; each node holds <strong>data + a pointer</strong> to the next node. First node = <strong>start</strong>, last node's pointer = <strong>NULL</strong>.</p>
+<pre><code>struct Node {
+    int data;
+    struct Node *next;   <span class="cmt">// address of the next node</span>
+};</code></pre>
+<ul>
+  <li><strong>Why <code>struct</code>?</strong> It bundles <em>heterogeneous</em> data — the value AND the pointer.</li>
+  <li><strong>Why a pointer?</strong> A pointer is the only variable that holds a memory <em>address</em> (the "link").</li>
+</ul>
+<div class="callout">Lecturer's analogy: a train. Coach <em>positions</em> (A1, A2…) look adjacent, but coach <em>numbers</em> (the real memory addresses) are scattered — couplings (pointers) link them in order.</div>
+
+<h2>4. Array vs Linked List (memorise this table)</h2>
+<table>
+  <tr><th></th><th>Array</th><th>Linked List</th></tr>
+  <tr><td>Memory</td><td>Contiguous (adjacent)</td><td>Scattered, joined by pointers</td></tr>
+  <tr><td>Size</td><td>Fixed (static)</td><td>Grows/shrinks (dynamic)</td></tr>
+  <tr><td>Access by index</td><td>Direct, <code>O(1)</code></td><td>Must walk from start, <code>O(n)</code></td></tr>
+  <tr><td>Insert / delete</td><td>Shift elements, <code>O(n)</code></td><td>Re-point a link, <code>O(1)</code> at a known node</td></tr>
+  <tr><td>Extra memory</td><td>None (data only)</td><td>One pointer per node</td></tr>
+</table>
+<p>Linked-list <strong>types</strong> (SLM Module 3): singly, doubly, circular, circular-doubly. Operations: create, traverse, search, insert, delete, sort.</p>
+
+<h2>5. Scoring in the exam</h2>
+<div class="exam">"Differentiate array and linked list" → give the table above (memory, size, access, insert/delete). Four crisp rows beat a vague paragraph. For a definition, lead with "contiguous + homogeneous + static" for arrays.</div>
+
+<!-- QUIZ -->
+<div class="quiz">
+  <h2>Drill — recall, don't peek</h2>
+  <p style="color:var(--muted);font-family:sans-serif;font-size:.86rem;margin-bottom:1.4rem">Answer from memory, then click.</p>
+
+  <div class="q" id="q1">
+    <p>1. For an array of size n, the last valid index is…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q1','Correct — indexing starts at 0.')">n - 1...</li>
+      <li onclick="ans(this,0,'q1','n would be one past the end (out of bounds).')">n.......</li>
+      <li onclick="ans(this,0,'q1','n+1 is two past the end.')">n + 1...</li>
+      <li onclick="ans(this,0,'q1','0 is the FIRST index, not last.')">0.......</li>
+    </ul>
+    <div class="fb" id="q1f"></div>
+  </div>
+
+  <div class="q" id="q2">
+    <p>2. Array elements are stored in memory that is…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q2','Correct — arrays are contiguous.')">contiguo</li>
+      <li onclick="ans(this,0,'q2','Scattered is the linked list.')">scattere</li>
+      <li onclick="ans(this,0,'q2','Random placement describes a linked list.')">random..</li>
+      <li onclick="ans(this,0,'q2','Arrays do not use pointers between elements.')">pointers</li>
+    </ul>
+    <div class="fb" id="q2f"></div>
+  </div>
+
+  <div class="q" id="q3">
+    <p>3. A linked-list node stores data plus a…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q3','Correct — a pointer to the next node.')">pointer.</li>
+      <li onclick="ans(this,0,'q3','An index is the array concept.')">an index</li>
+      <li onclick="ans(this,0,'q3','Nodes do not store a copy of all data.')">all data</li>
+      <li onclick="ans(this,0,'q3','A counter is not part of the node.')">a counte</li>
+    </ul>
+    <div class="fb" id="q3f"></div>
+  </div>
+
+  <div class="q" id="q4">
+    <p>4. Which structure has a FIXED size set at declaration?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q4','Correct — arrays are static.')">array...</li>
+      <li onclick="ans(this,0,'q4','Linked lists grow/shrink dynamically.')">linkedls</li>
+      <li onclick="ans(this,0,'q4','Both is wrong — only the array is fixed.')">both....</li>
+      <li onclick="ans(this,0,'q4','Neither is wrong — the array is fixed.')">neither.</li>
+    </ul>
+    <div class="fb" id="q4f"></div>
+  </div>
+
+  <div class="q" id="q5">
+    <p>5. Direct O(1) access by index is a strength of…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q5','Correct — arrays index directly.')">array...</li>
+      <li onclick="ans(this,0,'q5','Linked list must walk from start — O(n).')">linkedls</li>
+      <li onclick="ans(this,0,'q5','A stack only exposes the top.')">a stack.</li>
+      <li onclick="ans(this,0,'q5','A queue only exposes front/rear.')">a queue.</li>
+    </ul>
+    <div class="fb" id="q5f"></div>
+  </div>
+
+  <div class="score" id="score"><h3 id="st"></h3><p id="sm" style="margin-top:.4rem;color:var(--muted)"></p></div>
+</div>
+
+<div class="src"><strong>Primary source:</strong> SLM §1.2 (Arrays) &amp; §3.1 (Singly Linked Lists). </div>
+<div class="ask"><strong>Ask your teacher:</strong> <em>"show array insertion with shifting on an example"</em> or <em>"draw a singly linked list with 3 nodes."</em></div>
+
+<div class="nav">
+  <a href="0005-sorting.html">← Lesson 5: Sorting</a>
+  <a href="0007-prefix-postfix-eval-recursion.html">Lesson 7: Prefix &amp; Recursion →</a>
+</div>
+
+<script>
+  const answered={}, correct={}, total=5;
+  function ans(el,ok,q,msg){
+    if(answered[q])return; answered[q]=true; correct[q]=!!ok;
+    const lis=el.parentElement.querySelectorAll('li'); lis.forEach(o=>o.style.pointerEvents='none');
+    if(ok){el.classList.add('correct');}else{el.classList.add('wrong');
+      lis.forEach(o=>{if(o!==el&&o.getAttribute('onclick').includes(',1,'))o.classList.add('reveal');});}
+    document.getElementById(q+'f').textContent=msg;
+    if(Object.keys(answered).length===total)show();
+  }
+  function show(){
+    const n=Object.values(correct).filter(Boolean).length;
+    const b=document.getElementById('score'); b.style.display='block';
+    document.getElementById('st').textContent=n+' / '+total+' correct';
+    const m={5:"Foundation locked. The comparison table is yours.",4:"Strong. Review the miss.",3:"Re-read the comparison table, then retry.",2:"Re-read sections 1 & 4 slowly.",1:"Redraw array vs linked list by hand.",0:"Restart from section 1."};
+    document.getElementById('sm').textContent=m[n];
+  }
+</script>
+</body>
+</html>

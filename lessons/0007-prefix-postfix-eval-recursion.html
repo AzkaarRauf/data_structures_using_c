@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7 — Infix→Prefix, Postfix Evaluation & Recursion</title>
+<style>
+  :root{--ink:#1a1a1a;--muted:#555;--accent:#2c5f8a;--bg:#faf9f7;--card:#fff;--border:#ddd;--code-bg:#f4f1eb;--correct:#2d6a4f;--wrong:#b5153f;--hl:#fff3cd}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Georgia','Times New Roman',serif;font-size:1.05rem;line-height:1.7;color:var(--ink);background:var(--bg);max-width:740px;margin:0 auto;padding:1.5rem 1.5rem 6rem}
+  .topbar{font-family:sans-serif;font-size:.8rem;padding:.5rem 0 1.5rem;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
+  .topbar a{color:var(--accent);text-decoration:none}.topbar a:hover{text-decoration:underline}
+  h1{font-size:1.8rem;font-weight:normal;color:var(--accent);margin-bottom:.2rem}
+  .meta{color:var(--muted);font-size:.82rem;font-family:sans-serif;margin-bottom:1.6rem}
+  h2{font-size:1.25rem;margin:2.3rem 0 .7rem;border-bottom:1px solid var(--border);padding-bottom:.25rem}
+  h3{font-size:1rem;margin:1.4rem 0 .4rem;color:var(--accent)}
+  p{margin-bottom:1rem}ul,ol{padding-left:1.5rem;margin-bottom:1rem}li{margin-bottom:.35rem}
+  code{font-family:'Courier New',monospace;font-size:.9rem;background:var(--code-bg);padding:.1em .35em;border-radius:3px}
+  pre{background:var(--code-bg);border-left:3px solid var(--accent);padding:1rem 1.2rem;overflow-x:auto;margin:1.2rem 0;border-radius:0 4px 4px 0}
+  pre code{background:none;padding:0;font-size:.86rem;line-height:1.55}
+  .cmt{color:#7a8a6a}
+  .callout{background:var(--hl);border-left:4px solid #e6a817;padding:.85rem 1.1rem;margin:1.2rem 0;border-radius:0 4px 4px 0;font-size:.95rem}
+  .exam{background:#e8f4f8;border-left:4px solid var(--accent);padding:.85rem 1.1rem;margin:1.2rem 0;border-radius:0 4px 4px 0;font-size:.92rem;font-family:sans-serif}
+  .exam::before{content:"📋 Exam: ";font-weight:bold}
+  table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.9rem}
+  th{background:var(--accent);color:#fff;text-align:left;padding:.55rem .7rem;font-family:sans-serif}
+  td{padding:.5rem .7rem;border-bottom:1px solid var(--border)}
+  tr:nth-child(even) td{background:#f7f5f2}
+  .trace th,.trace td{text-align:center;font-family:'Courier New',monospace;font-size:.92rem}
+  .trace td:last-child{text-align:left;font-family:sans-serif;font-size:.82rem;color:var(--muted)}
+  .quiz{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.6rem;margin-top:2.5rem}
+  .quiz h2{border:none;margin-top:0}
+  .q{margin-bottom:1.8rem}.q p{font-weight:bold;margin-bottom:.7rem}
+  .opts{list-style:none;padding:0}
+  .opts li{padding:.55rem .85rem;border:1px solid var(--border);border-radius:5px;margin-bottom:.4rem;cursor:pointer;font-family:'Courier New',monospace;font-size:.9rem;transition:background .15s;user-select:none}
+  .opts li:hover{background:#f0f0f0}
+  .opts li.correct{background:#d4edda;border-color:var(--correct);color:var(--correct);font-weight:bold}
+  .opts li.wrong{background:#fce4ec;border-color:var(--wrong);color:var(--wrong)}
+  .opts li.reveal{background:#d4edda;border-color:var(--correct)}
+  .fb{font-family:sans-serif;font-size:.86rem;margin-top:.5rem;min-height:1.1rem;color:var(--muted)}
+  .score{text-align:center;padding:1.4rem;display:none;background:#f0f7ff;border-radius:6px;margin-top:1.4rem;font-family:sans-serif}
+  .score h3{font-size:1.35rem;color:var(--accent)}
+  .src{background:#f0f7f0;border:1px solid #a8d5a2;border-radius:6px;padding:1rem 1.2rem;margin-top:2.4rem;font-family:sans-serif;font-size:.86rem}
+  .ask{background:#fdf0f5;border:1px solid #e0a0b8;border-radius:6px;padding:1rem 1.2rem;margin-top:1.2rem;font-family:sans-serif;font-size:.86rem}
+  .nav{display:flex;justify-content:space-between;margin-top:2.5rem;font-family:sans-serif;font-size:.85rem}
+  .nav a{color:var(--accent);text-decoration:none}.nav a:hover{text-decoration:underline}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<div class="topbar"><a href="../index.html">🏠 Home</a> &nbsp;·&nbsp; <a href="../reference/exam-blueprint.html">📋 Exam Blueprint</a></div>
+
+<p class="meta">Lesson 7 · Modules 2 &amp; 5 · BCA Exam Prep</p>
+<h1>Infix→Prefix, Postfix Evaluation &amp; Recursion</h1>
+
+<div class="exam">Three TIER-2 items that round out the stack + recursion questions. You already know the infix→postfix table (<a href="0002-infix-to-postfix.html">Lesson 2</a>) — these reuse it.</div>
+
+<h2>1. Infix → Prefix (wrap the postfix engine)</h2>
+<div class="callout">SLM method — three steps: <strong>(1) Reverse</strong> the infix, <strong>(2)</strong> convert the reversed string to <strong>postfix</strong> (same table method), <strong>(3) Reverse</strong> that result → prefix.</div>
+<p>One catch when reversing: swap each <code>(</code> with <code>)</code> and vice-versa.</p>
+<h3>Example: <code>A + B * C</code> → prefix</h3>
+<ol>
+  <li>Reverse: <code>C * B + A</code></li>
+  <li>Postfix of that: <code>C B * A +</code></li>
+  <li>Reverse the result: <code>+ A * B C</code></li>
+</ol>
+<p>Answer: <strong><code>+ A B C</code></strong>? No — read carefully: reversing <code>C B * A +</code> gives <code>+ A * B C</code>. That's the prefix. (Operator before its operands: <code>+</code> joins <code>A</code> and <code>(* B C)</code>.)</p>
+
+<h2>2. Postfix Evaluation (with a stack)</h2>
+<p>Scan left→right. <strong>Operand</strong> → push. <strong>Operator</strong> → pop the top two, apply (second-popped <em>op</em> first-popped), push the result. At the end, the stack holds the answer.</p>
+<h3>Evaluate <code>5 3 + 2 *</code></h3>
+<table class="trace">
+  <tr><th>Scan</th><th>Stack (bottom→top)</th><th>Action</th></tr>
+  <tr><td>5</td><td>5</td><td>push</td></tr>
+  <tr><td>3</td><td>5 3</td><td>push</td></tr>
+  <tr><td>+</td><td>8</td><td>pop 3,5 → 5+3=8 → push</td></tr>
+  <tr><td>2</td><td>8 2</td><td>push</td></tr>
+  <tr><td>*</td><td>16</td><td>pop 2,8 → 8*2=16 → push</td></tr>
+</table>
+<p>Result: <strong>16</strong>.</p>
+
+<h2>3. Recursion</h2>
+<div class="exam">16th-May: <em>"There will be a question on the recursion side… it may be optional."</em> The examiner asks you to write the <strong>recursive function only</strong> — NOT a whole program. Don't waste time on input/output scaffolding.</div>
+<p>A <strong>recursive function</strong> calls itself, moving toward a <strong>base case</strong> that stops the recursion.</p>
+<pre><code>int fact(int n){
+    if(n == 0 || n == 1)   <span class="cmt">// base case — stops recursion</span>
+        return 1;
+    return n * fact(n - 1); <span class="cmt">// recursive call</span>
+}</code></pre>
+<p>Every recursive function needs <strong>two parts</strong>: a base case (when to stop) and a recursive call (a smaller sub-problem). Miss the base case → infinite recursion.</p>
+<pre><code>int fib(int n){                 <span class="cmt">// Fibonacci</span>
+    if(n &lt;= 1) return n;         <span class="cmt">// base case</span>
+    return fib(n-1) + fib(n-2);  <span class="cmt">// two recursive calls</span>
+}</code></pre>
+<div class="callout">In your answer, write the 3–4 line function, then one line each: "base case = …", "recursive call = …". That explanation is what earns the marks.</div>
+
+<!-- QUIZ -->
+<div class="quiz">
+  <h2>Drill — recall, don't peek</h2>
+  <p style="color:var(--muted);font-family:sans-serif;font-size:.86rem;margin-bottom:1.4rem">Work each on paper, then click.</p>
+
+  <div class="q" id="q1">
+    <p>1. First step of infix→prefix conversion?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q1','Correct — reverse the infix expression first.')">reverse.</li>
+      <li onclick="ans(this,0,'q1','You convert to postfix in step 2, not first.')">postfix.</li>
+      <li onclick="ans(this,0,'q1','Evaluation is a different task entirely.')">evaluate</li>
+      <li onclick="ans(this,0,'q1','Sorting has nothing to do with this.')">sort it.</li>
+    </ul>
+    <div class="fb" id="q1f"></div>
+  </div>
+
+  <div class="q" id="q2">
+    <p>2. Evaluating postfix, an OPERAND is…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q2','Correct — operands are pushed.')">pushed..</li>
+      <li onclick="ans(this,0,'q2','Operators pop two and apply; operands just push.')">applied.</li>
+      <li onclick="ans(this,0,'q2','Nothing is discarded.')">dropped.</li>
+      <li onclick="ans(this,0,'q2','No reversing happens during evaluation.')">reversed</li>
+    </ul>
+    <div class="fb" id="q2f"></div>
+  </div>
+
+  <div class="q" id="q3">
+    <p>3. Evaluate the postfix <code>6 2 / 3 +</code> →</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q3','Correct — 6/2=3, then 3+3=6.')">6.......</li>
+      <li onclick="ans(this,0,'q3','That would be 6/(2+3)=1.2 — wrong order.')">1.2.....</li>
+      <li onclick="ans(this,0,'q3','11 ignores the division.')">11......</li>
+      <li onclick="ans(this,0,'q3','9 mis-applies the operators.')">9.......</li>
+    </ul>
+    <div class="fb" id="q3f"></div>
+  </div>
+
+  <div class="q" id="q4">
+    <p>4. Every recursive function MUST have a…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q4','Correct — a base case to stop.')">base cas</li>
+      <li onclick="ans(this,0,'q4','A for loop is iteration, not recursion.')">for loop</li>
+      <li onclick="ans(this,0,'q4','Global vars are not required.')">globalvr</li>
+      <li onclick="ans(this,0,'q4','Pointers are not required for recursion.')">pointers</li>
+    </ul>
+    <div class="fb" id="q4f"></div>
+  </div>
+
+  <div class="q" id="q5">
+    <p>5. For the factorial function, the recursive call is…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q5','Correct — n times factorial of n-1.')">n*fact-1</li>
+      <li onclick="ans(this,0,'q5','n+1 grows away from the base case.')">fact n+1</li>
+      <li onclick="ans(this,0,'q5','n alone never recurses.')">return n.</li>
+      <li onclick="ans(this,0,'q5','fact(n) calls itself with same n → infinite.')">fact (n).</li>
+    </ul>
+    <div class="fb" id="q5f"></div>
+  </div>
+
+  <div class="score" id="score"><h3 id="st"></h3><p id="sm" style="margin-top:.4rem;color:var(--muted)"></p></div>
+</div>
+
+<div class="src"><strong>Primary source:</strong> SLM §2.1.6 (Infix→Prefix), §2.1.4 (Polish/evaluation), §2.1.7 (Recursion) &amp; §2.1.8 (Tower of Hanoi).</div>
+<div class="ask"><strong>Ask your teacher:</strong> <em>"trace infix→prefix for [expr]"</em> or <em>"evaluate this postfix step by step"</em> or <em>"write the Tower of Hanoi recursive function."</em></div>
+
+<div class="nav">
+  <a href="0006-arrays-and-linked-lists.html">← Lesson 6: Arrays &amp; Linked Lists</a>
+  <a href="0008-trees-and-graphs.html">Lesson 8: Trees &amp; Graphs →</a>
+</div>
+
+<script>
+  const answered={}, correct={}, total=5;
+  function ans(el,ok,q,msg){
+    if(answered[q])return; answered[q]=true; correct[q]=!!ok;
+    const lis=el.parentElement.querySelectorAll('li'); lis.forEach(o=>o.style.pointerEvents='none');
+    if(ok){el.classList.add('correct');}else{el.classList.add('wrong');
+      lis.forEach(o=>{if(o!==el&&o.getAttribute('onclick').includes(',1,'))o.classList.add('reveal');});}
+    document.getElementById(q+'f').textContent=msg;
+    if(Object.keys(answered).length===total)show();
+  }
+  function show(){
+    const n=Object.values(correct).filter(Boolean).length;
+    const b=document.getElementById('score'); b.style.display='block';
+    document.getElementById('st').textContent=n+' / '+total+' correct';
+    const m={5:"Prefix, eval & recursion locked.",4:"Strong. Review the miss.",3:"Redo the trace tables, then retry.",2:"Re-read sections 1–2 slowly.",1:"Trace each conversion by hand.",0:"Restart from section 1."};
+    document.getElementById('sm').textContent=m[n];
+  }
+</script>
+</body>
+</html>

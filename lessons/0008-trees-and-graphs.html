@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8 — Trees, BST & Spanning Trees</title>
+<style>
+  :root{--ink:#1a1a1a;--muted:#555;--accent:#2c5f8a;--bg:#faf9f7;--card:#fff;--border:#ddd;--code-bg:#f4f1eb;--correct:#2d6a4f;--wrong:#b5153f;--hl:#fff3cd}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Georgia','Times New Roman',serif;font-size:1.05rem;line-height:1.7;color:var(--ink);background:var(--bg);max-width:740px;margin:0 auto;padding:1.5rem 1.5rem 6rem}
+  .topbar{font-family:sans-serif;font-size:.8rem;padding:.5rem 0 1.5rem;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
+  .topbar a{color:var(--accent);text-decoration:none}.topbar a:hover{text-decoration:underline}
+  h1{font-size:1.85rem;font-weight:normal;color:var(--accent);margin-bottom:.2rem}
+  .meta{color:var(--muted);font-size:.82rem;font-family:sans-serif;margin-bottom:1.6rem}
+  h2{font-size:1.25rem;margin:2.3rem 0 .7rem;border-bottom:1px solid var(--border);padding-bottom:.25rem}
+  h3{font-size:1rem;margin:1.4rem 0 .4rem;color:var(--accent)}
+  p{margin-bottom:1rem}ul,ol{padding-left:1.5rem;margin-bottom:1rem}li{margin-bottom:.35rem}
+  code{font-family:'Courier New',monospace;font-size:.9rem;background:var(--code-bg);padding:.1em .35em;border-radius:3px}
+  pre{background:var(--code-bg);border-left:3px solid var(--accent);padding:1rem 1.2rem;overflow-x:auto;margin:1.2rem 0;border-radius:0 4px 4px 0}
+  pre code{background:none;padding:0;font-size:.9rem;line-height:1.45}
+  .cmt{color:#7a8a6a}
+  .tree{font-family:'Courier New',monospace;font-size:1rem;line-height:1.4;background:var(--code-bg);padding:1rem 1.2rem;border-radius:6px;margin:1rem 0;white-space:pre}
+  .callout{background:var(--hl);border-left:4px solid #e6a817;padding:.85rem 1.1rem;margin:1.2rem 0;border-radius:0 4px 4px 0;font-size:.95rem}
+  .exam{background:#e8f4f8;border-left:4px solid var(--accent);padding:.85rem 1.1rem;margin:1.2rem 0;border-radius:0 4px 4px 0;font-size:.92rem;font-family:sans-serif}
+  .exam::before{content:"📋 Exam: ";font-weight:bold}
+  table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.9rem}
+  th{background:var(--accent);color:#fff;text-align:left;padding:.55rem .7rem;font-family:sans-serif}
+  td{padding:.5rem .7rem;border-bottom:1px solid var(--border)}
+  tr:nth-child(even) td{background:#f7f5f2}
+  .quiz{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.6rem;margin-top:2.5rem}
+  .quiz h2{border:none;margin-top:0}
+  .q{margin-bottom:1.8rem}.q p{font-weight:bold;margin-bottom:.7rem}
+  .opts{list-style:none;padding:0}
+  .opts li{padding:.55rem .85rem;border:1px solid var(--border);border-radius:5px;margin-bottom:.4rem;cursor:pointer;font-family:'Courier New',monospace;font-size:.88rem;transition:background .15s;user-select:none}
+  .opts li:hover{background:#f0f0f0}
+  .opts li.correct{background:#d4edda;border-color:var(--correct);color:var(--correct);font-weight:bold}
+  .opts li.wrong{background:#fce4ec;border-color:var(--wrong);color:var(--wrong)}
+  .opts li.reveal{background:#d4edda;border-color:var(--correct)}
+  .fb{font-family:sans-serif;font-size:.86rem;margin-top:.5rem;min-height:1.1rem;color:var(--muted)}
+  .score{text-align:center;padding:1.4rem;display:none;background:#f0f7ff;border-radius:6px;margin-top:1.4rem;font-family:sans-serif}
+  .score h3{font-size:1.35rem;color:var(--accent)}
+  .src{background:#f0f7f0;border:1px solid #a8d5a2;border-radius:6px;padding:1rem 1.2rem;margin-top:2.4rem;font-family:sans-serif;font-size:.86rem}
+  .ask{background:#fdf0f5;border:1px solid #e0a0b8;border-radius:6px;padding:1rem 1.2rem;margin-top:1.2rem;font-family:sans-serif;font-size:.86rem}
+  .nav{display:flex;justify-content:space-between;margin-top:2.5rem;font-family:sans-serif;font-size:.85rem}
+  .nav a{color:var(--accent);text-decoration:none}.nav a:hover{text-decoration:underline}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<div class="topbar"><a href="../index.html">🏠 Home</a> &nbsp;·&nbsp; <a href="../reference/exam-blueprint.html">📋 Exam Blueprint</a></div>
+
+<p class="meta">Lesson 8 · Module 4 · BCA Exam Prep</p>
+<h1>Trees, BST &amp; Spanning Trees</h1>
+
+<div class="exam">Case studies come from "tree traversal" and "shortest-distance algorithms — Prim's, Kruskal's" (12th &amp; 16th). The revision class ran out of time on trees, so this leans on the SLM. Traversals are the highest-value exam skill here.</div>
+
+<h2>1. Terminology</h2>
+<ul>
+  <li><strong>Root</strong> — the top node (no parent). <strong>Leaf</strong> — a node with no children.</li>
+  <li><strong>Parent / Child</strong> — a node directly above / below another.</li>
+  <li><strong>Non-linear, hierarchical</strong> data structure (vs the linear array/stack/queue).</li>
+  <li><strong>Binary tree</strong> — each node has at most <strong>two</strong> children (left, right).</li>
+</ul>
+
+<h2>2. Binary Search Tree (BST)</h2>
+<div class="callout"><strong>BST property:</strong> for every node, all values in its <em>left</em> subtree are smaller, all values in its <em>right</em> subtree are larger. This makes search <code>O(log n)</code> on a balanced tree.</div>
+<p>We'll use this BST throughout:</p>
+<div class="tree">        50
+       /  \
+     30    70
+    /  \   /  \
+   20  40 60  80</div>
+<ul>
+  <li><strong>Search:</strong> start at root; go left if key &lt; node, right if key &gt; node. Same idea as binary search.</li>
+  <li><strong>Insert:</strong> search for the key; place the new node where the search falls off.</li>
+  <li><strong>Delete:</strong> three cases — leaf (just remove), one child (link child up), two children (replace with inorder successor).</li>
+</ul>
+
+<h2>3. Tree Traversals (learn all three)</h2>
+<table>
+  <tr><th>Traversal</th><th>Order</th><th>Mnemonic</th></tr>
+  <tr><td><strong>Inorder</strong></td><td>Left, <strong>Node</strong>, Right</td><td>L N R</td></tr>
+  <tr><td><strong>Preorder</strong></td><td><strong>Node</strong>, Left, Right</td><td>N L R</td></tr>
+  <tr><td><strong>Postorder</strong></td><td>Left, Right, <strong>Node</strong></td><td>L R N</td></tr>
+</table>
+<p>For the BST above:</p>
+<ul>
+  <li><strong>Inorder:</strong> <code>20 30 40 50 60 70 80</code> &nbsp;— note: a BST's inorder is always <strong>sorted</strong>.</li>
+  <li><strong>Preorder:</strong> <code>50 30 20 40 70 60 80</code></li>
+  <li><strong>Postorder:</strong> <code>20 40 30 60 80 70 50</code></li>
+</ul>
+<pre><code>void inorder(struct Node *t){
+    if(t != NULL){
+        inorder(t->left);        <span class="cmt">// L</span>
+        printf("%d ", t->data);  <span class="cmt">// N</span>
+        inorder(t->right);       <span class="cmt">// R</span>
+    }
+}</code></pre>
+<div class="callout">Swap the three lines' order to get preorder (print first) or postorder (print last). The recursion shape is identical.</div>
+
+<h2>4. Graphs &amp; Spanning Trees (case-study level)</h2>
+<ul>
+  <li><strong>Graph</strong> — vertices joined by edges. Can be represented by an adjacency <strong>matrix</strong> or adjacency <strong>list</strong>.</li>
+  <li><strong>Spanning tree</strong> — a tree that connects all vertices of a graph with no cycles.</li>
+  <li><strong>Minimum Spanning Tree (MST)</strong> — the spanning tree with the smallest total edge weight. Two algorithms build it:</li>
+</ul>
+<table>
+  <tr><th>Prim's</th><th>Kruskal's</th></tr>
+  <tr><td>Grow from one vertex; repeatedly add the cheapest edge that reaches a <em>new</em> vertex.</td><td>Sort all edges; add the cheapest edge that doesn't form a cycle, until all vertices connected.</td></tr>
+</table>
+
+<h2>5. Scoring in the exam</h2>
+<div class="exam">For a traversal question: draw the tree, then write the sequence and name the rule (L-N-R etc.). For a case study, state which algorithm (Prim/Kruskal), then walk the edge selections. Inorder-of-BST-is-sorted is a favourite MCQ.</div>
+
+<!-- QUIZ -->
+<div class="quiz">
+  <h2>Drill — recall, don't peek</h2>
+  <p style="color:var(--muted);font-family:sans-serif;font-size:.86rem;margin-bottom:1.4rem">Use the BST above. Answer from memory, then click.</p>
+
+  <div class="q" id="q1">
+    <p>1. Inorder traversal visits in the order…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q1','Correct — Left, Node, Right.')">L, N, R.</li>
+      <li onclick="ans(this,0,'q1','That is preorder (Node first).')">N, L, R.</li>
+      <li onclick="ans(this,0,'q1','That is postorder (Node last).')">L, R, N.</li>
+      <li onclick="ans(this,0,'q1','Right-first is not a standard traversal.')">R, N, L.</li>
+    </ul>
+    <div class="fb" id="q1f"></div>
+  </div>
+
+  <div class="q" id="q2">
+    <p>2. The inorder traversal of a BST is always…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q2','Correct — inorder of a BST yields sorted order.')">sorted..</li>
+      <li onclick="ans(this,0,'q2','Reverse order is not guaranteed.')">reversed</li>
+      <li onclick="ans(this,0,'q2','It is deterministic, not random.')">random..</li>
+      <li onclick="ans(this,0,'q2','The root is not necessarily first in inorder.')">root 1st</li>
+    </ul>
+    <div class="fb" id="q2f"></div>
+  </div>
+
+  <div class="q" id="q3">
+    <p>3. Preorder of the BST (root 50) STARTS with…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q3','Correct — preorder prints the Node (root) first.')">50......</li>
+      <li onclick="ans(this,0,'q3','20 starts the inorder, not preorder.')">20......</li>
+      <li onclick="ans(this,0,'q3','80 would be late in any traversal here.')">80......</li>
+      <li onclick="ans(this,0,'q3','70 is the right child, visited later.')">70......</li>
+    </ul>
+    <div class="fb" id="q3f"></div>
+  </div>
+
+  <div class="q" id="q4">
+    <p>4. In a BST, values in a node's LEFT subtree are…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q4','Correct — left = smaller.')">smaller.</li>
+      <li onclick="ans(this,0,'q4','Larger values go to the right subtree.')">larger..</li>
+      <li onclick="ans(this,0,'q4','They are not equal to the node.')">equal...</li>
+      <li onclick="ans(this,0,'q4','There is a strict ordering, not random.')">random..</li>
+    </ul>
+    <div class="fb" id="q4f"></div>
+  </div>
+
+  <div class="q" id="q5">
+    <p>5. Kruskal's algorithm adds the cheapest edge that does NOT…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q5','Correct — avoid forming a cycle.')">make cyc</li>
+      <li onclick="ans(this,0,'q5','It uses the cheapest edge, not the costliest.')">cost max</li>
+      <li onclick="ans(this,0,'q5','It does connect vertices — that is the goal.')">connect.</li>
+      <li onclick="ans(this,0,'q5','Sorting edges is the first step, not avoided.')">sort all</li>
+    </ul>
+    <div class="fb" id="q5f"></div>
+  </div>
+
+  <div class="score" id="score"><h3 id="st"></h3><p id="sm" style="margin-top:.4rem;color:var(--muted)"></p></div>
+</div>
+
+<div class="src"><strong>Primary source:</strong> SLM §4.1–4.2 (Trees, Binary Trees, Traversals, BST) &amp; §4.5 (Spanning Trees, Prim's, Kruskal's). Animated: <a href="https://visualgo.net/en/bst" target="_blank">VisuAlgo — BST</a>.</div>
+<div class="ask"><strong>Ask your teacher:</strong> <em>"give me a tree and ask for all 3 traversals"</em> or <em>"walk Kruskal's on this graph"</em> or <em>"show BST deletion with two children."</em></div>
+
+<div class="nav">
+  <a href="0007-prefix-postfix-eval-recursion.html">← Lesson 7: Prefix &amp; Recursion</a>
+  <a href="0009-queues.html">Lesson 9: Queues →</a>
+</div>
+
+<script>
+  const answered={}, correct={}, total=5;
+  function ans(el,ok,q,msg){
+    if(answered[q])return; answered[q]=true; correct[q]=!!ok;
+    const lis=el.parentElement.querySelectorAll('li'); lis.forEach(o=>o.style.pointerEvents='none');
+    if(ok){el.classList.add('correct');}else{el.classList.add('wrong');
+      lis.forEach(o=>{if(o!==el&&o.getAttribute('onclick').includes(',1,'))o.classList.add('reveal');});}
+    document.getElementById(q+'f').textContent=msg;
+    if(Object.keys(answered).length===total)show();
+  }
+  function show(){
+    const n=Object.values(correct).filter(Boolean).length;
+    const b=document.getElementById('score'); b.style.display='block';
+    document.getElementById('st').textContent=n+' / '+total+' correct';
+    const m={5:"Traversals & MST locked. Case-study ready.",4:"Strong. Review the miss.",3:"Redo the three traversals on the BST.",2:"Re-read sections 2–3 slowly.",1:"Trace each traversal by hand.",0:"Restart from terminology."};
+    document.getElementById('sm').textContent=m[n];
+  }
+</script>
+</body>
+</html>

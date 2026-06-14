@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2 — Infix to Postfix (the guaranteed question)</title>
+<style>
+  :root{--ink:#1a1a1a;--muted:#555;--accent:#2c5f8a;--bg:#faf9f7;--card:#fff;--border:#ddd;--code-bg:#f4f1eb;--correct:#2d6a4f;--wrong:#b5153f;--hl:#fff3cd}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Georgia','Times New Roman',serif;font-size:1.05rem;line-height:1.7;color:var(--ink);background:var(--bg);max-width:740px;margin:0 auto;padding:2.5rem 1.5rem 6rem}
+  h1{font-size:1.95rem;font-weight:normal;color:var(--accent);margin-bottom:.2rem}
+  .meta{color:var(--muted);font-size:.82rem;font-family:sans-serif;margin-bottom:2rem}
+  h2{font-size:1.25rem;margin:2.4rem 0 .7rem;border-bottom:1px solid var(--border);padding-bottom:.25rem}
+  h3{font-size:1rem;margin:1.4rem 0 .4rem;color:var(--accent)}
+  p{margin-bottom:1rem}
+  ul,ol{padding-left:1.5rem;margin-bottom:1rem}
+  li{margin-bottom:.35rem}
+  code{font-family:'Courier New',monospace;font-size:.9rem;background:var(--code-bg);padding:.1em .35em;border-radius:3px}
+  pre{background:var(--code-bg);border-left:3px solid var(--accent);padding:1rem 1.2rem;overflow-x:auto;margin:1.2rem 0;border-radius:0 4px 4px 0}
+  pre code{background:none;padding:0;font-size:.88rem}
+  .callout{background:var(--hl);border-left:4px solid #e6a817;padding:.85rem 1.1rem;margin:1.2rem 0;border-radius:0 4px 4px 0;font-size:.95rem}
+  .exam{background:#e8f4f8;border-left:4px solid var(--accent);padding:.85rem 1.1rem;margin:1.2rem 0;border-radius:0 4px 4px 0;font-size:.92rem;font-family:sans-serif}
+  .exam::before{content:"📋 Exam: ";font-weight:bold}
+  table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.92rem}
+  th{background:var(--accent);color:#fff;text-align:left;padding:.55rem .7rem;font-family:sans-serif}
+  td{padding:.5rem .7rem;border-bottom:1px solid var(--border)}
+  tr:nth-child(even) td{background:#f7f5f2}
+  .trace th,.trace td{text-align:center;font-family:'Courier New',monospace;font-size:.95rem}
+  .trace td:last-child{text-align:left;font-family:sans-serif;font-size:.82rem;color:var(--muted)}
+  .quiz{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.6rem;margin-top:2.5rem}
+  .quiz h2{border:none;margin-top:0}
+  .q{margin-bottom:1.8rem}
+  .q p{font-weight:bold;margin-bottom:.7rem}
+  .opts{list-style:none;padding:0}
+  .opts li{padding:.55rem .85rem;border:1px solid var(--border);border-radius:5px;margin-bottom:.4rem;cursor:pointer;font-family:'Courier New',monospace;font-size:.95rem;transition:background .15s;user-select:none}
+  .opts li:hover{background:#f0f0f0}
+  .opts li.correct{background:#d4edda;border-color:var(--correct);color:var(--correct);font-weight:bold}
+  .opts li.wrong{background:#fce4ec;border-color:var(--wrong);color:var(--wrong)}
+  .opts li.reveal{background:#d4edda;border-color:var(--correct)}
+  .fb{font-family:sans-serif;font-size:.86rem;margin-top:.5rem;min-height:1.1rem;color:var(--muted)}
+  .score{text-align:center;padding:1.4rem;display:none;background:#f0f7ff;border-radius:6px;margin-top:1.4rem;font-family:sans-serif}
+  .score h3{font-size:1.35rem;color:var(--accent)}
+  .src{background:#f0f7f0;border:1px solid #a8d5a2;border-radius:6px;padding:1rem 1.2rem;margin-top:2.4rem;font-family:sans-serif;font-size:.86rem}
+  .ask{background:#fdf0f5;border:1px solid #e0a0b8;border-radius:6px;padding:1rem 1.2rem;margin-top:1.2rem;font-family:sans-serif;font-size:.86rem}
+  .nav{display:flex;justify-content:space-between;margin-top:2.5rem;font-family:sans-serif;font-size:.85rem}
+  .nav a{color:var(--accent);text-decoration:none}
+  .nav a:hover{text-decoration:underline}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<div style="font-family:sans-serif;font-size:.8rem;padding:.5rem 0 1.2rem;border-bottom:1px solid var(--border);margin-bottom:1.3rem"><a href="../index.html" style="color:var(--accent);text-decoration:none">🏠 Home</a> &nbsp;·&nbsp; <a href="../reference/exam-blueprint.html" style="color:var(--accent);text-decoration:none">📋 Exam Blueprint</a></div>
+<p class="meta">Lesson 2 · Module 2 · Data Structures Using C · BCA Exam Prep</p>
+<h1>Infix → Postfix: the one question you <em>will</em> get</h1>
+
+<div class="exam">Your lecturer said it directly (12th April class): <em>"You will get at least one question from this in your exam."</em> And: <em>"Don't use a shortcut technique — always apply the table."</em> This lesson drills exactly that table method.</div>
+
+<h2>1. The three notations</h2>
+<p>Same expression, three ways to place the <strong>operator</strong> relative to its two <strong>operands</strong>:</p>
+<table>
+  <tr><th>Notation</th><th>Operator goes…</th><th>Example of a + b</th></tr>
+  <tr><td>Infix</td><td>between operands</td><td><code>a + b</code></td></tr>
+  <tr><td>Prefix (Polish)</td><td>before operands</td><td><code>+ a b</code></td></tr>
+  <tr><td>Postfix (Reverse Polish)</td><td>after operands</td><td><code>a b +</code></td></tr>
+</table>
+<p>Why bother? Computers evaluate <strong>postfix</strong> easily with a stack — no brackets, no precedence rules needed at run time. Converting infix→postfix is where the stack earns its keep.</p>
+
+<h2>2. The precedence table (memorise)</h2>
+<table>
+  <tr><th>Priority</th><th>Operators</th><th>Associativity</th></tr>
+  <tr><td>Highest</td><td><code>( )</code> parentheses</td><td>Left → Right</td></tr>
+  <tr><td>↑</td><td><code>^</code> power</td><td>Right → Left</td></tr>
+  <tr><td>↑</td><td><code>* / %</code></td><td>Left → Right</td></tr>
+  <tr><td>↓</td><td><code>+ −</code></td><td>Left → Right</td></tr>
+  <tr><td>Lowest</td><td><code>=</code> assignment</td><td>Right → Left</td></tr>
+</table>
+<div class="callout">Key consequence: when <code>*</code> and <code>/</code> meet, the one already in the stack leaves first (left-to-right). That's the move students miss.</div>
+
+<h2>3. The algorithm (three columns)</h2>
+<p>Make a table with columns <strong>Scan · Stack · Output</strong>. Walk the infix expression left to right:</p>
+<ol>
+  <li><strong>Operand</strong> (A, B, 5…) → write straight to <strong>Output</strong>.</li>
+  <li><strong>Operator</strong> → before pushing, <strong>pop</strong> from the stack every operator whose precedence is <strong>higher than or equal to</strong> the current one (send them to Output). Then push the current operator.</li>
+  <li><strong>Opening</strong> <code>(</code> → push it. <strong>Closing</strong> <code>)</code> → pop to Output until you remove the matching <code>(</code>.</li>
+  <li><strong>End of input</strong> → pop everything left in the stack to Output.</li>
+</ol>
+
+<h2>4. Worked example (from your class)</h2>
+<p>Convert <code>A + B * D / E</code> to postfix.</p>
+<table class="trace">
+  <tr><th>Scan</th><th>Stack</th><th>Output</th><th>Why</th></tr>
+  <tr><td>A</td><td>(empty)</td><td>A</td><td>operand → output</td></tr>
+  <tr><td>+</td><td>+</td><td>A</td><td>operator → push</td></tr>
+  <tr><td>B</td><td>+</td><td>A B</td><td>operand → output</td></tr>
+  <tr><td>*</td><td>+ *</td><td>A B</td><td>* higher than + → push on top</td></tr>
+  <tr><td>D</td><td>+ *</td><td>A B D</td><td>operand → output</td></tr>
+  <tr><td>/</td><td>+ /</td><td>A B D *</td><td>/ equal to * → pop * out, push /</td></tr>
+  <tr><td>E</td><td>+ /</td><td>A B D * E</td><td>operand → output</td></tr>
+  <tr><td>end</td><td>(empty)</td><td>A B D * E / +</td><td>pop rest: / then +</td></tr>
+</table>
+<p>Answer: <strong><code>A B D * E / +</code></strong></p>
+
+<h2>5. How to score the full 7.5 in the exam</h2>
+<div class="exam">Show the <strong>complete table</strong> (every scan row), state the precedence rule you used when an operator pops, then box the final postfix string. The table <em>is</em> your explanation — that's what earns marks over a bare answer.</div>
+
+<h2>6. Bonus: Infix → Prefix</h2>
+<p>Same engine, wrapped: <strong>(1)</strong> reverse the infix, <strong>(2)</strong> run the postfix table on the reversed string, <strong>(3)</strong> reverse that result. Done. (Covered in detail in a later lesson.)</p>
+
+<!-- QUIZ -->
+<div class="quiz">
+  <h2>Drill — recall, don't peek</h2>
+  <p style="color:var(--muted);font-family:sans-serif;font-size:.86rem;margin-bottom:1.4rem">Work each on paper with the 3-column table first, then click.</p>
+
+  <div class="q" id="q1">
+    <p>1. Which is the postfix of <code>A + B</code>?</p>
+    <ul class="opts">
+      <li onclick="ans(this,0,'q1','+ A B is prefix, not postfix.')">+ A B</li>
+      <li onclick="ans(this,1,'q1','Correct — operator after both operands.')">A B +</li>
+      <li onclick="ans(this,0,'q1','A + B is the original infix.')">A + B</li>
+      <li onclick="ans(this,0,'q1','B A + reverses the operands wrongly.')">B A +</li>
+    </ul>
+    <div class="fb" id="q1f"></div>
+  </div>
+
+  <div class="q" id="q2">
+    <p>2. An operand, when scanned, goes to the…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q2','Correct — operands always go straight to output.')">output</li>
+      <li onclick="ans(this,0,'q2','Operators go to the stack, not operands.')">stack..</li>
+      <li onclick="ans(this,0,'q2','There is no discard step.')">delete</li>
+      <li onclick="ans(this,0,'q2','Nothing is reversed mid-scan.')">revers</li>
+    </ul>
+    <div class="fb" id="q2f"></div>
+  </div>
+
+  <div class="q" id="q3">
+    <p>3. Postfix of <code>A * B + C</code>?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q3','Correct — A B * done first (higher precedence), then + C.')">A B * C +</li>
+      <li onclick="ans(this,0,'q3','That would treat + as higher than * — wrong.')">A B C + *</li>
+      <li onclick="ans(this,0,'q3','Operators are misplaced; retrace the table.')">A B + C *</li>
+      <li onclick="ans(this,0,'q3','Operands out of order; * binds A and B.')">B C A * +</li>
+    </ul>
+    <div class="fb" id="q3f"></div>
+  </div>
+
+  <div class="q" id="q4">
+    <p>4. When current op <code>/</code> meets <code>*</code> already on the stack, you first…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q4','Correct — equal precedence, left-to-right: pop * out first.')">pop *.</li>
+      <li onclick="ans(this,0,'q4','You never discard the stacked operator.')">drop *</li>
+      <li onclick="ans(this,0,'q4','Pushing / on top would break left-to-right order.')">push /</li>
+      <li onclick="ans(this,0,'q4','Operands are unrelated to this rule.')">add B</li>
+    </ul>
+    <div class="fb" id="q4f"></div>
+  </div>
+
+  <div class="q" id="q5">
+    <p>5. Postfix of <code>(A + B) * C</code>?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q5','Correct — brackets force A B + first, then * C.')">A B + C *</li>
+      <li onclick="ans(this,0,'q5','That ignores the brackets around A + B.')">A B C * +</li>
+      <li onclick="ans(this,0,'q5','Brackets are highest priority; + must resolve first.')">A B * C +</li>
+      <li onclick="ans(this,0,'q5','Operands out of order; retrace the table.')">C A B + *</li>
+    </ul>
+    <div class="fb" id="q5f"></div>
+  </div>
+
+  <div class="score" id="score"><h3 id="st"></h3><p id="sm" style="margin-top:.4rem;color:var(--muted)"></p></div>
+</div>
+
+<div class="src"><strong>Primary source:</strong> SLM textbook §2.1.4–2.1.6 (Polish Expressions, Infix→Postfix, Infix→Prefix). Also good: <a href="https://www.geeksforgeeks.org/stack-set-2-infix-to-postfix/" target="_blank">GeeksForGeeks — Infix to Postfix</a> for more solved tables.</div>
+
+<div class="ask"><strong>Stuck on a conversion? Ask your teacher.</strong> In the Claude Code chat, paste any expression and say <em>"trace this infix→postfix step by step"</em> or <em>"give me 5 practice expressions with answers."</em></div>
+
+<div class="nav">
+  <a href="0001-introduction-to-data-structures.html">← Lesson 1: Introduction</a>
+  <a href="0003-stack-push-pop.html">Lesson 3: Stack push/pop →</a>
+</div>
+
+<script>
+  const answered={}, correct={}, total=5;
+  function ans(el,ok,q,msg){
+    if(answered[q])return; answered[q]=true; correct[q]=!!ok;
+    const lis=el.parentElement.querySelectorAll('li');
+    lis.forEach(o=>o.style.pointerEvents='none');
+    if(ok){el.classList.add('correct');}
+    else{el.classList.add('wrong');
+      lis.forEach(o=>{if(o!==el&&o.getAttribute('onclick').includes(',1,'))o.classList.add('reveal');});}
+    document.getElementById(q+'f').textContent=msg;
+    if(Object.keys(answered).length===total)show();
+  }
+  function show(){
+    const n=Object.values(correct).filter(Boolean).length;
+    const b=document.getElementById('score'); b.style.display='block';
+    document.getElementById('st').textContent=n+' / '+total+' correct';
+    const m={5:"Exam-ready on this topic. This is marks in the bank.",4:"Strong. Retrace the one you missed.",3:"Getting there — redo the worked example, then retry.",2:"Re-read sections 2–4 and trace slowly.",1:"Slow down: do every row of the table by hand.",0:"Restart from the worked example; trace each scan."};
+    document.getElementById('sm').textContent=m[n];
+  }
+</script>
+</body>
+</html>

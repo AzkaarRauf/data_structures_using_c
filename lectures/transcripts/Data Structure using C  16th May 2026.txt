@@ -1,0 +1,4747 @@
+00:00 Good morning class.
+00:09 
+
+00:09 Just give me a green check if you guys
+00:10 
+
+00:10 can hear me loud and clear.
+00:18 
+
+00:18 All right.
+00:20 
+
+00:20 Good.
+00:22 
+
+00:22 So yeah, this will be our the LMR class
+00:25 
+
+00:25 for the data structure using C.
+00:27 
+
+00:27 So
+00:29 
+
+00:29 as I can see there's a lot of folks have
+00:31 
+
+00:31 already joined.
+00:32 
+
+00:32 So before we start our class, I just
+00:35 
+
+00:35 wanted to ask, do you have anything to
+00:38 
+
+00:38 discuss today
+00:40 
+
+00:40 regarding the exams, regarding the paper
+00:42 
+
+00:42 pattern, regarding them important
+00:44 
+
+00:44 points? Because in today's class we're
+00:46 
+
+00:46 going to cover the all the basic things
+00:49 
+
+00:49 that we have covered so far
+00:51 
+
+00:51 and we are going to, you know, discuss
+00:53 
+
+00:53 your queries as well.
+00:55 
+
+00:55 Okay? So I'm giving you a 2 minutes of
+00:57 
+
+00:57 time.
+00:58 
+
+00:58 If you want to, you know, discuss
+00:60 
+
+00:60 anything, if you want to, you know, uh
+01:02 
+
+01:02 ask any questions, either you can write
+01:05 
+
+01:05 down into the chat window or you can
+01:07 
+
+01:07 unmute yourself and let me know what
+01:10 
+
+01:10 specific doubts you are facing because
+01:12 
+
+01:12 now we have already covered, you know,
+01:14 
+
+01:14 all the modules from module 1 to module
+01:15 
+
+01:15 5.
+01:18 
+
+01:18 So let me pause here and then
+01:20 
+
+01:20 giving you a 2 minutes of time.
+01:23 
+
+01:23 Any important questions? Anything you
+01:25 
+
+01:25 want to discuss regarding the exams?
+01:28 
+
+01:28 Is it clear to everyone?
+01:32 
+
+01:32 Any doubts in the concepts?
+01:36 
+
+01:36 I hope everyone knows, you know, how the
+01:39 
+
+01:39 question paper structure is.
+01:46 
+
+01:46 Yes, no, maybe.
+01:49 
+
+01:49 Anyone?
+01:54 
+
+01:54 No questions?
+01:56 
+
+01:56 All clear?
+01:58 
+
+01:58 With data structure?
+02:04 
+
+02:04 I mean, you guys can unmute yourself
+02:05 
+
+02:05 also. I mean, if you want.
+02:11 
+
+02:11 No? No questions in the chat?
+02:16 
+
+02:16 All right.
+02:18 
+
+02:18 Good.
+02:20 
+
+02:20 Seems like everyone is clear with the
+02:22 
+
+02:22 concepts.
+02:25 
+
+02:25 Now,
+02:27 
+
+02:27 let me share my screen and then, you
+02:29 
+
+02:29 know, we can perform the revision as
+02:30 
+
+02:30 well.
+02:41 
+
+02:41 All right. So,
+02:43 
+
+02:43 we will I mean, in the first class we
+02:45 
+
+02:45 discussed I mean, in today's class we
+02:47 
+
+02:47 are going to discuss, you know, the
+02:50 
+
+02:50 basics of the data structures and
+02:51 
+
+02:51 algorithms. We just will discuss the
+02:53 
+
+02:53 arrays, stacks,
+02:55 
+
+02:55 um the infix, prefix, and the postfix
+02:57 
+
+02:57 expressions. We will discuss the
+02:59 
+
+02:59 concepts of queues, pointers, linked
+03:02 
+
+03:02 lists, um the tree traversals, and the
+03:05 
+
+03:05 binary search tree. Okay?
+03:08 
+
+03:08 So, if you have any doubts in any of
+03:10 
+
+03:10 these topics, do let me know whenever we
+03:12 
+
+03:12 will come to that specific topic. Okay?
+03:16 
+
+03:16 So, yeah. So, we started our um you
+03:19 
+
+03:19 know, module with the introduction of
+03:20 
+
+03:20 the data structures and algorithms. I
+03:23 
+
+03:23 told you that what do what do we mean by
+03:24 
+
+03:24 data? So, data is a collection of raw
+03:27 
+
+03:27 facts and figures or the values or set
+03:29 
+
+03:29 of values. And then, when the data get
+03:32 
+
+03:32 processed, it will become a information.
+03:34 
+
+03:34 Okay? So, there's a difference between
+03:36 
+
+03:36 the data and information. The data in a
+03:38 
+
+03:38 processed form is called as the
+03:40 
+
+03:40 information. Now,
+03:43 
+
+03:43 we discussed the concept of data
+03:44 
+
+03:44 structures. So, what do we mean by data
+03:46 
+
+03:46 structure? The data structure is a way
+03:48 
+
+03:48 of organizing the data. Okay? How you
+03:51 
+
+03:51 are organizing the data?
+03:53 
+
+03:53 May I know what is the purpose of the
+03:54 
+
+03:54 organizing of the data?
+03:56 
+
+03:56 What is the purpose?
+03:59 
+
+03:59 Can anyone can Can anyone of you tell me
+04:01 
+
+04:01 what is the purpose of organizing of the
+04:03 
+
+04:03 data? Why we are organizing?
+04:09 
+
+04:09 Anyone?
+04:13 
+
+04:13 To have
+04:15 
+
+04:15 the better access.
+04:16 
+
+04:16 Okay, to have the efficient access.
+04:19 
+
+04:19 Okay, we can I mean if we are organizing
+04:21 
+
+04:21 the data, we can easily fetch out our
+04:24 
+
+04:24 data, our required data in a minimum
+04:27 
+
+04:27 time.
+04:28 
+
+04:28 Okay.
+04:31 
+
+04:31 Yeah. So, that is the purpose of the
+04:33 
+
+04:33 data organizing.
+04:36 
+
+04:36 Uh I can see a question from Ehsan. Will
+04:39 
+
+04:39 there be any questions to write code for
+04:42 
+
+04:42 the data structures like trees or the
+04:44 
+
+04:44 sorting algorithms? Yes. Yes, Ehsan.
+04:48 
+
+04:48 There will be a you know, a coding
+04:49 
+
+04:49 question in the exam where they may ask
+04:52 
+
+04:52 you that okay,
+04:54 
+
+04:54 I mean they will give you
+04:55 
+
+04:55 in section B where there will be a case
+04:58 
+
+04:58 study and then you will be asked to
+05:00 
+
+05:00 write a code in C.
+05:02 
+
+05:02 Okay. So,
+05:04 
+
+05:04 that you can expect.
+05:06 
+
+05:06 Case study questions, I mean Muhammad, I
+05:09 
+
+05:09 am not
+05:10 
+
+05:10 clear. I mean what do you want? You want
+05:12 
+
+05:12 to understand what cases what type of
+05:14 
+
+05:14 case study questions you can expect in
+05:16 
+
+05:16 your exams?
+05:20 
+
+05:20 Okay. Okay. So, yeah. So, in the case of
+05:23 
+
+05:23 study question usually, I mean whatever
+05:24 
+
+05:24 I have seen so far, and they usually
+05:27 
+
+05:27 give case study in terms of
+05:30 
+
+05:30 the searching and sorting. Okay. And in
+05:33 
+
+05:33 terms of
+05:34 
+
+05:34 uh
+05:35 
+
+05:35 uh the tree traversal. Okay. I mean you
+05:37 
+
+05:37 can expect mostly from the searching and
+05:39 
+
+05:39 sorting part.
+05:42 
+
+05:42 Okay. Can you show any sample question
+05:44 
+
+05:44 paper?
+05:46 
+
+05:46 No, not yet, Mukund, because the
+05:49 
+
+05:49 question paper has already been drafted
+05:51 
+
+05:51 by me
+05:52 
+
+05:52 and
+05:53 
+
+05:53 I can't disclose the question paper.
+05:56 
+
+05:56 Okay, because there are multiple sets,
+05:59 
+
+05:59 so I can't disclose any question paper
+06:00 
+
+06:00 the sample question paper and it is not
+06:02 
+
+06:02 in the guidelines. Okay, but I can tell
+06:04 
+
+06:04 you that okay, what are the important
+06:06 
+
+06:06 areas that you can focus on.
+06:10 
+
+06:10 Okay. Uh,
+06:13 
+
+06:13 okay, can I know the date of the end of
+06:14 
+
+06:14 examination to the second semester
+06:17 
+
+06:17 college? I am not aware of this. I mean,
+06:19 
+
+06:19 you can ask your peers
+06:20 
+
+06:20 on the date of the second term exam. Uh,
+06:23 
+
+06:23 will there be a revision class after
+06:26 
+
+06:26 this? Tasmiya, this is your revision
+06:27 
+
+06:27 class, Tasmiya. The class which you are
+06:29 
+
+06:29 in right now, this is your revision
+06:31 
+
+06:31 class.
+06:37 
+
+06:37 What else we have?
+06:41 
+
+06:41 Uh, how
+06:57 
+
+06:57 Am I audible to you guys?
+06:60 
+
+06:60 Yes, sir. Uh, okay. Okay. Yeah, so in in
+07:04 
+
+07:04 your in your question I mean in your
+07:06 
+
+07:06 question paper, you will be asked the
+07:08 
+
+07:08 questions based on the fundamental
+07:09 
+
+07:09 knowledge of the data structure. Okay,
+07:11 
+
+07:11 so don't expect a very huge conceptual
+07:15 
+
+07:15 questions, okay, in your exam because
+07:17 
+
+07:17 the question paper is designed in such a
+07:19 
+
+07:19 way that it will test your basic
+07:21 
+
+07:21 understanding. Okay, and that was my
+07:23 
+
+07:23 focus from the class one that, you know,
+07:26 
+
+07:26 I want to clear your concepts on the
+07:29 
+
+07:29 data structure side. Okay? So, just
+07:32 
+
+07:32 focus on the data structure part, the
+07:34 
+
+07:34 types of data structure specifically
+07:35 
+
+07:35 with the array, okay, because the array
+07:38 
+
+07:38 is the basic one. Okay, so the arrays
+07:40 
+
+07:40 and the linked list and the queue, okay,
+07:42 
+
+07:42 because you know, there are a lot of
+07:44 
+
+07:44 things that are covered under the stacks
+07:47 
+
+07:47 and the queues. Okay, specifically the
+07:49 
+
+07:49 LIFO and the FIFO pattern. Okay? And
+07:52 
+
+07:52 then, you know, how you can work with
+07:54 
+
+07:54 the queues. Like, for example, you know,
+07:56 
+
+07:56 suppose you are inserting any data from
+07:58 
+
+07:58 the rear end and you are deleting from
+08:00 
+
+08:00 the data from the front end, then, you
+08:02 
+
+08:02 know, they will give you a random
+08:04 
+
+08:04 situation.
+08:06 
+
+08:06 Okay? And then, they will ask you for
+08:08 
+
+08:08 the output. Okay? Now, the problem which
+08:11 
+
+08:11 most of the students face is that they
+08:14 
+
+08:14 are not so proficient in the coding.
+08:17 
+
+08:17 Okay? And I hope this is the same case
+08:19 
+
+08:19 with all of you also. I mean, I don't
+08:21 
+
+08:21 know how many of you are already
+08:23 
+
+08:23 proficient in the C programming, but,
+08:26 
+
+08:26 you know, the most of the things which I
+08:27 
+
+08:27 have faced that the students are not so
+08:30 
+
+08:30 proficient. I mean, they know the
+08:32 
+
+08:32 concepts, but they don't know how to
+08:34 
+
+08:34 write the effective code. Is my
+08:36 
+
+08:36 understanding correct, guys?
+08:42 
+
+08:42 Okay, I mean, most of you will agree on
+08:44 
+
+08:44 this, right? Because I have seen lot of,
+08:46 
+
+08:46 you know, exams copy.
+08:50 
+
+08:50 Uh
+08:52 
+
+08:52 yes, uh I can see Nikhil. Yes, Nikhil,
+08:54 
+
+08:54 this is your last class. Okay, this is
+08:56 
+
+08:56 your last class for the data structures.
+08:59 
+
+08:59 Okay, because this is your LMR class. We
+09:02 
+
+09:02 have already covered the five classes.
+09:04 
+
+09:04 Okay? So, whatever the important things
+09:06 
+
+09:06 that we want to discuss, we have already
+09:08 
+
+09:08 discussed. But, if you have anything to
+09:10 
+
+09:10 ask, feel free to ask in today's class.
+09:13 
+
+09:13 Okay? Yeah. So, so those the students
+09:15 
+
+09:15 who are actually facing issues in the
+09:17 
+
+09:17 coding and, you know, how to write the
+09:19 
+
+09:19 effective code or, you know, suppose you
+09:22 
+
+09:22 got any case study questions. So, I
+09:24 
+
+09:24 would recommend that instead of writing
+09:26 
+
+09:26 the code, okay, instead of, you know,
+09:28 
+
+09:28 remembering the coding part, I would
+09:31 
+
+09:31 recommend that write the pseudo code.
+09:34 
+
+09:34 Okay? Write the pseudo code, write uh
+09:37 
+
+09:37 you know, because once you will be able
+09:39 
+
+09:39 to write the pseudo code, the faculty,
+09:41 
+
+09:41 the teacher will get an understanding
+09:42 
+
+09:42 that yes, this student knows the
+09:45 
+
+09:45 concept. I hope everyone knows what is
+09:47 
+
+09:47 pseudo code. Is there anyone who's who
+09:49 
+
+09:49 who's who's not aware of what the pseudo
+09:51 
+
+09:51 code is?
+09:58 
+
+09:58 Pseudo code. Have you heard this term
+09:60 
+
+09:60 pseudo code?
+10:05 
+
+10:05 Okay, I can see Ashwin, Nikhil.
+10:08 
+
+10:08 Okay, Lakshmi. Uh-huh. Uh-huh. Okay. So,
+10:12 
+
+10:12 most of the people have are already
+10:14 
+
+10:14 aware of the pseudo code. Those who are
+10:15 
+
+10:15 not aware, so pseudo code is basically a
+10:18 
+
+10:18 uh you can say a English syntax like
+10:21 
+
+10:21 coding. Okay, so instead of uh you know,
+10:23 
+
+10:23 asking for the input, for example, in
+10:25 
+
+10:25 the C, we always use scanf for the
+10:28 
+
+10:28 input. So, instead of using the scanf,
+10:30 
+
+10:30 what you can do is you can simply write
+10:32 
+
+10:32 input two numbers. Okay, instead of
+10:35 
+
+10:35 writing the scanf. So, this is called a
+10:36 
+
+10:36 pseudo code because you're writing your
+10:39 
+
+10:39 code in a English level syntax.
+10:42 
+
+10:42 So, even if you're writing the pseudo
+10:43 
+
+10:43 code in your program, okay, that is
+10:46 
+
+10:46 totally acceptable.
+10:48 
+
+10:48 Okay, the faculty will get an
+10:49 
+
+10:49 understanding that yes, the person the
+10:52 
+
+10:52 student has that idea of the basic
+10:54 
+
+10:54 concept and he can write.
+10:56 
+
+10:56 Okay, and you will not get the zero
+10:59 
+
+10:59 marks actually. Okay, so if you're
+11:00 
+
+11:00 writing the pseudo code, there's a high
+11:02 
+
+11:02 chances of probability that you will get
+11:04 
+
+11:04 some marks.
+11:06 
+
+11:06 Okay, so this is again a shortcut
+11:08 
+
+11:08 technique, a trick, okay, that you know,
+11:11 
+
+11:11 yeah, if you want the full marks, then
+11:13 
+
+11:13 you have to write the entire code. Okay,
+11:15 
+
+11:15 so then there is a no possibility of,
+11:18 
+
+11:18 you know, any syntax error because, you
+11:20 
+
+11:20 know, when I check the copies, okay, I
+11:24 
+
+11:24 always look for the pseudo code, the
+11:26 
+
+11:26 basic understanding, whether the student
+11:28 
+
+11:28 knows the concept or not.
+11:30 
+
+11:30 And if the student is writing the code,
+11:32 
+
+11:32 then I will check the complete code with
+11:35 
+
+11:35 each and every concept. So, even if a
+11:37 
+
+11:37 semicolon is missing, okay, I always
+11:40 
+
+11:40 deduct marks.
+11:42 
+
+11:42 Okay, so again,
+11:43 
+
+11:43 uh
+11:44 
+
+11:44 this is like
+11:47 
+
+11:47 uh you know, the way of how you can
+11:49 
+
+11:49 handle that coding questions.
+11:53 
+
+11:53 Uh I can see
+11:55 
+
+11:55 where the pseudo code is available. Uh
+11:58 
+
+11:58 pseudo code is not available anywhere,
+11:59 
+
+11:59 right? You have to write your own pseudo
+12:01 
+
+12:01 code.
+12:02 
+
+12:02 Pseudo code is basically pseudo means
+12:04 
+
+12:04 false. Okay, so you are not actually
+12:05 
+
+12:05 coding it. You're actually writing it in
+12:07 
+
+12:07 a English statement.
+12:10 
+
+12:10 Okay. Uh
+12:12 
+
+12:12 like like last semesters, will there be
+12:14 
+
+12:14 any extra revision class for every
+12:15 
+
+12:15 module? This is your revision class,
+12:17 
+
+12:17 Yesh.
+12:20 
+
+12:20 Okay? This is your revision class. Now,
+12:23 
+
+12:23 there's a question from Jasmine.
+12:25 
+
+12:25 Uh if a questions comes for a code, then
+12:28 
+
+12:28 for the answer, is it sufficient to just
+12:30 
+
+12:30 write the code or also give the code
+12:32 
+
+12:32 explanation? Right, very good question,
+12:34 
+
+12:34 Jasmine. So, the questions will be of
+12:36 
+
+12:36 7.5 marks. Now, this is
+12:39 
+
+12:39 totally dependent on you how you want
+12:41 
+
+12:41 to, you know, write your answer. See,
+12:43 
+
+12:43 7.5 marks is not a less number. Okay, so
+12:46 
+
+12:46 if you want to actually achieve the full
+12:48 
+
+12:48 marks, what you have to do is you have
+12:50 
+
+12:50 to write the code and then you have to
+12:53 
+
+12:53 write a slight explanation on that.
+12:57 
+
+12:57 Okay? So, coding along with a small
+13:00 
+
+13:00 explanation of the line will be a better
+13:04 
+
+13:04 approach for, you know, tackling the 7.5
+13:06 
+
+13:06 marks.
+13:08 
+
+13:08 Okay, otherwise, if you're only writing
+13:10 
+
+13:10 the code, you can expect 4.5 to 5 marks.
+13:13 
+
+13:13 Okay, so so so the two marks will be
+13:15 
+
+13:15 deducted if you are not writing any
+13:17 
+
+13:17 explanation. If you are not telling
+13:19 
+
+13:19 that, okay, what your
+13:20 
+
+13:20 what your coding or what your program is
+13:22 
+
+13:22 doing.
+13:23 
+
+13:23 Okay, in that case, there will be a
+13:25 
+
+13:25 deduction in the marks.
+13:29 
+
+13:29 Okay.
+13:31 
+
+13:31 Uh
+13:32 
+
+13:32 All right. What about the module five
+13:35 
+
+13:35 class the searching and sorting?
+13:37 
+
+13:37 Uh this is
+13:39 
+
+13:39 What's this what's scheduled as a LMR
+13:42 
+
+13:42 class?
+13:43 
+
+13:43 Okay, for
+13:45 
+
+13:45 for the data structure using C.
+13:47 
+
+13:47 Zara.
+13:48 
+
+13:48 So, I mean if you can check with your
+13:51 
+
+13:51 program coordinators
+13:53 
+
+13:53 that whether it is a it it is a module
+13:55 
+
+13:55 five class or not because this is what I
+13:57 
+
+13:57 got from the from from the portal that
+14:00 
+
+14:00 this is your LMR class.
+14:03 
+
+14:03 Okay, so if this is your LMR class, no
+14:05 
+
+14:05 worries. If they will schedule then
+14:07 
+
+14:07 additional class for the module five,
+14:09 
+
+14:09 then definitely we will cover the
+14:11 
+
+14:11 searching and sorting. And if you want
+14:13 
+
+14:13 the searching and sorting to be covered
+14:14 
+
+14:14 today, I can cover that as well.
+14:16 
+
+14:16 Okay, so there is no big issue.
+14:21 
+
+14:21 Okay.
+14:24 
+
+14:24 Uh
+14:25 
+
+14:25 This is This is the last class or
+14:30 
+
+14:30 I'm sorry. Um
+14:31 
+
+14:31 Yeah, I mean this is the last class.
+14:33 
+
+14:33 Uh because this is what I got from the
+14:36 
+
+14:36 notification from the program
+14:37 
+
+14:37 coordinator that, you know, this will be
+14:39 
+
+14:39 your LMR class and uh
+14:42 
+
+14:42 you know, you have to, you know, cover
+14:44 
+
+14:44 the entire syllabus. I mean you have we
+14:46 
+
+14:46 just put revise the class. Okay, when
+14:48 
+
+14:48 are the exams starting? I am not aware
+14:51 
+
+14:51 of that.
+14:52 
+
+14:52 Okay, I can only tell you that the exams
+14:54 
+
+14:54 will be start soon.
+14:56 
+
+14:56 Okay, I don't know whether the any
+14:57 
+
+14:57 official dates have been released or
+14:59 
+
+14:59 not, but yes, the question papers are
+15:02 
+
+15:02 already ready.
+15:03 
+
+15:03 Okay.
+15:04 
+
+15:04 And it has already been submitted to the
+15:07 
+
+15:07 university portal.
+15:09 
+
+15:09 So, yeah.
+15:11 
+
+15:11 Okay, module five not complete
+15:16 
+
+15:16 Module five not complete so much. So,
+15:17 
+
+15:17 any specific
+15:19 
+
+15:19 Um I mean you are saying about the
+15:21 
+
+15:21 searching and sorting so much?
+15:30 
+
+15:30 Uh okay. Okay. So, that we can cover
+15:32 
+
+15:32 today. No worries.
+15:34 
+
+15:34 Okay. So, if you If you guys want If you
+15:36 
+
+15:36 guys have any doubts, feel free to ask.
+15:38 
+
+15:38 Otherwise, we are going to start our
+15:40 
+
+15:40 searching and sorting.
+15:42 
+
+15:42 Any doubts?
+15:44 
+
+15:44 Any further doubts?
+15:49 
+
+15:49 No? Yes?
+15:56 
+
+15:56 All right. If If If there is no doubt,
+15:58 
+
+15:58 then maybe we can start with the
+16:01 
+
+16:01 searching and sorting part. Okay?
+16:06 
+
+16:06 Uh how to write the code? I mean, from
+16:08 
+
+16:08 where to start the writing the code in
+16:10 
+
+16:10 step-by-step? Can you show one example?
+16:12 
+
+16:12 Okay. Okay.
+16:14 
+
+16:14 Yeah. I mean, we'll discuss I mean, I
+16:17 
+
+16:17 will give you one example today, Aljit.
+16:19 
+
+16:19 Okay?
+16:21 
+
+16:21 Cool.
+16:24 
+
+16:24 Let me open the searching and sorting
+16:26 
+
+16:26 module.
+16:44 
+
+16:44 Let me know if my screen is visible to
+16:45 
+
+16:45 you guys.
+16:52 
+
+16:52 Is it visible?
+16:55 
+
+16:55 All right.
+16:57 
+
+16:57 So, moving on to the searching and
+16:59 
+
+16:59 sorting. So, I hope everyone is familiar
+17:01 
+
+17:01 with the term of searching and sorting.
+17:04 
+
+17:04 Okay. Searching means you are
+17:06 
+
+17:06 searching any number. Sorting means you
+17:08 
+
+17:08 are sorting it out. Okay. Sorting means
+17:11 
+
+17:11 you are either arranging it in either in
+17:13 
+
+17:13 the ascending order or in the descending
+17:15 
+
+17:15 order. Okay. That is called the sorting.
+17:17 
+
+17:17 Okay. so in C we have the multiple
+17:20 
+
+17:20 approaches of the searching and sorting.
+17:23 
+
+17:23 Okay.
+17:24 
+
+17:24 But in your exam, you can only expect
+17:27 
+
+17:27 the linear search and the binary search.
+17:30 
+
+17:30 And the sortings you can expect either
+17:32 
+
+17:32 the quick sort, merge sort, merge sort
+17:35 
+
+17:35 or or the insertion sort.
+17:38 
+
+17:38 Okay, so not all the sortings are
+17:40 
+
+17:40 important from the exam side.
+17:42 
+
+17:42 And not all the searching techniques.
+17:44 
+
+17:44 Okay, so I will only tell you that okay,
+17:46 
+
+17:46 what are the important things from the
+17:48 
+
+17:48 exam standpoint.
+17:49 
+
+17:49 Okay? So here you can see in the chart,
+17:52 
+
+17:52 okay, we have, you know, the two types
+17:54 
+
+17:54 of searching. We have the internal
+17:55 
+
+17:55 searching, we have the external
+17:57 
+
+17:57 searching. So external searching is
+17:59 
+
+17:59 basically related to the tree part.
+18:01 
+
+18:01 Okay, where we are having the B-tree or
+18:03 
+
+18:03 B+ tree. Okay, we will only focus on the
+18:06 
+
+18:06 internal searchings. In the internal
+18:07 
+
+18:07 searchings we always deals with either
+18:09 
+
+18:09 with a key or without key.
+18:11 
+
+18:11 Okay, so without key again, there will
+18:13 
+
+18:13 be again the hashing part. So I'm not
+18:15 
+
+18:15 going to cover the hashing part. We will
+18:17 
+
+18:17 only deals with the key comparison. Key
+18:19 
+
+18:19 means that what numbers we want to
+18:21 
+
+18:21 compare, what numbers we are looking
+18:22 
+
+18:22 for. That will be called as your key.
+18:26 
+
+18:26 So there is two types of search, the
+18:28 
+
+18:28 linear and the binary, which is most
+18:29 
+
+18:29 important. Okay, and third type of
+18:31 
+
+18:31 search we have is the this the the
+18:34 
+
+18:34 interpolation search. Okay, we will
+18:37 
+
+18:37 cover if the time permits, but in your
+18:39 
+
+18:39 exam, you can only expect the questions
+18:41 
+
+18:41 from the linear and the binary search.
+18:43 
+
+18:43 Similarly, if you're talking about the
+18:45 
+
+18:45 non-linear search, you know, whatever
+18:47 
+
+18:47 the searching that you are performing on
+18:49 
+
+18:49 a tree-like structures, that will be
+18:50 
+
+18:50 called under that will be called as uh
+18:54 
+
+18:54 your non-linear search. Okay, so we have
+18:56 
+
+18:56 this tree search, we have this multi-way
+18:58 
+
+18:58 tree search, and then we have the graph
+19:01 
+
+19:01 searching.
+19:02 
+
+19:02 Okay? So in the tree search we have this
+19:04 
+
+19:04 binary search tree, AVL search search
+19:06 
+
+19:06 tree, red-black tree search, split tree
+19:08 
+
+19:08 search, digital search. I mean, there
+19:10 
+
+19:10 are a lot of searching we have. Okay,
+19:12 
+
+19:12 not all the searches in your is in your
+19:14 
+
+19:14 syllabus as at this moment.
+19:16 
+
+19:16 Okay?
+19:18 
+
+19:18 Now, moving on.
+19:21 
+
+19:21 First starting with the linear search.
+19:22 
+
+19:22 Okay, how many of you are already aware
+19:25 
+
+19:25 of what the linear search? What is
+19:27 
+
+19:27 linear search by the way?
+19:37 
+
+19:37 Uh linear search?
+19:39 
+
+19:39 No idea?
+19:44 
+
+19:44 Uh okay. Great.
+19:46 
+
+19:46 Right, suppose you have five numbers.
+19:50 
+
+19:50 Okay, I'm just giving you an example.
+19:51 
+
+19:51 Suppose you have the five numbers.
+19:54 
+
+19:54 Okay.
+19:55 
+
+19:55 And the numbers are arranged randomly.
+19:57 
+
+19:57 Suppose the numbers are 2 3 7 8 2 2 3 7
+20:01 
+
+20:01 8 5. Okay.
+20:03 
+
+20:03 And now if I ask you to search any
+20:06 
+
+20:06 number in this list,
+20:08 
+
+20:08 okay, so how you will do that?
+20:12 
+
+20:12 You will go with one by one. You will
+20:14 
+
+20:14 start from the first element and then
+20:16 
+
+20:16 you will check whether the number which
+20:18 
+
+20:18 I am looking for is the number which
+20:21 
+
+20:21 where my pointer is. If it if it is,
+20:24 
+
+20:24 then this will be your location. If it
+20:27 
+
+20:27 is not, then you will move to the next
+20:29 
+
+20:29 number.
+20:31 
+
+20:31 Right, this is the way
+20:34 
+
+20:34 which you will do
+20:36 
+
+20:36 to find out any elements in a list one
+20:38 
+
+20:38 by one?
+20:41 
+
+20:41 Okay, so this is called the linear
+20:43 
+
+20:43 search, the sequential search. I can see
+20:45 
+
+20:45 a lot of lot of
+20:47 
+
+20:47 uh the comments into the chat window.
+20:49 
+
+20:49 Yes, the sequential way of searching,
+20:51 
+
+20:51 Arijit. Right, if you are searching in a
+20:53 
+
+20:53 linear structures like an array,
+20:55 
+
+20:55 stacks, a queues, there will be a linear
+20:59 
+
+20:59 search. Okay.
+21:00 
+
+21:00 Good point. Uh
+21:02 
+
+21:02 the checking each element. Yes, right
+21:03 
+
+21:03 Mukund. If you are if you are checking
+21:05 
+
+21:05 each element one by one from the
+21:06 
+
+21:06 beginning until the desired element is
+21:08 
+
+21:08 found. Perfect. This is the right
+21:10 
+
+21:10 definition that you are checking each
+21:11 
+
+21:11 element one by one. Okay? Then it will
+21:14 
+
+21:14 be called as the linear search.
+21:17 
+
+21:17 Is that clear? The concept of linear
+21:19 
+
+21:19 search?
+21:22 
+
+21:22 Yes, no?
+21:27 
+
+21:27 What's that? Any questions?
+21:32 
+
+21:32 All right.
+21:38 
+
+21:38 Okay, so this is how, you know,
+21:41 
+
+21:41 the linear search or the sequential
+21:42 
+
+21:42 search actually works. Okay, so you will
+21:44 
+
+21:44 start with, you know, you will start
+21:46 
+
+21:46 with the first element. So I is equal to
+21:48 
+
+21:48 zero is the first element. Everyone
+21:50 
+
+21:50 knows that the array always start with
+21:53 
+
+21:53 the zero index.
+21:55 
+
+21:55 Okay? So we will always start with I is
+21:57 
+
+21:57 equal to zero. Now, K here is your key,
+22:00 
+
+22:00 the number you want to search.
+22:03 
+
+22:03 And A is your array.
+22:05 
+
+22:05 So what we will do is, suppose the K
+22:08 
+
+22:08 here is five.
+22:10 
+
+22:10 And AI is the array and array element.
+22:13 
+
+22:13 So first we will compare that whether
+22:15 
+
+22:15 the five, whether the K is equal to the
+22:17 
+
+22:17 A0, A1, A2, A3, A4, A5. I mean, we will
+22:21 
+
+22:21 perform it sequentially.
+22:23 
+
+22:23 So if it is equal to the AI, then you
+22:26 
+
+22:26 will print successful and stop your
+22:28 
+
+22:28 search. If it is not, then what you will
+22:31 
+
+22:31 do is you will increase the value of I.
+22:34 
+
+22:34 So you will start with the first element
+22:36 
+
+22:36 that is zero, and then if it is not
+22:38 
+
+22:38 matched with the number which you are
+22:40 
+
+22:40 searching for,
+22:41 
+
+22:41 you will increase the value of I. So
+22:44 
+
+22:44 that So now, the next element will be
+22:46 
+
+22:46 zero plus one, that is I is equal to
+22:49 
+
+22:49 one. You will check for the next number.
+22:51 
+
+22:51 If it is matching, yes. If it is not,
+22:54 
+
+22:54 then you will go to the next element. In
+22:57 
+
+22:57 that case, the value of I will become
+22:59 
+
+22:59 two.
+23:01 
+
+23:01 So I is already one.
+23:02 
+
+23:02 and because the element doesn't matched,
+23:05 
+
+23:05 so the value will become I is equal to 1
+23:07 
+
+23:07 + 1, that is 2.
+23:10 
+
+23:10 Okay? And we will keep on doing.
+23:15 
+
+23:15 Is that clear, the flow? How does How
+23:17 
+
+23:17 does sequential search works?
+23:22 
+
+23:22 Is there anyone who's having any doubts
+23:24 
+
+23:24 in the sequential search or in the
+23:25 
+
+23:25 linear search?
+23:34 
+
+23:34 Okay, this is This is your program. So,
+23:36 
+
+23:36 I guess Arijit
+23:37 
+
+23:37 was asking me that how to write the
+23:39 
+
+23:39 program.
+23:41 
+
+23:41 Okay? So, this is how you can write the
+23:43 
+
+23:43 program of the linear search.
+23:45 
+
+23:45 Okay, so first Again, the first you have
+23:47 
+
+23:47 to declare the header files.
+23:49 
+
+23:49 Okay, hash include stdio.h
+23:53 
+
+23:53 Okay, conio.h. I mean, whatever the
+23:55 
+
+23:55 header files you want to include. Then
+23:57 
+
+23:57 you have to declare the main method.
+23:60 
+
+23:60 Okay, why we are not writing it as a
+24:02 
+
+24:02 void main? Why we are writing as it as a
+24:04 
+
+24:04 int main?
+24:05 
+
+24:05 Can anyone of you tell me?
+24:09 
+
+24:09 You might have seen code where it is
+24:11 
+
+24:11 written as void main.
+24:13 
+
+24:13 In this, we are writing as int means.
+24:16 
+
+24:16 Yes, Ashwin, you're right. We are
+24:17 
+
+24:17 returning an integer value. So, main
+24:20 
+
+24:20 means I mean, whatever the value,
+24:22 
+
+24:22 whatever the
+24:24 
+
+24:24 the data structure type that you are
+24:25 
+
+24:25 writing before the main method, it will
+24:27 
+
+24:27 tell you that, okay, what type of values
+24:30 
+
+24:30 you are returning.
+24:32 
+
+24:32 So, here you can see that how do how we
+24:34 
+
+24:34 are writing this
+24:35 
+
+24:35 the linear search program. We are, you
+24:38 
+
+24:38 know, declaring an array A, which is
+24:40 
+
+24:40 having the size of 10. 10 means that it
+24:43 
+
+24:43 can store 10 values.
+24:45 
+
+24:45 Then we have declared few variables, I,
+24:48 
+
+24:48 N, and K. K is basically the key, okay?
+24:52 
+
+24:52 The key element which we are looking
+24:54 
+
+24:54 for. And then we are again setting a
+24:56 
+
+24:56 flag. Flag is a variable here and we are
+24:59 
+
+24:59 keeping it as a zero. We are
+25:01 
+
+25:01 initializing it with a value of zero.
+25:03 
+
+25:03 Now, what we are doing is first we will
+25:06 
+
+25:06 take the number of elements in an array.
+25:08 
+
+25:08 Okay. So, what we will do is we will
+25:11 
+
+25:11 print F enter the size of an array.
+25:13 
+
+25:13 Suppose, you know, how many elements you
+25:15 
+
+25:15 want to put.
+25:16 
+
+25:16 So, you will mention any values. Like it
+25:19 
+
+25:19 should be less than 10 because the
+25:20 
+
+25:20 maximum size is 10 only. Okay, so you
+25:22 
+
+25:22 will mention
+25:24 
+
+25:24 um you know, after the numbers you have
+25:26 
+
+25:26 and then you will insert the element.
+25:29 
+
+25:29 Okay, you will enter the elements one by
+25:31 
+
+25:31 one into the array. Okay, I hope
+25:33 
+
+25:33 everyone knows how to perform the scan
+25:35 
+
+25:35 up and print F.
+25:37 
+
+25:37 Okay, so that you can do is for I is
+25:39 
+
+25:39 equal to zero I less than n. Okay, and I
+25:42 
+
+25:42 plus plus this is again the usage of for
+25:44 
+
+25:44 loop. For loop is basically used for
+25:47 
+
+25:47 you know, the repetitive operation. So,
+25:49 
+
+25:49 now what you are doing is you are
+25:50 
+
+25:50 repetitively inserting the element into
+25:52 
+
+25:52 the array and array is AI.
+25:56 
+
+25:56 Now,
+25:57 
+
+25:57 the next thing is you have to you are
+25:58 
+
+25:58 inserting the a number which you want to
+26:00 
+
+26:00 search. Okay, so you are printing it at
+26:03 
+
+26:03 you are storing that value into the key.
+26:05 
+
+26:05 Okay, so key is your key which you want
+26:07 
+
+26:07 to search. Now, your element is already
+26:10 
+
+26:10 there into the array.
+26:12 
+
+26:12 You have already defined the key which
+26:13 
+
+26:13 you want to search. Now, the next thing
+26:15 
+
+26:15 is you have to perform the linear
+26:17 
+
+26:17 search. You have to go with the one by
+26:18 
+
+26:18 one and then
+26:20 
+
+26:20 you have to find out the location of the
+26:22 
+
+26:22 element.
+26:24 
+
+26:24 So, for this again a repetitive
+26:25 
+
+26:25 operation have
+26:27 
+
+26:27 we have to perform. Again, we will use
+26:29 
+
+26:29 with the for loop. We will start with
+26:31 
+
+26:31 the zero.
+26:32 
+
+26:32 We will perform the condition. Okay,
+26:34 
+
+26:34 that I the value of I should always be
+26:36 
+
+26:36 less than n. Why? Because the size is n.
+26:39 
+
+26:39 So, obviously we can't go beyond n. It
+26:42 
+
+26:42 will always be less than or equal to n.
+26:45 
+
+26:45 Why we are not using equal to? Because
+26:47 
+
+26:47 we are initializing it with a zero. If
+26:49 
+
+26:49 we are initializing it with one, we can
+26:51 
+
+26:51 keep it as I less than equal to n.
+26:53 
+
+26:53 Then I plus plus. Why? Because we have
+26:55 
+
+26:55 to increase the value. And then we will
+26:57 
+
+26:57 check each and every array value, AI,
+27:02 
+
+27:02 with the key that we are going to
+27:04 
+
+27:04 search. Okay, so if the AI, that means
+27:07 
+
+27:07 A0, A1, A2, A3, up to AN, if it is equal
+27:12 
+
+27:12 to the K, K means the value which we
+27:15 
+
+27:15 want to search. In that case, the flag
+27:17 
+
+27:17 will be one.
+27:19 
+
+27:19 Okay, in this initialize we initialize
+27:21 
+
+27:21 it with the flag is equal to zero. But
+27:23 
+
+27:23 as soon as we got the value, as soon as
+27:25 
+
+27:25 we find the value, we will mark flag is
+27:28 
+
+27:28 equal to one, and then we will you know,
+27:30 
+
+27:30 break the loop.
+27:31 
+
+27:31 Why we are using the break? Because once
+27:34 
+
+27:34 we have identified that the value into
+27:37 
+
+27:37 the array, we don't have to proceed with
+27:40 
+
+27:40 other value. We don't have to proceed
+27:42 
+
+27:42 with the other locations.
+27:44 
+
+27:44 Okay? Just break it. Just break Just
+27:45 
+
+27:45 come out of the loop. And then if flag
+27:48 
+
+27:48 is equal to zero, then print the number
+27:50 
+
+27:50 is not in the list. Else, the number is
+27:52 
+
+27:52 found at the index I. Okay, so this is
+27:55 
+
+27:55 again a very simple program of the
+27:58 
+
+27:58 linear search. So this is This is how
+28:00 
+
+28:00 you have to write your code into your
+28:02 
+
+28:02 exam paper, also.
+28:06 
+
+28:06 Any doubts in this program?
+28:09 
+
+28:09 Any doubts? Any queries?
+28:18 
+
+28:18 No? Yes?
+28:20 
+
+28:20 All clear?
+28:23 
+
+28:23 Okay. Right, so this is how you have to
+28:25 
+
+28:25 write your code in your exam paper, as
+28:26 
+
+28:26 well.
+28:27 
+
+28:27 Okay, so I hope now you have an
+28:29 
+
+28:29 understanding that if someone is if the
+28:31 
+
+28:31 faculty is asking you
+28:34 
+
+28:34 a code, then okay, then how you have to
+28:36 
+
+28:36 write. So specify here. I mean, again,
+28:38 
+
+28:38 the C is very simple language. You just
+28:40 
+
+28:40 have to follow the sequentially all the
+28:42 
+
+28:42 steps. So if you know the concept, you
+28:44 
+
+28:44 can easily write your write down your
+28:46 
+
+28:46 code.
+28:49 
+
+28:49 Okay.
+28:50 
+
+28:50 Now, moving on to the complexity. Okay,
+28:53 
+
+28:53 again, I hope everyone is aware of
+28:56 
+
+28:56 is the I can see a question is the use
+28:59 
+
+28:59 of flag
+28:60 
+
+28:60 instead of directly printing and
+29:01 
+
+29:01 breaking only for
+29:03 
+
+29:03 you know, display of the code. You can.
+29:04 
+
+29:04 I mean, again, the the use of flag is
+29:07 
+
+29:07 not mandatory. It's an optional.
+29:12 
+
+29:12 Okay. Is the first semester programming
+29:14 
+
+29:14 in C concepts required for data
+29:17 
+
+29:17 structure using C? Obviously, the C is
+29:19 
+
+29:19 always same.
+29:20 
+
+29:20 Okay, Tasmiya. I mean, C is not going to
+29:23 
+
+29:23 change from semester to semester.
+29:25 
+
+29:25 Okay. So, if you are if you are clear
+29:27 
+
+29:27 with the concept of
+29:28 
+
+29:28 your programming in C, okay, the same
+29:31 
+
+29:31 thing that you can use in your C in your
+29:33 
+
+29:33 data structure as well.
+29:37 
+
+29:37 Okay?
+29:38 
+
+29:38 Right. Now, moving on to the complexity.
+29:40 
+
+29:40 So, I hope you all already aware of the
+29:43 
+
+29:43 time and the space complexity that we
+29:45 
+
+29:45 discussed.
+29:48 
+
+29:48 Do you guys remember or not? The time
+29:50 
+
+29:50 and the space complexity.
+29:54 
+
+29:54 Yes, no.
+29:57 
+
+29:57 The time complexity, guys.
+29:59 
+
+29:59 Not really? Okay. The time complexity
+30:01 
+
+30:01 means the number of time the number of
+30:04 
+
+30:04 seconds
+30:05 
+
+30:05 an algorithm takes.
+30:07 
+
+30:07 Okay, to you know, to to execute.
+30:11 
+
+30:11 Okay, so it will always be determined by
+30:13 
+
+30:13 the big O, little O, big omega, little
+30:15 
+
+30:15 omega. Have you heard this term?
+30:19 
+
+30:19 No?
+30:22 
+
+30:22 Is it is it in your SLM?
+30:24 
+
+30:24 Have you guys gone through this big O,
+30:25 
+
+30:25 little little O, omega notations, theta
+30:28 
+
+30:28 notations?
+30:29 
+
+30:29 Asymptotic notations.
+30:31 
+
+30:31 I think the asymptotic notation is
+30:33 
+
+30:33 mentioned here in the data structure
+30:34 
+
+30:34 using C.
+30:35 
+
+30:35 Have you guys gone through that?
+30:37 
+
+30:37 That chapter?
+30:41 
+
+30:41 No? Oh my god. Okay.
+30:45 
+
+30:45 Yeah, so those who has already uh
+30:49 
+
+30:49 um
+30:51 
+
+30:51 those who has already aware of, you
+30:52 
+
+30:52 know, the time complexity, okay?
+30:56 
+
+30:56 It's taught in the operating system
+30:57 
+
+30:57 concept, but not on the data structure.
+30:59 
+
+30:59 No, Hassan, this is this comes under the
+31:01 
+
+31:01 data structure.
+31:02 
+
+31:02 Yeah, I don't know who is teaching you
+31:04 
+
+31:04 all these things in the operating
+31:05 
+
+31:05 system.
+31:06 
+
+31:06 Okay, the time complexity is time
+31:08 
+
+31:08 complexity and the space complexity will
+31:10 
+
+31:10 come under the your your algorithm
+31:12 
+
+31:12 design or your data structure part.
+31:15 
+
+31:15 Okay, so I mean, okay, let me give you
+31:17 
+
+31:17 the very basic understanding. So here
+31:18 
+
+31:18 the time complexity will always be equal
+31:21 
+
+31:21 to one. Okay, if the if the first
+31:24 
+
+31:24 element is is the is the element is the
+31:27 
+
+31:27 key element. Okay, and if the key does
+31:29 
+
+31:29 not exist, in that case the time
+31:31 
+
+31:31 complexity will be n.
+31:33 
+
+31:33 Okay? So you just have to remember that
+31:35 
+
+31:35 the best case complexity will always be
+31:37 
+
+31:37 one.
+31:38 
+
+31:38 And the worst case
+31:40 
+
+31:40 and the average case complexity will be
+31:42 
+
+31:42 n.
+31:45 
+
+31:45 Okay.
+31:46 
+
+31:46 Now moving on to the to the to the next
+31:48 
+
+31:48 type of search that is a binary search.
+31:49 
+
+31:49 What do you mean by binary search? Any
+31:51 
+
+31:51 idea?
+32:05 
+
+32:05 What do you mean by binary search?
+32:16 
+
+32:16 Uh yes. Yes, Akshay. Instead of checking
+32:18 
+
+32:18 the every element one by one, which we
+32:20 
+
+32:20 were doing in the linear search, what we
+32:22 
+
+32:22 are doing is we are dividing the search
+32:24 
+
+32:24 area into two halves, and then we will
+32:26 
+
+32:26 perform the searching into
+32:29 
+
+32:29 the separate two halves.
+32:31 
+
+32:31 Okay?
+32:33 
+
+32:33 Uh Hassan is saying it's a tree base
+32:35 
+
+32:35 search.
+32:37 
+
+32:37 Not exactly the three way search.
+32:40 
+
+32:40 Okay, so here you can see, you know,
+32:41 
+
+32:41 that how we are doing the binary search.
+32:44 
+
+32:44 So again, this will be our array.
+32:46 
+
+32:46 Okay, right. What now Now, what we are
+32:48 
+
+32:48 doing is this is the first starting
+32:50 
+
+32:50 point. Okay, and then this is your
+32:53 
+
+32:53 the ending point. So L is your starting
+32:55 
+
+32:55 point and U is your end point.
+32:59 
+
+32:59 Now, what you are doing is you are
+33:00 
+
+33:00 finding the mid element of an array. So
+33:03 
+
+33:03 how you can find out the mid element?
+33:05 
+
+33:05 You just have to combine the L and the
+33:07 
+
+33:07 U. Okay, L plus U and whatever the value
+33:10 
+
+33:10 that you are getting, you are dividing
+33:11 
+
+33:11 it by two.
+33:13 
+
+33:13 Okay, so now you will get the middle
+33:15 
+
+33:15 value.
+33:16 
+
+33:16 So now
+33:17 
+
+33:17 the left hand side will be another half
+33:19 
+
+33:19 and the right hand side will be another
+33:21 
+
+33:21 half.
+33:22 
+
+33:22 And then
+33:23 
+
+33:23 you know, now because now we have got
+33:25 
+
+33:25 the two separate half for this array,
+33:28 
+
+33:28 now we will again perform the same you
+33:31 
+
+33:31 know, the middle operation, the same
+33:32 
+
+33:32 binary search technique on these halves
+33:35 
+
+33:35 as well.
+33:36 
+
+33:36 Until and unless we will get the halves,
+33:39 
+
+33:39 okay, where where we can easily find out
+33:41 
+
+33:41 the value.
+33:47 
+
+33:47 Okay, so again, here you can see that uh
+33:50 
+
+33:50 you know, once we will divide
+33:52 
+
+33:52 the left hand side will be starting
+33:54 
+
+33:54 point will be L and the end point will
+33:57 
+
+33:57 be U is equal to mid minus one.
+33:59 
+
+33:59 Okay, why? Because it is one element
+34:01 
+
+34:01 before the mid. Similarly, if you're
+34:03 
+
+34:03 going with the right hand side, okay,
+34:05 
+
+34:05 the first element will be mid plus one
+34:07 
+
+34:07 and the last element will be U.
+34:10 
+
+34:10 Okay, so again, you have to perform the
+34:12 
+
+34:12 same searching.
+34:14 
+
+34:14 Okay, again, you have to divide the
+34:16 
+
+34:16 cells again into left and right half and
+34:19 
+
+34:19 then you have to perform the same
+34:20 
+
+34:20 operations.
+34:23 
+
+34:23 So here you can see the flowchart of the
+34:25 
+
+34:25 binary search. So again, we will start
+34:28 
+
+34:28 with
+34:29 
+
+34:29 the first element. First, we will find
+34:31 
+
+34:31 out the mid element. Mid is equal to L
+34:33 
+
+34:33 plus U, where L is the starting point,
+34:36 
+
+34:36 the starting index. The U is the
+34:39 
+
+34:39 final index, the last value.
+34:41 
+
+34:41 And then we will find out the mid
+34:43 
+
+34:43 element. Now, what we have to do is we
+34:45 
+
+34:45 have to check whether my key, that is K,
+34:48 
+
+34:48 is the middle element or not.
+34:51 
+
+34:51 If it is equal to the middle element,
+34:53 
+
+34:53 then you will stop the search. Okay, so
+34:55 
+
+34:55 here you can see, if it is equal to the
+34:57 
+
+34:57 middle element, then search is
+34:59 
+
+34:59 successful or stop the searching. Now,
+35:03 
+
+35:03 if it is either So, now there will be
+35:05 
+
+35:05 three conditions. Either the key that we
+35:07 
+
+35:07 are looking for, either it will be less
+35:09 
+
+35:09 than the middle value or greater than
+35:11 
+
+35:11 middle value or
+35:13 
+
+35:13 it will be equal to the middle value.
+35:15 
+
+35:15 So, this is only the first case where
+35:18 
+
+35:18 the key that we are looking for is equal
+35:20 
+
+35:20 to the middle value.
+35:22 
+
+35:22 So, in that case, you will mention the
+35:24 
+
+35:24 search is successful and stop the
+35:26 
+
+35:26 coding.
+35:27 
+
+35:27 But, if it is less than the middle
+35:30 
+
+35:30 value, then what you will do is you will
+35:33 
+
+35:33 again divide the array.
+35:36 
+
+35:36 Okay, so in that case, the first point
+35:38 
+
+35:38 will be keep it as it is. Okay, the L
+35:41 
+
+35:41 will be mid
+35:43 
+
+35:43 The U will be mid minus one. And if it
+35:45 
+
+35:45 is greater than the A mid, then in that
+35:48 
+
+35:48 case, the L will be mid plus one. I hope
+35:51 
+
+35:51 everyone knows what is L and U. L is the
+35:53 
+
+35:53 starting index and U is the last index.
+35:56 
+
+35:56 So, if it is less than A mid, that means
+35:59 
+
+35:59 it will go under the left-hand side. If
+36:02 
+
+36:02 it is on the left-hand side, then the
+36:04 
+
+36:04 value of U will be mid minus one.
+36:07 
+
+36:07 If it is greater than A mid, that means
+36:10 
+
+36:10 it will go to the right-hand side.
+36:13 
+
+36:13 In that case, the L will be mid plus
+36:15 
+
+36:15 one. And then you will perform the same
+36:18 
+
+36:18 comparison.
+36:20 
+
+36:20 Now,
+36:21 
+
+36:21 what you will do is if you will see that
+36:24 
+
+36:24 the value of L is greater than U, then
+36:27 
+
+36:27 that case the search will be
+36:29 
+
+36:29 unsuccessful. Otherwise, you keep on
+36:32 
+
+36:32 repeating the same operations. You will
+36:35 
+
+36:35 again divide your array into L and U.
+36:37 
+
+36:37 Again, find that main middle element.
+36:40 
+
+36:40 Again, divide into two halves. And then,
+36:43 
+
+36:43 check the value of K with the middle
+36:46 
+
+36:46 value.
+36:48 
+
+36:48 The binary search is little little
+36:50 
+
+36:50 difficult as compared to the linear
+36:51 
+
+36:51 search. But, uh
+36:54 
+
+36:54 you know, just wanted to ask
+36:56 
+
+36:56 uh any doubts
+36:58 
+
+36:58 uh in this flowchart or anything you
+36:60 
+
+36:60 want to discuss into this flowchart?
+37:09 
+
+37:09 Class is little silent now after the
+37:11 
+
+37:11 binary search.
+37:17 
+
+37:17 Guys, tell me.
+37:20 
+
+37:20 Is it clear to everyone, the flowchart
+37:22 
+
+37:22 of the binary search?
+37:25 
+
+37:25 I can see
+37:27 
+
+37:27 yes.
+37:29 
+
+37:29 All right.
+37:31 
+
+37:31 Right. Cool. So, now
+37:33 
+
+37:33 because now and this is this is how I
+37:36 
+
+37:36 learned the data structure, right? So,
+37:38 
+
+37:38 whenever, you know, when I was in the in
+37:41 
+
+37:41 the college and when I was reading this
+37:43 
+
+37:43 data structure part first time,
+37:45 
+
+37:45 okay, Arjit Singh, can you explain the L
+37:47 
+
+37:47 greater than U, right? So, obviously, if
+37:49 
+
+37:49 the L is greater than U means that the
+37:50 
+
+37:50 value of the first index is greater than
+37:53 
+
+37:53 the last index. How is it possible?
+37:56 
+
+37:56 Can you
+37:57 
+
+37:57 because L will always be zero, right?
+37:59 
+
+37:59 Because L is the starting point. How it
+38:01 
+
+38:01 can be greater than the U?
+38:04 
+
+38:04 Okay, so if it is greater than U, that
+38:05 
+
+38:05 means the condition is not valid.
+38:07 
+
+38:07 In that case, the search is
+38:09 
+
+38:09 unsuccessful. The value is not there.
+38:13 
+
+38:13 Is it clear, Arjit?
+38:18 
+
+38:18 Right. So, when I was uh
+38:20 
+
+38:20 you know, studying uh this data
+38:22 
+
+38:22 structure, so I always draw the
+38:23 
+
+38:23 flowchart first because now if my
+38:26 
+
+38:26 flowchart is clear, I can easily write
+38:28 
+
+38:28 the code. Okay, so now what you have to
+38:30 
+
+38:30 do is you have to replicate the same
+38:32 
+
+38:32 flowchart structures into the C code.
+38:37 
+
+38:37 Yeah, if L is less than U, obviously
+38:39 
+
+38:39 Nikhil, you have to perform the same
+38:41 
+
+38:41 middle element finding and then divide
+38:43 
+
+38:43 the array into the same. Here you can
+38:45 
+
+38:45 see the last flow. Okay, if L is greater
+38:48 
+
+38:48 than U, search is successful. If L is
+38:51 
+
+38:51 less than U, no. Then in that case, you
+38:54 
+
+38:54 will again find the middle element.
+38:59 
+
+38:59 Okay, so let's see how we going to
+39:01 
+
+39:01 replicate the same into the C code.
+39:09 
+
+39:09 There you can see
+39:10 
+
+39:10 Uh so, again we will start with the
+39:13 
+
+39:13 header file declaration. Okay.
+39:15 
+
+39:15 Even if you don't know how to write the
+39:17 
+
+39:17 pseudo code as well, at least write the
+39:19 
+
+39:19 write include the header files. Just
+39:22 
+
+39:22 Just use the basic syntax in your
+39:23 
+
+39:23 program, but don't leave your answer
+39:26 
+
+39:26 sheet blank. Okay, this is my humble
+39:28 
+
+39:28 request. Don't leave your answer sheet
+39:30 
+
+39:30 blank because in that case, you will not
+39:32 
+
+39:32 get any marks. Okay, even if you're
+39:35 
+
+39:35 writing the basic syntax also. Okay,
+39:38 
+
+39:38 then at least you can expect some marks
+39:40 
+
+39:40 from the faculty.
+39:42 
+
+39:42 Okay?
+39:44 
+
+39:44 So yeah, we will start with the header
+39:46 
+
+39:46 file declaration. Hash include stdio.h.
+39:49 
+
+39:49 Again, we will go with the main method.
+39:51 
+
+39:51 Here we are declaring some variables. I,
+39:53 
+
+39:53 L, U. I is the index. The L is the first
+39:57 
+
+39:57 element. The U is the last element. Mid
+39:60 
+
+39:60 will be your middle element. And then N,
+40:03 
+
+40:03 the number of the number of elements in
+40:05 
+
+40:05 the array.
+40:06 
+
+40:06 Then the K. K will be your key which you
+40:08 
+
+40:08 are looking for and then the data. Data
+40:10 
+
+40:10 will be your array which is having a
+40:12 
+
+40:12 size of 100. Okay. Now, what you are
+40:15 
+
+40:15 doing is you are printing the number of
+40:16 
+
+40:16 element. You are inserting it in the
+40:18 
+
+40:18 value of n. Okay, the the n will contain
+40:21 
+
+40:21 that what number of element will be
+40:23 
+
+40:23 stored into this data array, which is
+40:25 
+
+40:25 having a size of 100.
+40:27 
+
+40:27 Now, enter the integers in the sorted
+40:30 
+
+40:30 order. Okay, I guess someone asked this
+40:31 
+
+40:31 question, the sorted order. Okay, so
+40:34 
+
+40:34 here what we are doing is we are, you
+40:36 
+
+40:36 know, inserting these element into these
+40:38 
+
+40:38 array.
+40:39 
+
+40:39 Okay, and now what we are doing is
+40:42 
+
+40:42 we are printing the value to be find.
+40:44 
+
+40:44 So, whatever the value that we have to
+40:46 
+
+40:46 find is we are storing it into the key.
+40:50 
+
+40:50 Okay, the key will contains the the
+40:52 
+
+40:52 element which you want to search. Now,
+40:54 
+
+40:54 here you can see we are start we are
+40:56 
+
+40:56 setting up the value, so l is equal to
+40:58 
+
+40:58 zero.
+40:59 
+
+40:59 u is equal to n minus 1. Why it is n
+41:01 
+
+41:01 minus 1? Can anyone of you tell me why
+41:03 
+
+41:03 it is why the value of u is n minus 1?
+41:15 
+
+41:15 Why the value of
+41:17 
+
+41:17 u is n minus 1?
+41:22 
+
+41:22 Yes, correct. Correct, because we are
+41:25 
+
+41:25 starting with the index zero.
+41:27 
+
+41:27 Okay, so we are starting with the index
+41:28 
+
+41:28 of zero, then the value of last element
+41:31 
+
+41:31 will be n minus 1. If we are starting
+41:33 
+
+41:33 with the index of 1, then the value of u
+41:36 
+
+41:36 will be
+41:37 
+
+41:37 n
+41:38 
+
+41:38 instead of n minus 1.
+41:40 
+
+41:40 Okay, so this these small things you
+41:42 
+
+41:42 have to remember.
+41:44 
+
+41:44 Okay.
+41:46 
+
+41:46 So, we are starting with l is equal to
+41:48 
+
+41:48 zero, so in that case the value of u
+41:50 
+
+41:50 will be n minus 1, and then you will
+41:52 
+
+41:52 perform the middle operations
+41:54 
+
+41:54 operations. I mean,
+41:56 
+
+41:56 how you are calculating the middle
+41:58 
+
+41:58 values by you know, adding l plus u and
+42:01 
+
+42:01 dividing by 2.
+42:04 
+
+42:04 Now,
+42:06 
+
+42:06 again we have mentioned the conditions
+42:08 
+
+42:08 here. While l is less than equal to u.
+42:11 
+
+42:11 No.
+42:12 
+
+42:12 No, it can't be n plus one.
+42:15 
+
+42:15 Can't be n plus one. Again, it will be a
+42:18 
+
+42:18 invalid conditions.
+42:20 
+
+42:20 Okay, so while l is less than equal to
+42:22 
+
+42:22 u, then what you are doing is you are
+42:24 
+
+42:24 comparing the value of middle value. If
+42:26 
+
+42:26 it is less than k, then you have to keep
+42:29 
+
+42:29 the value of l is equal to mid plus one.
+42:32 
+
+42:32 Okay. Data mid is less than data mid and
+42:35 
+
+42:35 that means your key is greater than the
+42:37 
+
+42:37 middle value. In that case, what will
+42:39 
+
+42:39 happen?
+42:41 
+
+42:41 Which we we will assume that your value
+42:43 
+
+42:43 will be on the right hand side. Now, if
+42:45 
+
+42:45 it is if the value reside on the right
+42:47 
+
+42:47 hand side, in that case the value will
+42:49 
+
+42:49 be
+42:50 
+
+42:50 mid plus one. The l will be mid plus
+42:52 
+
+42:52 one.
+42:53 
+
+42:53 Else, if it is a middle values, you can
+42:55 
+
+42:55 easily find you can easily print that it
+42:58 
+
+42:58 is found at the location and then you
+43:00 
+
+43:00 have to specify the mid plus one
+43:01 
+
+43:01 location.
+43:03 
+
+43:03 In that case, if the mid if the key is
+43:05 
+
+43:05 less than the middle value, that means
+43:07 
+
+43:07 in that case the value reside on the
+43:09 
+
+43:09 right on the left hand side and in that
+43:12 
+
+43:12 case the value of u will be mid minus
+43:14 
+
+43:14 one. Okay, here you can see u is equal
+43:17 
+
+43:17 to mid minus one.
+43:18 
+
+43:18 And then you will again perform the mid
+43:21 
+
+43:21 is equal to l plus u divided by two.
+43:23 
+
+43:23 Why? Because the l is less than equal to
+43:26 
+
+43:26 u. This condition is still satisfies.
+43:29 
+
+43:29 Until and unless this condition gets
+43:30 
+
+43:30 wrong, we will keep doing the same
+43:32 
+
+43:32 operations again and again.
+43:35 
+
+43:35 Okay, and that is why we are using this
+43:37 
+
+43:37 while loop. And then at the end, once
+43:40 
+
+43:40 everything is sorted, if the value of l
+43:43 
+
+43:43 is greater than u, you can easily print
+43:45 
+
+43:45 out that the number which you are
+43:47 
+
+43:47 looking for is not present in the list.
+43:51 
+
+43:51 Okay? So, this is how you have to
+43:54 
+
+43:54 you know, write your C program for the
+43:56 
+
+43:56 binary search. So, what I did, I just
+43:58 
+
+43:58 converted the flowchart into the C code.
+44:03 
+
+44:03 Uh is there a way to create an array
+44:06 
+
+44:06 based on the values inputted like data N
+44:08 
+
+44:08 or any other method. Yeah, I mean you
+44:10 
+
+44:10 can you can.
+44:12 
+
+44:12 That's a you just have to take number
+44:14 
+
+44:14 from the users.
+44:16 
+
+44:16 That you can do.
+44:19 
+
+44:19 Okay. So, any doubts in the C program of
+44:22 
+
+44:22 the binary search?
+44:26 
+
+44:26 Yes, no?
+44:29 
+
+44:29 Any questions? Any doubts?
+44:39 
+
+44:39 All right. What about others?
+44:44 
+
+44:44 I hope it is clear.
+44:51 
+
+44:51 All right.
+44:54 
+
+44:54 We also have this recursion technique
+44:56 
+
+44:56 also, but again, I'm not going to cover
+44:57 
+
+44:57 this recursion technique because um
+45:01 
+
+45:01 the binary search with recursion is not
+45:03 
+
+45:03 going to come in your exam paper. I
+45:05 
+
+45:05 mean, this is again, if you are
+45:07 
+
+45:07 preparing for a job interview, then
+45:08 
+
+45:08 definitely you should go with, you know,
+45:11 
+
+45:11 the multiple ways of writing the binary
+45:13 
+
+45:13 search program.
+45:15 
+
+45:15 Okay, but um
+45:17 
+
+45:17 from the exam standpoint, um
+45:19 
+
+45:19 the binary search with recursion is is
+45:21 
+
+45:21 not going to come. Okay.
+45:24 
+
+45:24 Now,
+45:25 
+
+45:25 it tells me I mean, again it bring us a
+45:28 
+
+45:28 very interesting point. So, I hope you
+45:30 
+
+45:30 guys are clear with the concept of
+45:31 
+
+45:31 recursion.
+45:34 
+
+45:34 Have you heard about the recursion?
+45:40 
+
+45:40 Yes, no? Recursion?
+45:42 
+
+45:42 Yes, right?
+45:43 
+
+45:43 I hope everyone has seen the factorial
+45:45 
+
+45:45 program.
+45:47 
+
+45:47 Right? A function which is calling
+45:49 
+
+45:49 itself again and again is called as the
+45:52 
+
+45:52 recursive function.
+45:54 
+
+45:54 Okay, so you can expect a program
+45:57 
+
+45:57 or a question on recursion also in your
+45:59 
+
+45:59 exam.
+46:02 
+
+46:02 Okay? So, there will be a question on
+46:04 
+
+46:04 the recursion side.
+46:06 
+
+46:06 It may be in the optional, but there
+46:08 
+
+46:08 will be a question on the recursion
+46:10 
+
+46:10 side.
+46:12 
+
+46:12 Okay, so be ready for that. Okay, they
+46:14 
+
+46:14 may ask you to and if you are clear with
+46:16 
+
+46:16 the concept of recursion, then you can
+46:18 
+
+46:18 easily create
+46:20 
+
+46:20 uh
+46:21 
+
+46:21 the the recursive program.
+46:24 
+
+46:24 Okay, so here the examiner will try to
+46:28 
+
+46:28 test your recursion knowledge. Okay, it
+46:31 
+
+46:31 will not directly ask you to write uh
+46:34 
+
+46:34 the code of factorial. It will not ask
+46:37 
+
+46:37 you to write a code of the Fibonacci
+46:39 
+
+46:39 number. It will not ask you to write the
+46:41 
+
+46:41 code for the Tower of Hanoi. No.
+46:44 
+
+46:44 He will not ask the direct question.
+46:46 
+
+46:46 What it will do is he will ask the
+46:48 
+
+46:48 questions where the concept of recursion
+46:50 
+
+46:50 will be used. He will ask you to write a
+46:53 
+
+46:53 recursive function.
+46:55 
+
+46:55 Okay, so if the if the examiner is
+46:58 
+
+46:58 asking you to write a recursive
+46:59 
+
+46:59 function, then you don't need to write
+47:02 
+
+47:02 the entire code.
+47:04 
+
+47:04 Okay, you just have to write the
+47:05 
+
+47:05 recursive function only. And most of the
+47:07 
+
+47:07 students, they commit this type of
+47:09 
+
+47:09 mistakes.
+47:11 
+
+47:11 Okay, so examiner will, you know, will
+47:12 
+
+47:12 examiner will always try to confuse you.
+47:15 
+
+47:15 Okay, I mean this is the this is the
+47:17 
+
+47:17 duty of the examiner.
+47:19 
+
+47:19 Okay, they will make the question paper
+47:20 
+
+47:20 little tricky because if they will make
+47:22 
+
+47:22 the question paper easy, then everyone
+47:24 
+
+47:24 will score good marks.
+47:27 
+
+47:27 Okay, and we don't want it that everyone
+47:29 
+
+47:29 should go score the good marks.
+47:32 
+
+47:32 Okay, so as an examiner, just like me, I
+47:34 
+
+47:34 always try to under you know, test the
+47:37 
+
+47:37 basic understanding.
+47:38 
+
+47:38 Okay, so I will always give you uh some
+47:40 
+
+47:40 sort of tricky questions.
+47:42 
+
+47:42 So that those the student who is e e who
+47:46 
+
+47:46 whose concepts is clear,
+47:48 
+
+47:48 okay, they can easily answer it. Okay,
+47:50 
+
+47:50 so if the if the examiner is asking you
+47:52 
+
+47:52 that, "Okay,
+47:53 
+
+47:53 uh write a program, okay, where you are
+47:56 
+
+47:56 taking a number from the users and then
+47:59 
+
+47:59 you are actually performing the swapping
+48:02 
+
+48:02 of two numbers or suppose
+48:05 
+
+48:05 you are performing the palindrome
+48:06 
+
+48:06 checking. Okay, or suppose if someone is
+48:09 
+
+48:09 asking you that okay,
+48:11 
+
+48:11 um
+48:12 
+
+48:12 um you know, find out the Fibonacci
+48:15 
+
+48:15 series generator. Okay, something like
+48:17 
+
+48:17 that. Okay, so in that in that case you
+48:19 
+
+48:19 don't need to write the entire program.
+48:21 
+
+48:21 Just write the recursive function code.
+48:24 
+
+48:24 Okay, just like a factorial code.
+48:26 
+
+48:26 Factorial code is very easy. Okay, you
+48:28 
+
+48:28 have to write fact n minus one into n.
+48:31 
+
+48:31 That's it. Okay, this is your factorial
+48:33 
+
+48:33 code.
+48:34 
+
+48:34 Now, calling of function is is again a
+48:36 
+
+48:36 different thing. The examiner is not
+48:38 
+
+48:38 asking you to write the entire code.
+48:40 
+
+48:40 He's He's simply asking you that write a
+48:43 
+
+48:43 recursive function code. The recursive
+48:45 
+
+48:45 function. So, if he's asking for the
+48:47 
+
+48:47 recursive function, then simply mention
+48:49 
+
+48:49 simply write down three or four lines of
+48:51 
+
+48:51 the recursive functions, explain what
+48:54 
+
+48:54 this function is doing and how it is
+48:56 
+
+48:56 doing. That's it.
+48:59 
+
+48:59 Okay, so this is how you have to answer
+49:02 
+
+49:02 it. So, answer very smartly. Okay, most
+49:04 
+
+49:04 of the people they lost time in the
+49:06 
+
+49:06 exam. Why? Because they don't know how
+49:09 
+
+49:09 to answer the query. It is just because
+49:11 
+
+49:11 of 7.5 marks. Okay, and again, the no
+49:14 
+
+49:14 one will get the full 7.5 marks.
+49:18 
+
+49:18 Okay, because the expectation, the
+49:20 
+
+49:20 guidelines which we have the answers
+49:22 
+
+49:22 which we are expecting is a way too
+49:25 
+
+49:25 large. Okay, and none of the students
+49:27 
+
+49:27 write the exact
+49:30 
+
+49:30 question, exact answers. Okay, so no one
+49:32 
+
+49:32 will get the 7.5 marks. Okay, 100% marks
+49:35 
+
+49:35 is not not not achievable.
+49:38 
+
+49:38 Okay, so in that case you know, whatever
+49:41 
+
+49:41 you know best, okay, always write the
+49:44 
+
+49:44 code or pseudo code or algorithm. Okay,
+49:48 
+
+49:48 aligned to the question. So, if the
+49:50 
+
+49:50 question is asking this
+49:51 
+
+49:51 you just have to frame your answer in in
+49:54 
+
+49:54 that way that you are satisfying the
+49:56 
+
+49:56 requirement. Don't overwrite your
+49:58 
+
+49:58 answers.
+49:60 
+
+49:60 Okay, you will not get eight marks in
+50:02 
+
+50:02 the in in a 7.5 marks question.
+50:06 
+
+50:06 Okay, so these are the mistakes that
+50:08 
+
+50:08 most of the students
+50:10 
+
+50:10 do.
+50:14 
+
+50:14 All right, the complexity analysis
+50:16 
+
+50:16 is again um
+50:20 
+
+50:20 Uh but last year student got 10 as his
+50:23 
+
+50:23 SGPA, so full marks. Uzma, how you know
+50:27 
+
+50:27 that the last year a student got 10?
+50:31 
+
+50:31 Were you there in the last semester?
+50:34 
+
+50:34 Or you know any student who got 10 SGPA?
+50:46 
+
+50:46 Post on the app B social app. I don't
+50:49 
+
+50:49 know. 10 CGPA, how how anyone can get
+50:52 
+
+50:52 the 10 CGPA?
+50:53 
+
+50:53 Okay, yeah.
+50:55 
+
+50:55 I mean I'm not aware of maybe that
+50:57 
+
+50:57 person is not from the B BCA or MCA or
+51:01 
+
+51:01 maybe
+51:02 
+
+51:02 he has written or she has written any
+51:04 
+
+51:04 exceptional answers.
+51:06 
+
+51:06 Okay, I have never seen any
+51:08 
+
+51:08 any person any students you know who
+51:10 
+
+51:10 scored full out of full.
+51:13 
+
+51:13 Okay, specifically I never give full out
+51:15 
+
+51:15 of full. Okay, this is if if I have you
+51:18 
+
+51:18 know if if I'm checking your any copies,
+51:21 
+
+51:21 I never give full marks.
+51:23 
+
+51:23 Okay, there's always a scope of
+51:25 
+
+51:25 improvement for me.
+51:27 
+
+51:27 Okay, so if you're writing your
+51:28 
+
+51:28 questions, okay, nobody's going to give
+51:31 
+
+51:31 you the full marks, okay, because
+51:33 
+
+51:33 there's always a scope of improvement.
+51:35 
+
+51:35 You can improve your questions.
+51:38 
+
+51:38 Okay, you can improve your answers.
+51:40 
+
+51:40 Okay, so
+51:41 
+
+51:41 I mean never expect a full marks from my
+51:43 
+
+51:43 side. Okay, I can give you max to max
+51:47 
+
+51:47 seven, but not 7.5.
+51:49 
+
+51:49 This is my because I have certain
+51:52 
+
+51:52 expectations in my mind. So, whenever I
+51:54 
+
+51:54 check copies, okay, I don't know whether
+51:56 
+
+51:56 I will be checking your copies or not,
+51:58 
+
+51:58 but whenever I check copies, I have
+51:59 
+
+51:59 certain expectations in my mind, and I
+52:01 
+
+52:01 always try to align my expectations with
+52:04 
+
+52:04 the answers.
+52:06 
+
+52:06 If your answers is meeting my
+52:08 
+
+52:08 expectations, you will get marks. If it
+52:10 
+
+52:10 is not,
+52:12 
+
+52:12 okay, then you can expect, you know,
+52:14 
+
+52:14 whatever the numbers that you are
+52:15 
+
+52:15 getting, it is as per my expectations.
+52:18 
+
+52:18 Okay, so we have that guidelines, we
+52:20 
+
+52:20 have that, you know, the the points
+52:23 
+
+52:23 which we have to see on the answers, if
+52:25 
+
+52:25 those points are matched,
+52:27 
+
+52:27 yeah, if someone is writing beyond my
+52:29 
+
+52:29 expectations, okay, in that case, again,
+52:32 
+
+52:32 this will be an exceptional case.
+52:34 
+
+52:34 Okay, in in the exceptional case also, a
+52:36 
+
+52:36 person will get seven marks only, not
+52:38 
+
+52:38 7.5. Okay.
+52:40 
+
+52:40 Uh [sighs]
+52:42 
+
+52:42 sir,
+52:46 
+
+52:46 uh what are the expectations so we can
+52:47 
+
+52:47 achieve it?
+52:49 
+
+52:49 Uh expectations are pretty high, Zara,
+52:52 
+
+52:52 so I don't think so.
+52:53 
+
+52:53 Uh okay, is there any complete marks
+52:56 
+
+52:56 deductions even for a single semicolon
+52:58 
+
+52:58 mistakes? Uh a single semicolon mistakes
+53:01 
+
+53:01 is again comes into the syntax error,
+53:02 
+
+53:02 Mukund. Okay, so if you're writing if if
+53:05 
+
+53:05 the examiner examiner is is specifically
+53:08 
+
+53:08 looking for a code,
+53:10 
+
+53:10 and if you are
+53:11 
+
+53:11 performing this these type of silly
+53:13 
+
+53:13 mistakes, in that case, your marks will
+53:14 
+
+53:14 be deducted.
+53:16 
+
+53:16 Should I just Should I write just the
+53:17 
+
+53:17 pseudo code or the explanation of the
+53:19 
+
+53:19 each line of the code? Jasmine, if
+53:21 
+
+53:21 you're writing the pseudo code, then the
+53:22 
+
+53:22 explanation is necessary.
+53:25 
+
+53:25 Okay?
+53:26 
+
+53:26 Without explanation, the pseudo code is
+53:29 
+
+53:29 nothing.
+53:30 
+
+53:30 Okay, sir, we will write our bachelor
+53:32 
+
+53:32 degree in the same way as we are writing
+53:34 
+
+53:34 our semester through computer online.
+53:37 
+
+53:37 Okay, this semester two exams takes
+53:39 
+
+53:39 place in June, no idea.
+53:41 
+
+53:41 Okay, all right. Yeah, so this is the
+53:44 
+
+53:44 the the complexity of the binary search.
+53:46 
+
+53:46 Okay, so the best case again will be the
+53:48 
+
+53:48 one. And the worst case will be log n +
+53:51 
+
+53:51 1. Okay? You just have to remember. I
+53:53 
+
+53:53 mean, there will These questions will
+53:54 
+
+53:54 come under the MCQ. They will They will
+53:57 
+
+53:57 ask you that, okay, what is the worst
+53:58 
+
+53:58 case complexity of the binary search?
+54:00 
+
+54:00 So, there will be four options, and you
+54:02 
+
+54:02 have to select this log n + 1 option.
+54:05 
+
+54:05 Now, how to calculate the log n + 1
+54:06 
+
+54:06 option? How this complexity is coming
+54:09 
+
+54:09 log n + 1?
+54:10 
+
+54:10 That you have to study in your MCA, not
+54:12 
+
+54:12 in the BCA.
+54:15 
+
+54:15 Okay, then MCA there's a subject, data
+54:17 
+
+54:17 structure and algorithm design. And And
+54:20 
+
+54:20 because I'm the one who is taking that
+54:22 
+
+54:22 MCA classes also, so there I'm teaching
+54:25 
+
+54:25 this that how you calculate the
+54:26 
+
+54:26 complexity.
+54:33 
+
+54:33 Okay, moving on to I mean, the linked
+54:36 
+
+54:36 list implementation is not there, so we
+54:38 
+
+54:38 can skip. Now, moving on to the next
+54:40 
+
+54:40 part, that is sorting. Sorting as I
+54:41 
+
+54:41 already told you, sorting is the way of
+54:44 
+
+54:44 organizing the data in either in
+54:46 
+
+54:46 ascending or descending order. Okay?
+54:49 
+
+54:49 So, there are multiple sorts, but
+54:52 
+
+54:52 I would recommend that go with the
+54:54 
+
+54:54 quick, merge, or insertion sort only,
+54:56 
+
+54:56 because these are the important one.
+54:60 
+
+55:00 Uh
+55:01 
+
+55:01 this This again are one of the easiest
+55:04 
+
+55:04 sorting that is the selection sort. So,
+55:06 
+
+55:06 suppose there will be an initial list
+55:08 
+
+55:08 which is given.
+55:09 
+
+55:09 So, what you are doing is first you will
+55:11 
+
+55:11 find out that what is the less What is
+55:13 
+
+55:13 the smallest element you have?
+55:16 
+
+55:16 Okay?
+55:17 
+
+55:17 Just find out the smallest element, and
+55:19 
+
+55:19 you know, replace it with the first
+55:21 
+
+55:21 element. Okay, so go start from the left
+55:23 
+
+55:23 to right. Okay, so you will start with
+55:25 
+
+55:25 the 23, find go to the right, and you
+55:28 
+
+55:28 found the smallest element as eight. So,
+55:30 
+
+55:30 what you will do is you will You will
+55:32 
+
+55:32 perform the swapping of numbers. So, you
+55:34 
+
+55:34 will replace eight with 23, and all
+55:37 
+
+55:37 other elements will remain as it is.
+55:40 
+
+55:40 Now, again, you will start from the
+55:43 
+
+55:43 first index, that is the 78. Again,
+55:45 
+
+55:45 move.
+55:46 
+
+55:46 Okay, and then find out again the
+55:48 
+
+55:48 smallest number. So, you will find the
+55:50 
+
+55:50 23 as the second smallest number. So,
+55:53 
+
+55:53 you will replace 23 and 78 after the
+55:55 
+
+55:55 pass two.
+55:56 
+
+55:56 Then, you will start from the 45. Again,
+55:59 
+
+55:59 move from left to right. Find out the
+56:01 
+
+56:01 smallest element. So, the smallest
+56:03 
+
+56:03 element 32.
+56:05 
+
+56:05 Okay, so you replace 45 with 32 and keep
+56:08 
+
+56:08 all the element remain as it is. And
+56:10 
+
+56:10 then, you have to, you know, perform the
+56:12 
+
+56:12 same operation as it is. Okay, and then
+56:14 
+
+56:14 you will get the final result as it is.
+56:17 
+
+56:17 Okay, this is your final sorted array.
+56:19 
+
+56:19 So, this is called the selection sort.
+56:21 
+
+56:21 Why it is called as a selection sort?
+56:23 
+
+56:23 Because you are selecting the element.
+56:27 
+
+56:27 Uh Navleen is saying, "Can you show the
+56:29 
+
+56:29 sorting slide again?"
+56:31 
+
+56:31 Uh Navleen, this slide you're talking
+56:33 
+
+56:33 about? This one?
+56:38 
+
+56:38 Navleen?
+56:40 
+
+56:40 This slide?
+56:41 
+
+56:41 The process of organizing the Okay.
+56:43 
+
+56:43 Okay. So, you can can take a screenshot.
+56:45 
+
+56:45 Okay, whenever you think.
+56:48 
+
+56:48 Otherwise, this slide will always be I
+56:49 
+
+56:49 mean, all these PPTs, all these videos
+56:52 
+
+56:52 recordings they'll be um uploaded in the
+56:54 
+
+56:54 system. This is live streamed class.
+56:57 
+
+56:57 Okay? So, you can easily access whenever
+56:59 
+
+56:59 you want.
+57:03 
+
+57:03 All right. So, yeah. So, this is how the
+57:06 
+
+57:06 selection sort works. This is again the
+57:09 
+
+57:09 the C programming code. Okay, so here
+57:11 
+
+57:11 you can see like this is what I was
+57:13 
+
+57:13 telling you. If the examiner is asking
+57:15 
+
+57:15 you to write the selection sort code,
+57:16 
+
+57:16 don't need to write the entire code.
+57:18 
+
+57:18 Just specify that how the selection sort
+57:21 
+
+57:21 is working. Okay, so here you can see I
+57:24 
+
+57:24 have created a method uh selection sort
+57:27 
+
+57:27 where I'm passing the element where I'm
+57:29 
+
+57:29 passing an array A. Okay?
+57:32 
+
+57:32 Where A is a empty array. Why we are
+57:34 
+
+57:34 keeping it as an empty array? Because we
+57:37 
+
+57:37 want to generate the sorted list.
+57:40 
+
+57:40 Okay, and then int n. N is the number of
+57:43 
+
+57:43 elements in an array. Now, here what you
+57:45 
+
+57:45 are doing is we are performing the loop
+57:47 
+
+57:47 which is starting from the zero. Okay,
+57:49 
+
+57:49 that is the first element. It will keep
+57:51 
+
+57:51 on going until n minus one.
+57:53 
+
+57:53 Okay, and then the minimum element will
+57:56 
+
+57:56 be stored in the this variable, min.
+57:59 
+
+57:59 Okay, so here the I, the first element
+58:01 
+
+58:01 will get stored into the min element.
+58:03 
+
+58:03 Why? Because we are going from left to
+58:05 
+
+58:05 right. We are always start with the
+58:06 
+
+58:06 first element. Okay, and then what we
+58:09 
+
+58:09 will do is we will compare
+58:11 
+
+58:11 that we are going from left to right. We
+58:13 
+
+58:13 will compare that whatever the element
+58:15 
+
+58:15 that is smallest than
+58:18 
+
+58:18 the smallest element in the key number.
+58:20 
+
+58:20 Okay, so if it is the smallest, then we
+58:22 
+
+58:22 will perform the swapping of the number.
+58:24 
+
+58:24 And then keep all the element as it is.
+58:28 
+
+58:28 Okay, so here you can see if the AJ, AJ
+58:31 
+
+58:31 is the element which we are looking for,
+58:33 
+
+58:33 it is less than the A minimum.
+58:36 
+
+58:36 If it is less than the A minimum, then
+58:37 
+
+58:37 you have to swap.
+58:40 
+
+58:40 And then initially I was minimum, then
+58:43 
+
+58:43 you have to change J is equal to
+58:45 
+
+58:45 minimum.
+58:47 
+
+58:47 Okay, so only these four lines are
+58:49 
+
+58:49 required to write the selection sort.
+58:51 
+
+58:51 And now
+58:53 
+
+58:53 you will be But yeah, I mean again, this
+58:55 
+
+58:55 will not
+58:56 
+
+58:56 come into your brain
+58:58 
+
+58:58 on a single go. Okay, you have to keep
+59:00 
+
+59:00 practice
+59:02 
+
+59:02 on these type of sorting. Okay, because
+59:04 
+
+59:04 then only you will be able to
+59:05 
+
+59:05 understand. So, there are a lot of
+59:07 
+
+59:07 sorting algorithm
+59:08 
+
+59:08 which is already given in your SLM. I
+59:10 
+
+59:10 would recommend then that go with the
+59:13 
+
+59:13 quick merge and the insertion sort
+59:16 
+
+59:16 because these are the important ones and
+59:20 
+
+59:20 the interesting one also.
+59:22 
+
+59:22 >> [snorts]
+59:22 
+
+59:22 >> Okay, so look for the example. Okay,
+59:25 
+
+59:25 look for the code that how it is
+59:27 
+
+59:27 written. Okay, and then you can practice
+59:30 
+
+59:30 it so that you can understand it better
+59:33 
+
+59:33 that how the coding is written.
+59:37 
+
+59:37 Is it clear?
+59:41 
+
+59:41 Okay, then we have this insertion sort.
+59:44 
+
+59:44 Again, if you have ever played cards,
+59:48 
+
+59:48 okay, the insertion sort is similar to
+59:50 
+
+59:50 them.
+59:51 
+
+59:51 Okay, I mean you're arranging your
+59:52 
+
+59:52 cards. Okay, so those who who love
+59:55 
+
+59:55 playing cards, okay, then you can use
+59:58 
+
+59:58 this insertion sort technique. So this
+59:59 
+
+59:59 is pretty much simple. Okay, and then
+60:03 
+
+60:03 again you can see that we have the
+60:05 
+
+60:05 original list like this, 23 78 45 8 32
+60:09 
+
+60:09 56. What we are doing is
+60:12 
+
+60:12 uh again we will go with from left to
+60:14 
+
+60:14 right. Okay, we will take, you know,
+60:17 
+
+60:17 this 23 and then you will compare this
+60:20 
+
+60:20 the whole with the all other elements.
+60:23 
+
+60:23 Okay, so 23 and 78 and then you will
+60:25 
+
+60:25 compare it with the next element. If it
+60:28 
+
+60:28 is smaller then set the first two
+60:30 
+
+60:30 element.
+60:31 
+
+60:31 Okay, so you can see now 23 and 78 is
+60:34 
+
+60:34 compared with now 23 was there
+60:36 
+
+60:36 initially. Now you are comparing 23 with
+60:38 
+
+60:38 78 because it is already sorted. 23 is a
+60:42 
+
+60:42 smaller than 78 so there will be no
+60:43 
+
+60:43 change. Okay, so now your block will
+60:45 
+
+60:45 become of two numbers, 23 and 78. Now
+60:48 
+
+60:48 compare it with the next number, that is
+60:50 
+
+60:50 45. Now if you compare 45 with this
+60:54 
+
+60:54 block, the block contains two number. So
+60:57 
+
+60:57 what do you think 45 should come between
+60:59 
+
+60:59 23 and 78? Why? Because 23 is a smaller
+61:03 
+
+61:03 than 45 but 78 is larger than 45. So 45
+61:07 
+
+61:07 should come in between 23 and 78. So now
+61:11 
+
+61:11 the block will get changed. So now we
+61:13 
+
+61:13 are in the block we have three element,
+61:14 
+
+61:14 23 45 and 78. Now compare it with the
+61:18 
+
+61:18 next element, eight. Now compare what do
+61:20 
+
+61:20 you think? Where should eight will come?
+61:23 
+
+61:23 The eight will come at the beginning.
+61:25 
+
+61:25 Why? Because eight is also smaller than
+61:27 
+
+61:27 23.
+61:28 
+
+61:28 Yes or no?
+61:31 
+
+61:31 Okay. So, in that case, what will
+61:33 
+
+61:33 happen? The eight will come at the
+61:34 
+
+61:34 beginning. And then, the block will
+61:36 
+
+61:36 contains the four element. Again, 32.
+61:39 
+
+61:39 What do you think? 32 will come after
+61:41 
+
+61:41 23? Because 32 is smaller than 45.
+61:46 
+
+61:46 But, it is greater than 23.
+61:48 
+
+61:48 Okay. So, this is how the insertion sort
+61:50 
+
+61:50 works. And this is how you arrange your
+61:51 
+
+61:51 cards, also.
+61:55 
+
+61:55 Okay. So, this is how you have to write
+61:57 
+
+61:57 your C program.
+61:59 
+
+61:59 Uh
+62:00 
+
+62:00 yeah.
+62:01 
+
+62:01 So, again, here you can see we are
+62:04 
+
+62:04 performing the insertion sort. Again,
+62:06 
+
+62:06 the same
+62:07 
+
+62:07 template will be there. Okay. We are
+62:09 
+
+62:09 starting with the first element. Okay.
+62:12 
+
+62:12 If you are starting with the first
+62:13 
+
+62:13 index, then we will go till end, not n
+62:15 
+
+62:15 minus one.
+62:16 
+
+62:16 And then, you know, which is the element
+62:19 
+
+62:19 which we are going to insert it, we are
+62:20 
+
+62:20 inserting into the temporary variables.
+62:23 
+
+62:23 Okay. Then, again, we will compare if
+62:25 
+
+62:25 the value of temporary is less than aj
+62:28 
+
+62:28 minus one. And then, you know, whatever
+62:30 
+
+62:30 the elements that we have in the blocks,
+62:32 
+
+62:32 then shift the element.
+62:35 
+
+62:35 Okay. We are performing the shifting of
+62:37 
+
+62:37 the element.
+62:38 
+
+62:38 Okay. So, again, if you know the
+62:40 
+
+62:40 concept, if you know how it works, it
+62:43 
+
+62:43 will be easy to write the code.
+62:47 
+
+62:47 Okay. So, now I would recommend every
+62:49 
+
+62:49 one of you to go through your SLM.
+62:52 
+
+62:52 You know, understand that, okay, how
+62:54 
+
+62:54 this type of sorting works.
+62:56 
+
+62:56 And then,
+62:58 
+
+62:58 we can go with the the coding part.
+63:01 
+
+63:01 Okay?
+63:02 
+
+63:02 And do let me know, I mean, in case of
+63:04 
+
+63:04 any difficulties you are facing in
+63:07 
+
+63:07 any types of program. But, I think that
+63:10 
+
+63:10 bring us to the end of this lecture.
+63:13 
+
+63:13 So, thank you so much for joining the
+63:15 
+
+63:15 class.
+63:17 
+
+63:17 And uh yeah. Feel free to connect it.
+63:22 
+
+63:22 All right. Okay. Thank you so much, and
+63:24 
+
+63:24 have a nice day.

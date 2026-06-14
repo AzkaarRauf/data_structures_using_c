@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Structures Using C — Exam Prep</title>
+<style>
+  :root{--ink:#1a1a1a;--muted:#555;--accent:#2c5f8a;--bg:#faf9f7;--card:#fff;--border:#ddd;
+    --t1:#b5153f;--t1bg:#fdeef2;--t2:#b5760f;--t2bg:#fdf6e9;--t3:#2d6a4f;--t3bg:#edf7f1}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Georgia','Times New Roman',serif;font-size:1.05rem;line-height:1.7;color:var(--ink);background:var(--bg);max-width:760px;margin:0 auto;padding:3rem 1.5rem 6rem}
+  h1{font-size:2.2rem;font-weight:normal;color:var(--accent);margin-bottom:.2rem}
+  .sub{color:var(--muted);font-family:sans-serif;font-size:.85rem;margin-bottom:2rem}
+  h2{font-size:1.3rem;margin:2.6rem 0 .8rem;border-bottom:2px solid var(--accent);padding-bottom:.25rem}
+  p{margin-bottom:1rem}
+  a{color:var(--accent)}
+  .mission{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 6px 6px 0;padding:1rem 1.3rem;margin:1.5rem 0;font-size:.95rem}
+  .grid{display:grid;gap:.7rem;margin-top:1rem}
+  .lesson{display:block;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem;text-decoration:none;color:var(--ink);transition:box-shadow .15s,transform .1s}
+  .lesson:hover{box-shadow:0 3px 12px rgba(0,0,0,.08);transform:translatey(-1px)}
+  .lesson .num{font-family:sans-serif;font-size:.72rem;color:var(--muted);letter-spacing:.05em}
+  .lesson .title{font-size:1.08rem;color:var(--accent);margin:.15rem 0}
+  .lesson .desc{font-family:sans-serif;font-size:.84rem;color:var(--muted)}
+  .tier{display:inline-block;font-family:sans-serif;font-size:.68rem;font-weight:bold;padding:.1em .5em;border-radius:3px;margin-left:.4rem;letter-spacing:.03em;vertical-align:middle}
+  .tier1{background:var(--t1bg);color:var(--t1);border:1px solid var(--t1)}
+  .tier2{background:var(--t2bg);color:var(--t2);border:1px solid var(--t2)}
+  .tier3{background:var(--t3bg);color:var(--t3);border:1px solid var(--t3)}
+  .blueprint{display:block;background:#e8f4f8;border:1px solid var(--accent);border-radius:8px;padding:1.1rem 1.3rem;text-decoration:none;color:var(--ink);margin-top:1rem}
+  .blueprint:hover{box-shadow:0 3px 12px rgba(0,0,0,.08)}
+  .blueprint .title{font-size:1.15rem;color:var(--accent);font-weight:bold}
+  .blueprint .desc{font-family:sans-serif;font-size:.85rem;color:var(--muted);margin-top:.2rem}
+  footer{margin-top:3rem;font-family:sans-serif;font-size:.8rem;color:#999;border-top:1px solid var(--border);padding-top:1rem}
+</style>
+</head>
+<body>
+
+<p class="sub">BCA · Semester Exam Preparation · built from the SLM textbook + 4 lecture transcripts</p>
+<h1>Data Structures Using C</h1>
+
+<div class="mission">
+  <strong>Mission:</strong> pass the BCA exam. Each lesson is short, tied to a real exam signal from your recorded classes, and ends with a recall drill. Work them in the order below — that's the priority order your lecturer's hints imply.
+</div>
+
+<a class="blueprint" href="reference/exam-blueprint.html">
+  <div class="title">📋 Exam Blueprint</div>
+  <div class="desc">The master reference: every topic the lecturer flagged as examinable, tiered by certainty, cross-checked against the SLM. Read this first, return to it often.</div>
+</a>
+
+<h2>Lessons</h2>
+<div class="grid">
+
+  <a class="lesson" href="lessons/0001-introduction-to-data-structures.html">
+    <div class="num">LESSON 1 · MODULE 1</div>
+    <div class="title">Introduction to Data Structures <span class="tier tier2">TIER 2</span></div>
+    <div class="desc">Data vs information, DS types, ADT, algorithm characteristics, Big-O basics.</div>
+  </a>
+
+  <a class="lesson" href="lessons/0006-arrays-and-linked-lists.html">
+    <div class="num">LESSON 6 · MODULE 1 &amp; 3</div>
+    <div class="title">Arrays &amp; Array-vs-Linked-List <span class="tier tier1">TIER 1</span></div>
+    <div class="desc">The foundation. Index 0..n−1, contiguous vs scattered, static vs dynamic.</div>
+  </a>
+
+  <a class="lesson" href="lessons/0003-stack-push-pop.html">
+    <div class="num">LESSON 3 · MODULE 2</div>
+    <div class="title">Stack push &amp; pop in C <span class="tier tier1">TIER 1</span></div>
+    <div class="desc">LIFO, overflow/underflow guards, full push() and pop() code, trace table.</div>
+  </a>
+
+  <a class="lesson" href="lessons/0002-infix-to-postfix.html">
+    <div class="num">LESSON 2 · MODULE 2</div>
+    <div class="title">Infix → Postfix (the guaranteed question) <span class="tier tier1">TIER 1</span></div>
+    <div class="desc">The table method. ≥1 question guaranteed. Precedence rules + worked example.</div>
+  </a>
+
+  <a class="lesson" href="lessons/0007-prefix-postfix-eval-recursion.html">
+    <div class="num">LESSON 7 · MODULE 2 &amp; 5</div>
+    <div class="title">Infix→Prefix, Postfix Evaluation &amp; Recursion <span class="tier tier2">TIER 2</span></div>
+    <div class="desc">Reverse-convert-reverse, evaluate with a stack, write a recursive function.</div>
+  </a>
+
+  <a class="lesson" href="lessons/0009-queues.html">
+    <div class="num">LESSON 9 · MODULE 2</div>
+    <div class="title">Queues — FIFO trace <span class="tier tier3">TIER 3</span></div>
+    <div class="desc">Front/rear, enqueue/dequeue, trace the output. Concept only (no direct code).</div>
+  </a>
+
+  <a class="lesson" href="lessons/0004-searching-and-complexity.html">
+    <div class="num">LESSON 4 · MODULE 5</div>
+    <div class="title">Linear &amp; Binary Search + Complexity <span class="tier tier1">TIER 1</span></div>
+    <div class="desc">Iterative search code, the complexity table for MCQs (the chapter nobody read).</div>
+  </a>
+
+  <a class="lesson" href="lessons/0005-sorting.html">
+    <div class="num">LESSON 5 · MODULE 5</div>
+    <div class="title">Sorting — Insertion, Selection, Quick, Merge <span class="tier tier1">TIER 1</span></div>
+    <div class="desc">Insertion sort cold; quick &amp; merge ideas. Biggest case-study source.</div>
+  </a>
+
+  <a class="lesson" href="lessons/0008-trees-and-graphs.html">
+    <div class="num">LESSON 8 · MODULE 4</div>
+    <div class="title">Trees, BST &amp; Spanning Trees <span class="tier tier2">TIER 2</span></div>
+    <div class="desc">Traversals (in/pre/post), BST ops, Prim's &amp; Kruskal's for case studies.</div>
+  </a>
+
+</div>
+
+<h2>How to use this</h2>
+<p>Open a lesson, read it (5–10 min), do the drill from memory. Score 5/5 → move on. Miss any → re-read that section and retry. Return to the <a href="reference/exam-blueprint.html">Blueprint</a> between lessons to keep the big picture.</p>
+<p>Your teacher (the Claude Code agent) can expand any point, give extra practice, or trace a problem step by step — just ask in the chat.</p>
+
+<footer>
+  Source of truth: the Amity SLM textbook. Exam signals: 4 recorded classes (11 Apr, 12 Apr, 19 Apr, 16 May 2026). Where lecturer and SLM disagree, the SLM wins.
+</footer>
+
+</body>
+</html>

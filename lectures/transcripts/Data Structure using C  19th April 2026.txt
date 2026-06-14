@@ -1,0 +1,3751 @@
+00:05 Great. Great. Uh
+00:09 
+
+00:09 all right. So in today's session we will
+00:12 
+
+00:12 discuss the concept of the link list.
+00:14 
+
+00:14 Okay. So we have discussed um the
+00:17 
+
+00:17 concept of stacks. We have discussed the
+00:19 
+
+00:19 concept of Q's. We have gone through
+00:21 
+
+00:21 that what are the operations we have on
+00:23 
+
+00:23 the stacks and Q's. So remember in the
+00:26 
+
+00:26 last class we discussed you know what
+00:28 
+
+00:28 are the different different ways by
+00:30 
+
+00:30 which we can push or we can pop from the
+00:32 
+
+00:32 stack or in the queue we have the inq
+00:35 
+
+00:35 and dq operations. So in today's class
+00:38 
+
+00:38 we will discuss another data structures
+00:41 
+
+00:41 that is the link list. Okay. So let me
+00:44 
+
+00:44 quickly share my screen.
+00:49 
+
+00:49 All right. So in today's session we will
+00:51 
+
+00:51 discuss the concept of link list. We
+00:54 
+
+00:54 will also discuss um you know what are
+00:56 
+
+00:56 the simple link list we have what are
+00:58 
+
+00:58 circular link list we have and then the
+01:01 
+
+01:01 double and circular double link list.
+01:05 
+
+01:05 So let's understand the concept of link
+01:08 
+
+01:08 list. What do you mean by link list? So
+01:11 
+
+01:11 remember we discussed that okay in the
+01:13 
+
+01:13 data structure there are two types of
+01:14 
+
+01:14 data structure. the one who organized
+01:17 
+
+01:17 the data in a linear way and the another
+01:20 
+
+01:20 one who organized the data in a
+01:22 
+
+01:22 hierarchical way or in a nonlinear way.
+01:25 
+
+01:25 Okay. So in the linear way we have the
+01:27 
+
+01:27 array, we have the stack, we have the
+01:29 
+
+01:29 cues, we have the link list. In the
+01:32 
+
+01:32 nonlinear way we have the tree, tables,
+01:35 
+
+01:35 graphs, sets, maps etc. Okay. So if I
+01:39 
+
+01:39 talk about the link list, so link list
+01:41 
+
+01:41 is a linear collection of data element.
+01:43 
+
+01:43 Why we are calling it as a linear?
+01:45 
+
+01:45 Because it is organizing the data in a
+01:48 
+
+01:48 linear way. Okay. Where one node is
+01:52 
+
+01:52 connected to another node using a
+01:55 
+
+01:55 pointer. And we will discuss the concept
+01:56 
+
+01:56 of node. Okay. In the upcoming slide.
+01:58 
+
+01:58 But here then the link list the data is
+02:02 
+
+02:02 always arranged in the form of nodes.
+02:05 
+
+02:05 Okay. And one node is connected to
+02:07 
+
+02:07 another node by using a pointer. Okay.
+02:10 
+
+02:10 So that we will see that how is how it
+02:12 
+
+02:12 is implemented. Now would like to know
+02:15 
+
+02:15 the difference between an array as well
+02:18 
+
+02:18 as the link list. Can you guys tell me
+02:21 
+
+02:21 the difference between an array and a
+02:23 
+
+02:23 link list? Because both are linear data
+02:26 
+
+02:26 structure.
+02:27 
+
+02:27 Then what is the difference between an
+02:29 
+
+02:29 array and link list?
+02:32 
+
+02:32 And you can write down your responses
+02:33 
+
+02:33 into the chat.
+02:39 
+
+02:39 What is the difference between an array
+02:40 
+
+02:40 and a link list?
+02:50 
+
+02:50 So array is a array always stores data
+02:53 
+
+02:53 in a continuous memory locations that is
+02:55 
+
+02:55 the adjacent one
+02:58 
+
+02:58 while the link list always stores
+03:01 
+
+03:01 element in a distributed way. I mean the
+03:04 
+
+03:04 elements are not stored in a continuous
+03:07 
+
+03:07 memory and that is the main difference
+03:10 
+
+03:10 because both are the linear data
+03:12 
+
+03:12 structure. Can you guys give me an
+03:14 
+
+03:14 example or a real world example of the
+03:17 
+
+03:17 link list? A real world example.
+03:21 
+
+03:21 Any one of you? A real word example of
+03:24 
+
+03:24 link list
+03:29 
+
+03:29 where the link list is implemented.
+03:33 
+
+03:33 No. Yes.
+03:36 
+
+03:36 Links. Uh-huh. Aassan. Yes. Links. But
+03:40 
+
+03:40 links what?
+03:42 
+
+03:42 Music playlist. M. Kind of. Yes.
+03:46 
+
+03:46 Kind of. Yes.
+03:48 
+
+03:48 But how how you are how you going to you
+03:51 
+
+03:51 know understand it okay that it is
+03:53 
+
+03:53 different from the array. Okay let me
+03:55 
+
+03:55 give you an example.
+03:57 
+
+03:57 Have you guys got have you guys seen any
+03:60 
+
+03:60 any railway coach? I hope everyone has
+04:02 
+
+04:02 seen the railway coach.
+04:05 
+
+04:05 Yes. No.
+04:10 
+
+04:10 Yes. Okay. So in the I mean whenever you
+04:13 
+
+04:13 see any coach so there's a number which
+04:15 
+
+04:15 is written on the coach. Okay. So the
+04:18 
+
+04:18 first is the double number or you can
+04:20 
+
+04:20 say the coach position. Okay. Just like
+04:23 
+
+04:23 A1, A2, S1, S2, B1, B2. So what is the
+04:27 
+
+04:27 purpose of this coach position? It will
+04:29 
+
+04:29 help the passenger to locate their
+04:31 
+
+04:31 specific coach. So for example, if I am
+04:34 
+
+04:34 from the sleeper class, so my coach
+04:36 
+
+04:36 position will be S1 S2. If I am from the
+04:39 
+
+04:39 A3 tier, so I will be used I will be
+04:42 
+
+04:42 having my B1 B2. Okay. So this is the
+04:44 
+
+04:44 format.
+04:46 
+
+04:46 Now there is also a fivedigit coach
+04:49 
+
+04:49 number which is written on the on the
+04:51 
+
+04:51 coaches.
+04:53 
+
+04:53 Do you know what is the purpose of
+04:54 
+
+04:54 having the coach number?
+04:57 
+
+04:57 The coach number provides the technical
+04:59 
+
+04:59 details about the coach to the railway
+05:02 
+
+05:02 staff. Okay. So I mean if you look at
+05:04 
+
+05:04 any coach, any railway coach, okay?
+05:06 
+
+05:06 Okay. So you will find a five-digit
+05:08 
+
+05:08 code, five-digit number, okay? Like
+05:11 
+
+05:11 08437 or 98397.
+05:15 
+
+05:15 Okay? So the first two digit will tell
+05:17 
+
+05:17 you the year of manufacturing. Okay? So
+05:20 
+
+05:20 for example, if the coach number is
+05:22 
+
+05:22 starting from 08, that means it is
+05:24 
+
+05:24 manufactured in 2008. And the last three
+05:27 
+
+05:27 digit, okay, will tell you about that
+05:30 
+
+05:30 which type of coach this is whether it
+05:32 
+
+05:32 is a sleeper coach or a general coach or
+05:35 
+
+05:35 an AC coach. So if it is lying between
+05:37 
+
+05:37 001 to 200 that means it is an AC coach
+05:41 
+
+05:41 it is 200 1 to 400 that means it is a
+05:43 
+
+05:43 sleeper coach. Okay. So this is a real
+05:46 
+
+05:46 world example of link list. This is how
+05:48 
+
+05:48 the link list is arranged. So here the
+05:50 
+
+05:50 each compartment is is a node right?
+05:53 
+
+05:53 Each coach each each compartment is a
+05:55 
+
+05:55 node. Okay. So node carries the I mean
+05:59 
+
+05:59 each coach carries the passenger.
+06:01 
+
+06:01 Similarly each node carries the data.
+06:03 
+
+06:03 And as we know that in a train each
+06:06 
+
+06:06 coach is connected by another coach. So
+06:08 
+
+06:08 that means there is a connection between
+06:10 
+
+06:10 them. And how the connection is set up?
+06:12 
+
+06:12 The connection is set up by using a
+06:14 
+
+06:14 pointer.
+06:16 
+
+06:16 Okay. In the programming language. So is
+06:18 
+
+06:18 that clear? The real world example of
+06:20 
+
+06:20 link list. So if you look at the coach
+06:23 
+
+06:23 number, you will never find a contiguous
+06:26 
+
+06:26 coach number. Okay? The coach number
+06:28 
+
+06:28 will be different for each coach. Why?
+06:31 
+
+06:31 Why? Because you know the railway took
+06:34 
+
+06:34 one coach from another train, another
+06:36 
+
+06:36 coach from another train and then they
+06:38 
+
+06:38 combined or they assembled together to
+06:40 
+
+06:40 form a a single train. Okay. So the
+06:43 
+
+06:43 coaches will be from the different
+06:45 
+
+06:45 different trains.
+06:48 
+
+06:48 Okay. So this is how the link list work.
+06:50 
+
+06:50 So in the link list the coach number
+06:52 
+
+06:52 will like like a memory. Okay. Because
+06:55 
+
+06:55 we have a different different memory
+06:57 
+
+06:57 location. In array all the values will
+06:59 
+
+06:59 get stored in a adjacent memory location
+07:02 
+
+07:02 that is the continuous memory location.
+07:04 
+
+07:04 But in the link list you will not find
+07:07 
+
+07:07 the same. In link list one data is
+07:09 
+
+07:09 located at the index number one and the
+07:12 
+
+07:12 another data will get stored at index
+07:15 
+
+07:15 number five or six or seven. But there
+07:17 
+
+07:17 will be a connection between index
+07:19 
+
+07:19 number one and index number seven. And
+07:21 
+
+07:21 that connection is possible by using a
+07:23 
+
+07:23 pointer.
+07:25 
+
+07:25 Clear the concept of link list the basic
+07:28 
+
+07:28 concept.
+07:30 
+
+07:30 Yes. No.
+07:38 
+
+07:38 Okay.
+07:41 
+
+07:41 So now so as we have already understood
+07:43 
+
+07:43 that link list is a data structures
+07:45 
+
+07:45 which can be used to implement the other
+07:47 
+
+07:47 data structures like so you can say this
+07:49 
+
+07:49 is the basic okay. The link lists are
+07:52 
+
+07:52 used to build the stacks. The link list
+07:55 
+
+07:55 can be used to build cues. The link list
+07:58 
+
+07:58 can be used to build a graph. And I
+08:00 
+
+08:00 guess someone you know write down into
+08:03 
+
+08:03 the chat that a playlist in the Spotify.
+08:05 
+
+08:05 I hope everyone uses the Spotify. So in
+08:08 
+
+08:08 the Spotify we can create our own
+08:10 
+
+08:10 playlist. So here the songs are linked
+08:13 
+
+08:13 one after the another and you can insert
+08:15 
+
+08:15 and remove easily. Okay. This is also
+08:18 
+
+08:18 one of the example we have of link list.
+08:22 
+
+08:22 Okay. But in song we don't we can't see
+08:25 
+
+08:25 the song number. Okay. Can we see the
+08:28 
+
+08:28 song number in Spotify? Yes. No.
+08:32 
+
+08:32 Can we see the song number? No. Why?
+08:35 
+
+08:35 Because the song number is hidden. Just
+08:37 
+
+08:37 like in the memory, we can't see the
+08:39 
+
+08:39 memory. So if you want to see the memory
+08:41 
+
+08:41 address and actual implementation of the
+08:43 
+
+08:43 link list, then you can take an example
+08:45 
+
+08:45 of the railway coach which I which I
+08:47 
+
+08:47 told you in the beginning. Okay. The
+08:49 
+
+08:49 railway coach, the coach number and the
+08:50 
+
+08:50 coach position. The coach position will
+08:53 
+
+08:53 be adjacent but the coach number will be
+08:55 
+
+08:55 different and those coach number will
+08:57 
+
+08:57 represent your actual memory location.
+09:01 
+
+09:01 Okay. Now moving on to the structure of
+09:04 
+
+09:04 the node. Okay. So just like we
+09:07 
+
+09:07 discussed the concept of you know we
+09:09 
+
+09:09 discussed the concept of link list. So
+09:11 
+
+09:11 in the link list we have a node along
+09:14 
+
+09:14 with the pointer. So each node will be
+09:17 
+
+09:17 having its data just like a railway
+09:19 
+
+09:19 coach. A railway coach will have a
+09:21 
+
+09:21 passenger. Each coach will have its
+09:22 
+
+09:22 passenger. Similarly, in link list, each
+09:25 
+
+09:25 node will be having its own data. Okay?
+09:29 
+
+09:29 And each data, each node which is
+09:32 
+
+09:32 comprising of the data will have a
+09:34 
+
+09:34 pointer. And the pointer will contains
+09:36 
+
+09:36 the address of the next node. I hope you
+09:39 
+
+09:39 guys are aware of the concept of
+09:40 
+
+09:40 pointer.
+09:42 
+
+09:42 Is there anyone who is not aware of the
+09:44 
+
+09:44 concept of pointer? What is pointer? In
+09:47 
+
+09:47 C the pointer is a variable which is
+09:50 
+
+09:50 used to hold the address of another
+09:53 
+
+09:53 variable.
+09:55 
+
+09:55 Okay. So just like a normal variable in
+09:58 
+
+09:58 the normal variable we can only store
+09:60 
+
+10:00 the value but in the pointer we can only
+10:03 
+
+10:03 store the address. Okay the memory
+10:05 
+
+10:05 location and just because we are not
+10:08 
+
+10:08 storing the value we are only storing
+10:10 
+
+10:10 the memory address we will denote it by
+10:13 
+
+10:13 star. Okay. So here the star the star
+10:16 
+
+10:16 means that this is a pointer variable.
+10:20 
+
+10:20 Okay. So if you look at this code
+10:22 
+
+10:22 strruct node. Now the another question
+10:24 
+
+10:24 why we are using a strruct?
+10:28 
+
+10:28 Why we are using a strct here? If we are
+10:30 
+
+10:30 define the link list any idea?
+10:37 
+
+10:37 No. Why? Because structure is a data
+10:40 
+
+10:40 type in C which can be used to store
+10:43 
+
+10:43 different type of data together.
+10:46 
+
+10:46 Okay. Because if you are using an array,
+10:48 
+
+10:48 array can only store all the data of
+10:51 
+
+10:51 similar type. But if we want to store
+10:54 
+
+10:54 the data of multiple types, we need a
+10:56 
+
+10:56 data structure. We need a data type and
+10:60 
+
+10:60 the structure is one of them. The
+11:02 
+
+11:02 structure can use the structure can be
+11:04 
+
+11:04 used to store different data type. So
+11:06 
+
+11:06 here the data will be in the form of
+11:08 
+
+11:08 integer
+11:10 
+
+11:10 and then the pointer variable which is a
+11:12 
+
+11:12 memory address which is of different
+11:14 
+
+11:14 data type. So that is why we are using a
+11:16 
+
+11:16 structure here. So data is of integer
+11:19 
+
+11:19 type and then node will be of pointer
+11:22 
+
+11:22 variable.
+11:26 
+
+11:26 Any doubts so far in the structure
+11:32 
+
+11:32 clear the concept of link list?
+11:35 
+
+11:35 What about others?
+11:40 
+
+11:40 Okay.
+11:43 
+
+11:43 Now let's take an example of the simple
+11:45 
+
+11:45 link list. How the simple link list
+11:46 
+
+11:46 looks like.
+11:49 
+
+11:49 Uh
+11:53 
+
+11:53 correct correct Kika you're right. We
+11:55 
+
+11:55 can include the multiple data types
+11:57 
+
+11:57 under the structures. Great. Now look at
+11:60 
+
+11:60 the simple link list structure. So if
+12:01 
+
+12:01 you see here, so the first node will be
+12:04 
+
+12:04 the start node. Okay, the first node
+12:06 
+
+12:06 will be the start node which will
+12:08 
+
+12:08 indicate that here the node is the link
+12:11 
+
+12:11 list is starting and the last node if
+12:14 
+
+12:14 you see here this last node is set to
+12:16 
+
+12:16 null.
+12:18 
+
+12:18 Why we are setting it to null? Any idea
+12:21 
+
+12:21 why there is no why there's a crosshair
+12:24 
+
+12:24 in the last node?
+12:36 
+
+12:36 Because there's no next element right
+12:38 
+
+12:38 NCA there is no next element and just
+12:40 
+
+12:40 because if there is no next element what
+12:43 
+
+12:43 would you store into this? No memory
+12:45 
+
+12:45 address. If there is no memory address
+12:48 
+
+12:48 that means we will indicate as null.
+12:51 
+
+12:51 Okay. So always remember in the link
+12:54 
+
+12:54 list the first node will be called as
+12:56 
+
+12:56 start. Okay. and the last node will be
+12:59 
+
+12:59 called as null. Why? Because there is no
+13:02 
+
+13:02 next node. Okay, let me give you a real
+13:05 
+
+13:05 world example. Just like a YouTube,
+13:08 
+
+13:08 okay, YouTube, in the YouTube queue, a
+13:11 
+
+13:11 video will play one after the another.
+13:13 
+
+13:13 Yes or no?
+13:16 
+
+13:16 A video will play. If you open the
+13:18 
+
+13:18 playlist, a video will play one after
+13:20 
+
+13:20 the another. But after the last video,
+13:23 
+
+13:23 what will happen?
+13:25 
+
+13:25 There is no next video.
+13:28 
+
+13:28 Okay. So that is a stack. Correct.
+13:30 
+
+13:30 Correct. Rea right. Right. Right. It
+13:33 
+
+13:33 will stop. Nothing will be played. Why?
+13:35 
+
+13:35 Because you have reached to the end of
+13:37 
+
+13:37 the list.
+13:40 
+
+13:40 Okay. So this is how the link list
+13:43 
+
+13:43 works.
+13:46 
+
+13:46 All right. Moving on to the next slide.
+13:53 
+
+13:53 Now let's see what are the different
+13:56 
+
+13:56 different operations we have on the link
+13:58 
+
+13:58 list. Okay. So either we can so there
+14:01 
+
+14:01 are overall six operations. The first is
+14:05 
+
+14:05 the creation of the node.
+14:08 
+
+14:08 Okay. The creation of the node. So what
+14:10 
+
+14:10 what we can do is we can simply create a
+14:13 
+
+14:13 node in the link list. We can perform
+14:15 
+
+14:15 the traversal.
+14:17 
+
+14:17 Traversal means you are displaying each
+14:20 
+
+14:20 and every element of a link list. So
+14:22 
+
+14:22 that is called the traversal node. Then
+14:25 
+
+14:25 we have the node searching. We can
+14:27 
+
+14:27 easily search any node. You can perform
+14:29 
+
+14:29 the insertion of the node. You can
+14:32 
+
+14:32 delete the node. Okay. Insertion can
+14:34 
+
+14:34 happen at beginning and end or at any
+14:36 
+
+14:36 location. Okay. And then we have the
+14:39 
+
+14:39 sorting of the node. Okay. So these are
+14:42 
+
+14:42 the operations that can be happened in
+14:45 
+
+14:45 the link list. Okay. And it is very much
+14:48 
+
+14:48 similar to just like you guys maintain a
+14:50 
+
+14:50 contact list in your mobile phone. So
+14:53 
+
+14:53 you can simply add the contact. So if
+14:55 
+
+14:55 you are adding any contact that means
+14:57 
+
+14:57 you are inserting into the link list. If
+14:60 
+
+14:60 you are deleting a contact that means
+15:02 
+
+15:02 you are deleting from the list. Or if
+15:04 
+
+15:04 you are scrolling your contact list that
+15:06 
+
+15:06 means you are traversing it.
+15:09 
+
+15:09 So have you ever seen that if you add a
+15:12 
+
+15:12 new contact into the into your contact
+15:14 
+
+15:14 list in your mobile phone by default
+15:18 
+
+15:18 that contact will automatically arranged
+15:21 
+
+15:21 either in the form of ascending order or
+15:23 
+
+15:23 in the descending order. Have you ever
+15:25 
+
+15:25 seen this? Have you ever experienced
+15:26 
+
+15:26 this?
+15:33 
+
+15:33 Okay
+15:35 
+
+15:35 is saying yes in yes. Okay.
+15:41 
+
+15:41 Sorting. Correct. Correct. Arjit. Yes.
+15:44 
+
+15:44 So why it is happening? Why? Because you
+15:46 
+
+15:46 know if you are inserting any contact,
+15:48 
+
+15:48 if you are adding any contact into your
+15:50 
+
+15:50 mobile phone, okay, by default it is
+15:52 
+
+15:52 adding by default in the background the
+15:54 
+
+15:54 list is working. Okay. The list is
+15:57 
+
+15:57 automatically creating your node.
+16:01 
+
+16:01 Okay. Hna is asking creating a node is
+16:04 
+
+16:04 similar to creating a contact list. No
+16:07 
+
+16:07 creating a I mean I'm just giving you
+16:09 
+
+16:09 the reference that how you can resemble
+16:12 
+
+16:12 how the contact list resemble with the
+16:14 
+
+16:14 link list.
+16:17 
+
+16:17 Okay. And coming to your point if you
+16:20 
+
+16:20 are because in the link list you have to
+16:22 
+
+16:22 give the address of another node but in
+16:24 
+
+16:24 the contact list you never give the
+16:27 
+
+16:27 reference of another contact. Okay each
+16:30 
+
+16:30 contact will be unique. So that is why
+16:32 
+
+16:32 we can't say that creating a contact
+16:34 
+
+16:34 list is equal to creating a node. But
+16:37 
+
+16:37 from the operation standpoint host now
+16:40 
+
+16:40 right it will similar work like a
+16:42 
+
+16:42 contact list.
+16:45 
+
+16:45 Is that clear?
+16:49 
+
+16:49 All right. So we have
+16:53 
+
+16:53 Okay. Let me delete everything.
+16:55 
+
+16:55 Uhhuh. Okay.
+16:58 
+
+16:58 Now moving on to the next slide.
+17:03 
+
+17:03 Now here we will see that how to create
+17:06 
+
+17:06 the nodes. Okay. So now we will start
+17:09 
+
+17:09 with each operation one by one and then
+17:11 
+
+17:11 we will see that how we can do that.
+17:15 
+
+17:15 So as I mentioned a node is a structured
+17:18 
+
+17:18 data type okay which consist of the data
+17:21 
+
+17:21 and then it also consist the next
+17:24 
+
+17:24 pointer. Okay the next node pointer. So
+17:26 
+
+17:26 there are two ways through which a node
+17:29 
+
+17:29 can be created. The first is the static
+17:32 
+
+17:32 method and the second one is the dynamic
+17:35 
+
+17:35 method. Now let's start with the static
+17:37 
+
+17:37 method first. So in the static method
+17:39 
+
+17:39 what we are doing is we are using the
+17:41 
+
+17:41 array because we know in the array
+17:44 
+
+17:44 everything will be static. We have to
+17:45 
+
+17:45 define the structure first. We have to
+17:47 
+
+17:47 define the count of the element first.
+17:50 
+
+17:50 Okay. So if we are using array of
+17:53 
+
+17:53 structure then it will be called as the
+17:56 
+
+17:56 static method or static node. And if we
+17:59 
+
+17:59 are using a standard library functions
+18:02 
+
+18:02 like maloc okay to get the memory space
+18:05 
+
+18:05 then it will be called as the dynamic
+18:08 
+
+18:08 method. Okay. Now would like to ask how
+18:13 
+
+18:13 I mean why we are using the melo here.
+18:15 
+
+18:15 Have you have you guys read about the
+18:18 
+
+18:18 melo? Do you know what is malo in C?
+18:25 
+
+18:25 No. No.
+18:28 
+
+18:28 Okay. Strange.
+18:30 
+
+18:30 I mean I guess the the C programming is
+18:34 
+
+18:34 in your first semester if I'm not wrong.
+18:40 
+
+18:40 Okay.
+18:42 
+
+18:42 And then in the C we have this concept
+18:45 
+
+18:45 of memory allocation.
+18:48 
+
+18:48 Okay. So we have the four memory
+18:49 
+
+18:49 allocation function in C. It's melo,
+18:52 
+
+18:52 calok, realo and free. Okay. These are
+18:55 
+
+18:55 the four memory function.
+18:58 
+
+18:58 Okay. So why we are using a melo
+19:00 
+
+19:00 function here? Melo stands for memory
+19:03 
+
+19:03 allocation. So if you break down the
+19:05 
+
+19:05 melo. Okay. Melo means memory alloc.
+19:08 
+
+19:08 Memory allocation.
+19:10 
+
+19:10 So if we are performing a dynamic method
+19:14 
+
+19:14 of the node creation that means we are
+19:17 
+
+19:17 allocating the memory dynamically
+19:21 
+
+19:21 and if we are allocating a memory
+19:23 
+
+19:23 dynamically then we need a function in C
+19:27 
+
+19:27 and we only have the melo function which
+19:30 
+
+19:30 will give you the dynamic memory
+19:33 
+
+19:33 allocation capability. So that is why we
+19:36 
+
+19:36 are using the melo function. And by the
+19:39 
+
+19:39 way where from where the memor is coming
+19:42 
+
+19:42 any idea?
+19:47 
+
+19:47 From where the memory is coming the
+19:48 
+
+19:48 memory is coming from the heap.
+19:51 
+
+19:51 Okay. Uh I think in in in in this
+19:54 
+
+19:54 lecture or in in this semester you will
+19:57 
+
+19:57 also read the heap sort.
+19:59 
+
+19:59 Okay. So the memory is coming from the
+20:01 
+
+20:01 heap. Okay. We will discuss the concept
+20:03 
+
+20:03 of heap. Okay, when we will discuss the
+20:05 
+
+20:05 sorting part, okay, the memory is coming
+20:08 
+
+20:08 from the heap.
+20:10 
+
+20:10 Now,
+20:12 
+
+20:12 let me give you a real world example.
+20:16 
+
+20:16 I hope everyone has booked railway
+20:18 
+
+20:18 ticket on IRCTC or any other travel
+20:22 
+
+20:22 website.
+20:25 
+
+20:25 Right now whenever you book seat into
+20:28 
+
+20:28 the railway, okay, do you think that the
+20:31 
+
+20:31 seats are allocated in a sequential way?
+20:42 
+
+20:42 The seats are never allocated in a
+20:44 
+
+20:44 sequential way. The seats are always
+20:46 
+
+20:46 allocated in a dynamic way. Yes, it is
+20:49 
+
+20:49 based on the availability.
+20:51 
+
+20:51 Okay. And sometimes okay there's a
+20:54 
+
+20:54 possibility that you and your friend are
+20:56 
+
+20:56 going and your friend got a seat in in
+20:58 
+
+20:58 B1 and you got a seat in B2 okay this is
+21:02 
+
+21:02 again a possibility why because the
+21:04 
+
+21:04 seats are allocated dynamically
+21:06 
+
+21:06 similarly in in the node allocation also
+21:10 
+
+21:10 node is like a coach as I mentioned okay
+21:13 
+
+21:13 consider the same analogy the node is
+21:15 
+
+21:15 like a coach there's
+21:18 
+
+21:18 there might be a possibility that the
+21:20 
+
+21:20 memory which is allocated related to you
+21:22 
+
+21:22 will not be in the same location or will
+21:24 
+
+21:24 not be in the same node. Okay. So you
+21:27 
+
+21:27 might get different coaches also.
+21:31 
+
+21:31 Okay. So similarly the dynamic method
+21:34 
+
+21:34 allocation is the mostly used for the
+21:36 
+
+21:36 link list. Why? Because we don't know
+21:39 
+
+21:39 what is the size of the link list. It is
+21:40 
+
+21:40 depending on the data inputs. If we are
+21:43 
+
+21:43 having a huge data then obviously we
+21:45 
+
+21:45 need a larger number of memory. A huge
+21:47 
+
+21:47 memory is required. Okay. So in that
+21:50 
+
+21:50 case the memory will be allocated based
+21:53 
+
+21:53 on the size of the data. Just like a you
+21:56 
+
+21:56 mentioned it is based on the
+21:57 
+
+21:57 availability. Availability of what?
+21:60 
+
+21:60 Availability of the passengers.
+22:02 
+
+22:02 Availability of the seats. If more
+22:03 
+
+22:03 passenger if more passengers are there
+22:05 
+
+22:05 then obviously the railway will open the
+22:08 
+
+22:08 waiting list. The the the railway will
+22:10 
+
+22:10 open the RAC.
+22:14 
+
+22:14 Okay. Similarly, if the data is huge,
+22:16 
+
+22:16 the more dynamically the more memory
+22:18 
+
+22:18 will be allocated dynamically. If the if
+22:21 
+
+22:21 the data is less, then the memory dynam
+22:24 
+
+22:24 obviously the memory will be allocated
+22:25 
+
+22:25 dynamically, but the memory space will
+22:27 
+
+22:27 be less.
+22:30 
+
+22:30 So, we can use a standard library
+22:32 
+
+22:32 functions like Melo, okay, to get the
+22:35 
+
+22:35 memory space.
+22:45 
+
+22:45 Is that clear how we can create a node
+22:48 
+
+22:48 into the link list?
+22:52 
+
+22:52 All right.
+22:56 
+
+22:56 Okay. So this is the syntax of you know
+22:59 
+
+22:59 creating a a node into the link list.
+23:02 
+
+23:02 Okay. See so similarly I mean you just
+23:05 
+
+23:05 have to create a node here. Okay. Node
+23:07 
+
+23:07 will be determined by the pointer
+23:09 
+
+23:09 variable. Why we are using a pointer
+23:11 
+
+23:11 variable here into the node.
+23:15 
+
+23:15 Any idea if we want to create a node?
+23:18 
+
+23:18 Why we are using this pointer variable?
+23:30 
+
+23:30 It contains all packages. Packages of
+23:31 
+
+23:31 what?
+23:33 
+
+23:33 Addresses. Yes. Because in order to
+23:36 
+
+23:36 store the because we know that the node
+23:38 
+
+23:38 contains the address of the next
+23:41 
+
+23:41 variable or the next address of the next
+23:43 
+
+23:43 node or address can of the next node
+23:46 
+
+23:46 will be stored in a pointer variable and
+23:48 
+
+23:48 a pointer variable will always be stored
+23:50 
+
+23:50 in another pointer variable. So that is
+23:52 
+
+23:52 why we are keeping our node as a pointer
+23:54 
+
+23:54 variable here. Correct Arjit? Yes,
+23:57 
+
+23:57 because it is pointing to the next node.
+23:59 
+
+23:59 Okay. So this is the syntax. We will
+24:01 
+
+24:01 first create a node NP. Okay. NP stands
+24:04 
+
+24:04 for node pointer and then you know we
+24:07 
+
+24:07 will simply allocating a we'll be simply
+24:09 
+
+24:09 using a maloc function okay which will
+24:12 
+
+24:12 first identify the node structure okay
+24:15 
+
+24:15 what is the node size node size will be
+24:17 
+
+24:17 determined by the data and then based on
+24:20 
+
+24:20 the data it will allocate the dynamic
+24:23 
+
+24:23 memory allocation of that size and that
+24:26 
+
+24:26 will be stored into your node pointer
+24:31 
+
+24:31 so I And at the runtime here the OS is
+24:35 
+
+24:35 allocating your consecutive size of U
+24:39 
+
+24:39 whatever the node size you have in the
+24:40 
+
+24:40 heap region.
+24:42 
+
+24:42 And then it return the address of the
+24:45 
+
+24:45 first memory cell
+24:48 
+
+24:48 and then once you have to remove the
+24:51 
+
+24:51 node you will always have to use this
+24:52 
+
+24:52 free. Okay free is the memory allocation
+24:55 
+
+24:55 function. Whenever you want to release
+24:56 
+
+24:56 the memory the the memory which already
+24:59 
+
+24:59 occupied by the node. Okay. Okay, if our
+25:02 
+
+25:02 work is done, you have to release the
+25:03 
+
+25:03 memory. There is no point of you know
+25:06 
+
+25:06 capturing or holding the memory after
+25:08 
+
+25:08 your work is done. So once it is done,
+25:10 
+
+25:10 just release your memory.
+25:13 
+
+25:13 Okay. So yes, so we have to use this
+25:16 
+
+25:16 free function to release whenever you
+25:19 
+
+25:19 are either deleting the node. Okay,
+25:21 
+
+25:21 otherwise it can cause the memory
+25:23 
+
+25:23 leaking.
+25:28 
+
+25:28 Okay. Uh let me see some questions
+25:33 
+
+25:33 here. Okay. So I can see two questions.
+25:36 
+
+25:36 Uh Vnavi you are asking uh can you
+25:39 
+
+25:39 repeat again? What you want to what do
+25:42 
+
+25:42 you want me to repeat?
+25:45 
+
+25:45 If you can unmute yourself.
+25:48 
+
+25:48 Can you guys unmute yourself?
+25:51 
+
+25:51 No. Yes. If not then then simply write
+25:54 
+
+25:54 down into the chat.
+25:59 
+
+25:59 What do you want me to repeat? Any idea?
+26:03 
+
+26:03 Any questions so far?
+26:08 
+
+26:08 Okay, Laxshmi, you want you want me to
+26:10 
+
+26:10 explain the heap? Uh, heap will take
+26:13 
+
+26:13 time. Uh, Laxmi, that is why I am not
+26:15 
+
+26:15 covering heap at this moment.
+26:18 
+
+26:18 Okay. But, uh,
+26:24 
+
+26:24 okay. Yeah. I mean, consider the time
+26:25 
+
+26:25 constant per but okay. But just let me
+26:28 
+
+26:28 give you the basic understanding of
+26:30 
+
+26:30 heap. So heap is basically a region of
+26:32 
+
+26:32 the RAM. Okay. So I hope you guys are
+26:35 
+
+26:35 clear with the concept of RAM and ROM.
+26:37 
+
+26:37 Okay. So RAM is a what type of memory?
+26:40 
+
+26:40 Static or dynamic?
+26:44 
+
+26:44 RAM. RAM is what?
+26:47 
+
+26:47 Static or dynamic? Dynamic. Correct.
+26:49 
+
+26:49 Okay. So RAM is a dynamic memory. So if
+26:52 
+
+26:52 you are you know taking a large region
+26:55 
+
+26:55 of the RAM okay which is only be used
+26:58 
+
+26:58 for the memory allocation okay then it
+27:01 
+
+27:01 is called as heap
+27:09 
+
+27:09 okay is that clear laxmi I mean we will
+27:12 
+
+27:12 cover heap in detail once we will start
+27:15 
+
+27:15 working but
+27:17 
+
+27:17 yeah so it is taken from the RAM only
+27:21 
+
+27:21 Okay.
+27:23 
+
+27:23 All right. Moving on to the next.
+27:27 
+
+27:27 Okay. Now let's see how you can traverse
+27:29 
+
+27:29 the link list. Okay. Traversing means
+27:31 
+
+27:31 that you have to print each and every
+27:33 
+
+27:33 element. Okay. So always start with the
+27:35 
+
+27:35 start pointer as I mentioned in the
+27:37 
+
+27:37 singly link list. You have to use the
+27:39 
+
+27:39 pointer start and then you have to move
+27:41 
+
+27:41 node by node until null. Okay. Null
+27:45 
+
+27:45 means the last node. Okay. For example
+27:48 
+
+27:48 your Instagram feed. If you are
+27:50 
+
+27:50 scrolling your Instagram feed, if you
+27:52 
+
+27:52 open the one post and then you just
+27:55 
+
+27:55 scroll down to next to next to next and
+27:58 
+
+27:58 then your feed will be loaded one by
+27:60 
+
+27:60 one.
+28:02 
+
+28:02 Okay, so this is the way that how you
+28:04 
+
+28:04 have to traverse your link list. Okay,
+28:06 
+
+28:06 just start with the first node. Okay,
+28:10 
+
+28:10 from the pointer start and then just
+28:12 
+
+28:12 keep applying the for loop. Okay. Or you
+28:15 
+
+28:15 can also use the while loop to traverse
+28:18 
+
+28:18 each and every node. And what I mean and
+28:21 
+
+28:21 just just keep on traversing until the
+28:24 
+
+28:24 condition gets met. That means if start
+28:26 
+
+28:26 is equal to null that means that the
+28:28 
+
+28:28 link list is now empty and now every
+28:31 
+
+28:31 everything is traversed.
+28:38 
+
+28:38 Okay. So this is how the traversing loop
+28:41 
+
+28:41 will work. Okay. So always start with
+28:44 
+
+28:44 the start.
+28:46 
+
+28:46 Okay. And then just keep on doing just
+28:49 
+
+28:49 keep on scrolling.
+28:52 
+
+28:52 Okay. So here you can see the each node
+28:55 
+
+28:55 point only to the next node and there is
+28:58 
+
+28:58 only one direction traverse and that is
+28:60 
+
+28:60 why we will call it as a singly link
+29:02 
+
+29:02 list. Why we are calling it as a singly
+29:04 
+
+29:04 link list? Because here only a one
+29:06 
+
+29:06 direction traversal is allowed.
+29:09 
+
+29:09 That means only forward. You can't go
+29:12 
+
+29:12 backward.
+29:14 
+
+29:14 Now if I say about the doubly link list,
+29:16 
+
+29:16 what do you mean by doubly link list? In
+29:19 
+
+29:19 the doubly link list, you can you can go
+29:22 
+
+29:22 forward as well as backward also.
+29:25 
+
+29:25 But in the singly link list, you can go
+29:28 
+
+29:28 only into the forward location only to
+29:31 
+
+29:31 the next node. Now the question is and
+29:34 
+
+29:34 this question is for everyone. What do
+29:36 
+
+29:36 you think? Which one is easy for the
+29:39 
+
+29:39 implementation? singly or doubly link
+29:41 
+
+29:41 list
+29:51 
+
+29:51 right I mean Lakshmi I I mean I don't
+29:54 
+
+29:54 know whether you find the doubly link
+29:56 
+
+29:56 list easy but double link list is not
+29:58 
+
+29:58 that much easy okay um the
+30:01 
+
+30:01 implementation from the implementation
+30:02 
+
+30:02 side singly link list is easy to
+30:04 
+
+30:04 implement because you just have to you
+30:07 
+
+30:07 know mention a single node node and then
+30:10 
+
+30:10 the address of the next node that's it
+30:13 
+
+30:13 okay otherwise you will have to maintain
+30:15 
+
+30:15 the connection from both the sides okay
+30:18 
+
+30:18 now I mean at this moment in the single
+30:19 
+
+30:19 link list you just have to worry about
+30:21 
+
+30:21 the next node okay you need not to worry
+30:23 
+
+30:23 about the previous nodes
+30:27 
+
+30:27 okay so now let's see how the traversal
+30:29 
+
+30:29 of the link list works okay so as I
+30:31 
+
+30:31 mentioned okay you just have to use any
+30:34 
+
+30:34 loop either you can use the for loop or
+30:36 
+
+30:36 while loop okay apply the while loop
+30:39 
+
+30:39 Okay, just set up the condition here. So
+30:43 
+
+30:43 here what we are doing is we starting
+30:45 
+
+30:45 from the start and we will check until
+30:47 
+
+30:47 and unless the value of pointer is not
+30:50 
+
+30:50 equal to null. Null means the last node
+30:53 
+
+30:53 just print the data. So as soon as your
+30:56 
+
+30:56 node will move from one node to another
+30:58 
+
+30:58 node, just print the data and then set
+31:02 
+
+31:02 up the pointer to the next node.
+31:08 
+
+31:08 Yeah, Laxmi the difference between
+31:09 
+
+31:09 singly and doubly is in singly you can
+31:11 
+
+31:11 always go to the forward direction.
+31:13 
+
+31:13 Okay, there's a no possibility of going
+31:15 
+
+31:15 to the backward in double in doubly link
+31:18 
+
+31:18 list you can go forward as well as
+31:20 
+
+31:20 backward both.
+31:25 
+
+31:25 Okay. So just take a look on this
+31:27 
+
+31:27 reversal algorithm and let me know is
+31:30 
+
+31:30 that clear this algorithm
+31:34 
+
+31:34 the code
+31:37 
+
+31:37 any questions any doubts in this
+31:39 
+
+31:39 question in this algorithm.
+31:46 
+
+31:46 What about others? I just want to know
+31:49 
+
+31:49 all the you know the feedback from all
+31:51 
+
+31:51 the candidates.
+31:53 
+
+31:53 Is that clear? What we are doing is we
+31:54 
+
+31:54 are simply applying a loop. Okay. And
+31:57 
+
+31:57 then we are simply validating the
+31:59 
+
+31:59 conditions here until and unless the
+32:01 
+
+32:01 value of pointer is not equal to null.
+32:03 
+
+32:03 Okay. That means we will start from the
+32:05 
+
+32:05 first node and then we will keep on
+32:07 
+
+32:07 traversing until the next node until the
+32:09 
+
+32:09 last node and during the traversal we
+32:12 
+
+32:12 will print the data. Okay. So for the
+32:14 
+
+32:14 printing we will use this print f. Okay.
+32:17 
+
+32:17 Person D is means because the data is of
+32:20 
+
+32:20 integer type. Okay. So we are printing
+32:23 
+
+32:23 the data and then we are setting the
+32:26 
+
+32:26 pointer to the next node.
+32:29 
+
+32:29 So this is very much easy.
+32:34 
+
+32:34 Now moving on to the next
+32:44 
+
+32:44 uh Zara. Yes. So coding you have to work
+32:47 
+
+32:47 on it. Okay. Coding is not a rocket
+32:49 
+
+32:49 science that you will learn uh in a
+32:51 
+
+32:51 single day. Okay. So you have to keep on
+32:54 
+
+32:54 practice. If you know the concept that
+32:56 
+
+32:56 in that case your coding will be easy.
+32:58 
+
+32:58 Okay. Because you know how to implement
+33:00 
+
+33:00 how to do that. Now you just have to
+33:03 
+
+33:03 remember the syntax. The syntax may be
+33:05 
+
+33:05 vary from language to language. If you
+33:07 
+
+33:07 are using C or if you are using Java or
+33:10 
+
+33:10 any other programming language, the
+33:12 
+
+33:12 syntax might vary. Okay. But the concept
+33:14 
+
+33:14 will be same. Okay. So understand the
+33:17 
+
+33:17 concept first and then learn the syntax.
+33:24 
+
+33:24 All right. Uh
+33:26 
+
+33:26 going to the next slide.
+33:28 
+
+33:28 Okay. Now let's see how you can perform
+33:30 
+
+33:30 the searching. Okay. So the searching is
+33:32 
+
+33:32 again a very I mean very easy. Okay. So
+33:36 
+
+33:36 you will start with the first node.
+33:38 
+
+33:38 Okay. And then you will keep on
+33:40 
+
+33:40 traversing.
+33:42 
+
+33:42 Okay. From one node to another node.
+33:44 
+
+33:44 From another node to next node. Okay. So
+33:46 
+
+33:46 for example, if I want to search uh the
+33:49 
+
+33:49 node number four.
+33:51 
+
+33:51 Okay. So what we can do is we can simply
+33:53 
+
+33:53 start with the first node. Okay. And
+33:56 
+
+33:56 then we will simply go to the next node.
+33:58 
+
+33:58 If the data value gets matched. Okay.
+34:01 
+
+34:01 Then we will stop the pointer. Suppose
+34:03 
+
+34:03 if I want to search four. So first we
+34:05 
+
+34:05 will validate whether it is a four or
+34:06 
+
+34:06 not. No, this is seven. This is not
+34:09 
+
+34:09 four. So what we will do is we will
+34:10 
+
+34:10 again go to the next node. Okay. Then we
+34:13 
+
+34:13 will check the data field whether the
+34:15 
+
+34:15 value is four or not. No, this is three
+34:18 
+
+34:18 not four. So we will go to the next
+34:20 
+
+34:20 note. Then here we will check whether
+34:22 
+
+34:22 the value which we are searching is
+34:24 
+
+34:24 equal to the value that we have in the
+34:26 
+
+34:26 node. Yes, the value gets matched. But
+34:29 
+
+34:29 now in this point we will stop.
+34:33 
+
+34:33 Okay. And this is very much similar to
+34:35 
+
+34:35 like you are searching contact in your
+34:37 
+
+34:37 phone without the search bar. So if
+34:39 
+
+34:39 there is no search capability in your
+34:41 
+
+34:41 mobile phone, so what will you do? You
+34:44 
+
+34:44 will start from the from the top and
+34:46 
+
+34:46 then you will keep on scrolling
+34:49 
+
+34:49 till bottom. Okay? And an unless you
+34:52 
+
+34:52 find the contact number. So this is very
+34:54 
+
+34:54 much similar to how you can find out the
+34:57 
+
+34:57 contact in your mobile phone.
+35:01 
+
+35:01 Okay. So now if I have to you know
+35:04 
+
+35:04 develop a code for this. So how you can
+35:06 
+
+35:06 do again this is very much easy just
+35:09 
+
+35:09 start with the first pointer apply a
+35:12 
+
+35:12 condition okay so whatever the data
+35:14 
+
+35:14 element that you want to search for
+35:15 
+
+35:15 example if I want to search four keep it
+35:18 
+
+35:18 in a variable suppose a is equal to four
+35:21 
+
+35:21 okay now again apply the loop
+35:25 
+
+35:25 apply the loop so until and unless the
+35:28 
+
+35:28 value of data the node data is equal to
+35:31 
+
+35:31 four just keep on traversing and as soon
+35:34 
+
+35:34 as it gets matched stop the execution
+35:36 
+
+35:36 and print the location. This is a
+35:38 
+
+35:38 program of searching in a link list.
+35:47 
+
+35:47 All right.
+35:51 
+
+35:51 Yes. So this is a program. Okay. Which
+35:53 
+
+35:53 is I was telling you. Okay. So now here
+35:56 
+
+35:56 you can see what we are doing is okay.
+35:58 
+
+35:58 We are simply setting the pointer from
+36:00 
+
+36:00 start.
+36:02 
+
+36:02 Okay. Now we are repeating the step
+36:04 
+
+36:04 three. While pointer is not equal to
+36:06 
+
+36:06 null. That means we are traversing. If
+36:08 
+
+36:08 value v. Okay, that means the value
+36:11 
+
+36:11 which we want to search. If the value is
+36:13 
+
+36:13 equal to pointer data, if yes, then set
+36:17 
+
+36:17 the position. Okay, and then go to step
+36:19 
+
+36:19 five. Go to step five means you just
+36:21 
+
+36:21 have to exit. You have found your
+36:23 
+
+36:23 output. If not, then you have to set
+36:26 
+
+36:26 your pointer to the next. And then your
+36:29 
+
+36:29 condition will keep on checking the
+36:31 
+
+36:31 value of your your the value you want to
+36:34 
+
+36:34 search and the value you have into the
+36:36 
+
+36:36 node. And as soon as you get the value,
+36:39 
+
+36:39 as soon as the value of if condition
+36:41 
+
+36:41 gets true, okay, just exit and then
+36:45 
+
+36:45 print the location.
+36:54 
+
+36:54 Uh I can see and see why the traversal
+36:59 
+
+36:59 is not horizontal. What do you mean by
+37:01 
+
+37:01 horizontal here?
+37:08 
+
+37:08 What do you want? What do you mean here
+37:10 
+
+37:10 by horizontal?
+37:16 
+
+37:16 There is no horizontal. There is no
+37:17 
+
+37:17 vertical. Right? I mean I mean in the
+37:20 
+
+37:20 link list I mean if you are if you are
+37:22 
+
+37:22 keeping your link list at the table then
+37:24 
+
+37:24 it is a horizontal if you if you are
+37:27 
+
+37:27 keeping your link list at at a
+37:29 
+
+37:29 horizontal then you can also do the same
+37:31 
+
+37:31 thing the code will remain same the
+37:33 
+
+37:33 logic will remain same there's no
+37:35 
+
+37:35 difference in top to bottom or
+37:37 
+
+37:37 horizontal or vertical
+37:44 
+
+37:44 okay right Uh
+37:49 
+
+37:49 no now I can see one question why
+37:52 
+
+37:52 algorithm is to search a link list.
+37:54 
+
+37:54 Sorry PR I didn't get your question. You
+37:57 
+
+37:57 want the searching part in the link
+37:59 
+
+37:59 list.
+38:08 
+
+38:08 Yeah. So searching will come searching
+38:09 
+
+38:09 will come into the next slide.
+38:13 
+
+38:13 Okay. Okay. So, is that clear the code
+38:14 
+
+38:14 how you can search an element into the
+38:16 
+
+38:16 link list?
+38:22 
+
+38:22 Yes. No.
+38:24 
+
+38:24 Or you want me to repeat?
+38:31 
+
+38:31 Don't
+38:45 
+
+38:45 Now moving on to the insertion. Okay,
+38:47 
+
+38:47 this is this is important from the exam
+38:49 
+
+38:49 site. Okay, because you know you will
+38:51 
+
+38:51 get a lot of questions on this that
+38:54 
+
+38:54 insert an element or insert a node into
+38:56 
+
+38:56 the link list. Now as I mentioned in the
+38:59 
+
+38:59 beginning, you can insert
+39:01 
+
+39:01 the node into the link list at any
+39:04 
+
+39:04 position. You can insert at the
+39:06 
+
+39:06 beginning, you can insert into the end
+39:08 
+
+39:08 or you can insert into the middle. Okay?
+39:11 
+
+39:11 And just like a train coach insertion,
+39:13 
+
+39:13 you can insert your train coach. You can
+39:15 
+
+39:15 add your coach at the front, you can add
+39:17 
+
+39:17 at the end or you can add in between
+39:19 
+
+39:19 also. Okay? The only thing which you
+39:22 
+
+39:22 have to remember is you have to change
+39:24 
+
+39:24 the pointers very carefully.
+39:27 
+
+39:27 Okay? Because if you are not able to
+39:29 
+
+39:29 change the points carefully, pointers
+39:32 
+
+39:32 carefully, okay, you will be inserting
+39:35 
+
+39:35 the node in a wrong position.
+39:39 
+
+39:39 Okay. So this is very important. So now
+39:42 
+
+39:42 let's understand the example. Okay. So
+39:44 
+
+39:44 that you know you will be able to you
+39:46 
+
+39:46 know relate with the insertion part. So
+39:49 
+
+39:49 suppose uh this is a link list we have.
+39:54 
+
+39:54 Okay. Here we have 1 7 3 4 2 6 and 5.
+39:60 
+
+39:60 Okay. Now the task is that we have to
+40:04 
+
+40:04 insert a new node 9 at the beginning
+40:08 
+
+40:08 position.
+40:10 
+
+40:10 Okay. So now what will happen? We will
+40:13 
+
+40:13 have to create a new node first. Okay.
+40:17 
+
+40:17 Then we have to create then we have to
+40:19 
+
+40:19 set up the nine here. And then we have
+40:22 
+
+40:22 to set up the pointer of nine to the
+40:26 
+
+40:26 node number one. The next node of nine
+40:31 
+
+40:31 should link to the node number one.
+40:35 
+
+40:35 And then node number nine should be
+40:37 
+
+40:37 marked as start.
+40:40 
+
+40:40 This will be the final output. Yes or
+40:42 
+
+40:42 no? Are you guys agreeing? These are the
+40:45 
+
+40:45 operations that we have to do.
+40:50 
+
+40:50 Okay. We have this node. We have this we
+40:53 
+
+40:53 have this link list and we have to
+40:55 
+
+40:55 insert a new node nine. Okay. So if you
+40:58 
+
+40:58 look at the previous one, we don't have
+40:59 
+
+40:59 the node number nine. But now what we
+41:01 
+
+41:01 are doing is we are inserting the new
+41:03 
+
+41:03 node nine here.
+41:07 
+
+41:07 Okay. So now let's see how you can
+41:09 
+
+41:09 insert. So the first thing we will check
+41:12 
+
+41:12 whether the link list is empty or not or
+41:15 
+
+41:15 whether there's a space or not.
+41:18 
+
+41:18 So first we will check if available is
+41:21 
+
+41:21 equal to null
+41:23 
+
+41:23 that means there's no available space at
+41:26 
+
+41:26 all. For example, if we if if we want to
+41:28 
+
+41:28 insert any node here or suppose a node
+41:31 
+
+41:31 is already pulled there is no space left
+41:35 
+
+41:35 then what we will do is we will simply
+41:37 
+
+41:37 write overflow.
+41:41 
+
+41:41 Okay. And then go to step number seven.
+41:44 
+
+41:44 Step number seven is what? exit.
+41:48 
+
+41:48 Okay, that means first we will check
+41:50 
+
+41:50 whether do we have any space or not
+41:53 
+
+41:53 because the space are allocated
+41:55 
+
+41:55 dynamically.
+41:57 
+
+41:57 Okay, so if we have the memory space
+41:59 
+
+41:59 then only we can insert the node. If the
+42:01 
+
+42:01 memory space is not there then simply
+42:04 
+
+42:04 exit. Now suppose the step number one
+42:09 
+
+42:09 the conditions get filled
+42:11 
+
+42:11 that means we have the some available
+42:14 
+
+42:14 space into the link list. Now what we
+42:16 
+
+42:16 will do is we will create a new node.
+42:20 
+
+42:20 Okay. So here in the step number two we
+42:22 
+
+42:22 are creating a new node. Okay. And then
+42:25 
+
+42:25 we'll put the new node into the
+42:27 
+
+42:27 available space. That means this one.
+42:30 
+
+42:30 Now this node is created. Okay. And now
+42:33 
+
+42:33 this node is created into the available
+42:35 
+
+42:35 space. Now let's see in the step number
+42:38 
+
+42:38 three. Now this is available. Now what
+42:40 
+
+42:40 we are doing is we are setting up the
+42:43 
+
+42:43 next pointer of available. This is the
+42:45 
+
+42:45 next pointer of available. We are
+42:47 
+
+42:47 setting the next node of available to
+42:49 
+
+42:49 the already existing data.
+42:54 
+
+42:54 Okay. So what we are doing is we are
+42:56 
+
+42:56 setting up the data to the value. Okay.
+42:59 
+
+42:59 The value will be nine here. and the new
+43:01 
+
+43:01 node of next that means this is the next
+43:04 
+
+43:04 of new node okay it will mark it will be
+43:07 
+
+43:07 treated as start so here we are treating
+43:09 
+
+43:09 it as start node
+43:14 
+
+43:14 I know this is little little bit
+43:16 
+
+43:16 complicated but let me again tell you
+43:18 
+
+43:18 from the beginning what we are doing is
+43:20 
+
+43:20 first we will check whether do we have a
+43:22 
+
+43:22 memory space or not if we are we don't
+43:24 
+
+43:24 have any memory space just go to exit
+43:28 
+
+43:28 now first the step number two what What
+43:30 
+
+43:30 we are doing is we are inserting a node.
+43:33 
+
+43:33 Okay. So we will set a new node into the
+43:35 
+
+43:35 available space.
+43:38 
+
+43:38 Okay. And then what we are doing is we
+43:40 
+
+43:40 are setting the node here. So the first
+43:43 
+
+43:43 node will be the data node and the
+43:44 
+
+43:44 second node will be the pointer to the
+43:46 
+
+43:46 next node. Okay. So in the step number
+43:49 
+
+43:49 three what we are doing is we are
+43:51 
+
+43:51 setting the availability of next. Okay.
+43:53 
+
+43:53 This is a new node. A well. Okay. This
+43:55 
+
+43:55 is the next of a well. Okay. This is a
+43:59 
+
+43:59 well data.
+44:01 
+
+44:01 Now what we are doing is we are setting
+44:04 
+
+44:04 a new node and what is the whatever the
+44:07 
+
+44:07 value we have okay that value will be
+44:10 
+
+44:10 captured into the data field. So the
+44:12 
+
+44:12 nine the value will nine. So nine will
+44:15 
+
+44:15 be inserted into the new node data.
+44:18 
+
+44:18 Okay. And then the new node next will be
+44:21 
+
+44:21 treated as start. Okay. So here you can
+44:24 
+
+44:24 see the new node next. This is the new
+44:26 
+
+44:26 node. The new node next will be st
+44:28 
+
+44:28 stored into the start.
+44:35 
+
+44:35 Uh okay is asking if we skip the step
+44:38 
+
+44:38 number one. Okay. If we save the step
+44:40 
+
+44:40 number one and start with the step
+44:42 
+
+44:42 number two will it show error? No. No.
+44:48 
+
+44:48 I mean if you want you can you can skip
+44:50 
+
+44:50 the step number one also asma.
+44:52 
+
+44:52 Okay. Now your second question is where
+44:54 
+
+44:54 do we type nine sir? Okay. This is this
+44:57 
+
+44:57 is the value the well this is nine.
+45:03 
+
+45:03 Okay. So what you are doing is you are
+45:05 
+
+45:05 setting up the value 9 to the new node
+45:08 
+
+45:08 of data. This is your new node. This is
+45:10 
+
+45:10 your data field. This is your next
+45:12 
+
+45:12 field. So you are setting the value 9 to
+45:15 
+
+45:15 the data field.
+45:17 
+
+45:17 Right in
+45:19 
+
+45:19 right hna.
+45:24 
+
+45:24 Anyone else? Any doubts?
+45:33 
+
+45:33 Any doubts? Any queries? That means the
+45:36 
+
+45:36 step number one is not mandatory. The
+45:37 
+
+45:37 step number one is not mandatory first
+45:40 
+
+45:40 thing but it is an ideal practice if you
+45:42 
+
+45:42 check that whether the conditions are
+45:44 
+
+45:44 overflowed or underflow. Okay, just like
+45:47 
+
+45:47 what we did into the stack stack
+45:50 
+
+45:50 overflow or stack underflow. I mean this
+45:52 
+
+45:52 is not always mandatory to check the
+45:54 
+
+45:54 underflow and overflow but it is a good
+45:56 
+
+45:56 programming practice.
+46:02 
+
+46:02 Okay, cool. Thank you so much. Now let
+46:06 
+
+46:06 me clear my drawings
+46:10 
+
+46:10 and then moving on to the next slide.
+46:14 
+
+46:14 Okay, so this is again
+46:17 
+
+46:17 the same thing is here. Okay, but in a
+46:20 
+
+46:20 different way. Okay. Now you are
+46:22 
+
+46:22 inserting the node at the end. Okay. Now
+46:24 
+
+46:24 the same operations you have to do.
+46:27 
+
+46:27 Okay. Again first you will check the
+46:28 
+
+46:28 overflow conditions. Again you will set
+46:31 
+
+46:31 up a new node here. Okay. Again you will
+46:34 
+
+46:34 set the new the value to the new node.
+46:38 
+
+46:38 Um set the new node next to null. Now
+46:40 
+
+46:40 this is the now this step is different.
+46:42 
+
+46:42 If you look at the step number five
+46:46 
+
+46:46 right here, we are setting this the next
+46:48 
+
+46:48 node of the new node is null. Why?
+46:51 
+
+46:51 Because we are inserting at the end.
+46:56 
+
+46:56 But if you go to the previous slide
+47:02 
+
+47:02 here, what we are doing is we if you
+47:04 
+
+47:04 look at the step number five, we are
+47:06 
+
+47:06 setting a new node of next to the start.
+47:08 
+
+47:08 Why? Because we are we are inserting at
+47:11 
+
+47:11 the beginning. That is why we are
+47:12 
+
+47:12 starting at the start. But here just
+47:15 
+
+47:15 because we are inserting at the end that
+47:17 
+
+47:17 is why we are setting it as none.
+47:20 
+
+47:20 Is that clear? The only the step number
+47:22 
+
+47:22 five is different otherwise all the
+47:24 
+
+47:24 program will be the same.
+47:31 
+
+47:31 Clear? Yes. No. Silences everywhere.
+47:38 
+
+47:38 Okay. What about others? clear now?
+47:43 
+
+47:43 Uh okay. Okay. So if you have any
+47:45 
+
+47:45 questions in your exam then you have to
+47:47 
+
+47:47 write in this way only. Okay. You will
+47:50 
+
+47:50 get full marks.
+47:52 
+
+47:52 Okay. And don't worry I mean just
+47:54 
+
+47:54 understand the concept. Okay. If you
+47:56 
+
+47:56 don't know the programming good no
+47:58 
+
+47:58 worries. Okay. Just draw a architecture
+48:00 
+
+48:00 just draw a diagram in your paper. Okay.
+48:02 
+
+48:02 or any of the rough paper and then think
+48:05 
+
+48:05 that what are the steps that you have to
+48:06 
+
+48:06 follow and then simply write in the step
+48:08 
+
+48:08 number one, step number two, step number
+48:10 
+
+48:10 three, that's it. Okay, that is more
+48:13 
+
+48:13 than enough. That is what we are
+48:14 
+
+48:14 expecting in the exam. Okay, we can't
+48:17 
+
+48:17 expect anyone to be a good programmer.
+48:19 
+
+48:19 Okay, who are writing a long codes into
+48:21 
+
+48:21 the exam paper. No, if you know the
+48:23 
+
+48:23 concept even in your exam paper also,
+48:26 
+
+48:26 okay, um your examiner, okay, or or or
+48:30 
+
+48:30 your paper setter, okay, they will
+48:33 
+
+48:33 simply try to understand that what is
+48:35 
+
+48:35 the level of knowledge you have, okay?
+48:37 
+
+48:37 That person will not go into the depth,
+48:40 
+
+48:40 okay? H moving on to the next. Okay. And
+48:45 
+
+48:45 then again the things will be the same.
+48:48 
+
+48:48 We can simply go to the deletion part.
+48:52 
+
+48:52 Okay.
+48:54 
+
+48:54 So again as I mentioned the deletion can
+48:56 
+
+48:56 also be occurred at the first node, last
+48:58 
+
+48:58 node or middle. Okay. Here if we are
+49:01 
+
+49:01 performing the deletion part the the
+49:03 
+
+49:03 things the only thing that we have to
+49:04 
+
+49:04 check is the underflow. When we were
+49:06 
+
+49:06 inserting anything we will have to check
+49:08 
+
+49:08 the overflow condition. Just like in the
+49:10 
+
+49:10 stack if we are pushing anything if we
+49:12 
+
+49:12 are performing the push operation we
+49:14 
+
+49:14 will check the overflow condition. If we
+49:16 
+
+49:16 are popping anything we are checking the
+49:18 
+
+49:18 underflow. Similarly in link in the link
+49:20 
+
+49:20 list also we will check the underflow
+49:22 
+
+49:22 conditions. Why? Because we are deleting
+49:24 
+
+49:24 the data. So if an underflow means and
+49:28 
+
+49:28 suppose if there is no node then what
+49:30 
+
+49:30 will you delete? Nothing. Okay. So the
+49:33 
+
+49:33 first thing is in the step number first
+49:35 
+
+49:35 you have to check if the start is equal
+49:37 
+
+49:37 to null that means there's no node
+49:39 
+
+49:39 available into the link list your link
+49:41 
+
+49:41 list is empty.
+49:45 
+
+49:45 Okay, then write underflow and go to
+49:48 
+
+49:48 step number five. That means exit.
+49:51 
+
+49:51 If not, then you have to set your
+49:53 
+
+49:53 pointer to the start. Okay, then keep on
+49:56 
+
+49:56 traversing for which the node you want
+49:59 
+
+49:59 to insert and then free the pointer.
+50:01 
+
+50:01 Okay. So here what we are doing is the
+50:03 
+
+50:03 important point to be noted here is
+50:04 
+
+50:04 free. That means you are using the free
+50:08 
+
+50:08 as I mentioned in the memory allocation
+50:10 
+
+50:10 we have melo and free. So free is
+50:13 
+
+50:13 basically used whenever you have to
+50:15 
+
+50:15 delete any node. So whatever the program
+50:18 
+
+50:18 that you will see you will always see
+50:19 
+
+50:19 this free.
+50:22 
+
+50:22 Okay. I can see one question from Rocky
+50:27 
+
+50:27 that concept.
+50:30 
+
+50:30 Okay. But problem it's not you are not
+50:34 
+
+50:34 the new one. Okay. Everyone knows the
+50:37 
+
+50:37 concept. Okay. But writing a code is a
+50:40 
+
+50:40 little difficult. So you have to
+50:41 
+
+50:41 practice it.
+50:51 
+
+50:51 All right. Then what we have the next
+50:54 
+
+50:54 one. Okay. Now moving on to the next
+50:57 
+
+50:57 part. I think deleting a node. Okay.
+50:59 
+
+50:59 Deleting the point. Deleting the node
+51:00 
+
+51:00 will always the same. Okay. So you can
+51:04 
+
+51:04 we can skip now.
+51:08 
+
+51:08 Let's see. Do we have anything on
+51:10 
+
+51:10 circularity? Yes, this is this is again
+51:12 
+
+51:12 this is this will not come in your exam
+51:15 
+
+51:15 but a theory question was there. Okay.
+51:18 
+
+51:18 So what what do we mean by the circular
+51:20 
+
+51:20 link list? So the concept is very much
+51:23 
+
+51:23 simple. Okay. The circular link list
+51:26 
+
+51:26 means any any link list where the last
+51:29 
+
+51:29 node this is the last node where the
+51:31 
+
+51:31 last node point to the first node. That
+51:34 
+
+51:34 means if it is forming a circle. Okay.
+51:37 
+
+51:37 If it is forming a loop then it is
+51:39 
+
+51:39 called a circular link list.
+51:43 
+
+51:43 So what is the unique thing which you
+51:46 
+
+51:46 have noticed in the circular link list?
+51:49 
+
+51:49 Any idea what is the unique thing here
+51:52 
+
+51:52 in circular link list?
+51:55 
+
+51:55 Yes Zara there is no null.
+51:59 
+
+51:59 Okay there is no null.
+52:02 
+
+52:02 Okay here here you can't see any null
+52:04 
+
+52:04 value.
+52:06 
+
+52:06 And then yes
+52:08 
+
+52:08 both forward and backward works. Yes.
+52:10 
+
+52:10 Correct. H first and last are connected.
+52:13 
+
+52:13 Correct. Correct. Okay. So this is the
+52:16 
+
+52:16 example of circular link list. Okay. Any
+52:18 
+
+52:18 real world examples of circular link
+52:21 
+
+52:21 list?
+52:24 
+
+52:24 Any real world example?
+52:27 
+
+52:27 Have you guys heard? Have you guys
+52:28 
+
+52:28 studied the operating system?
+52:32 
+
+52:32 Operating system. Yes. No. Yes. Okay. In
+52:36 
+
+52:36 the operating system, you might have
+52:38 
+
+52:38 heard about the shoulduling, the CPU
+52:40 
+
+52:40 shoulduling.
+52:43 
+
+52:43 In CPUululing, we have this roundroin
+52:46 
+
+52:46 shoulduling.
+52:48 
+
+52:48 Yes or no? So yes, the roundroin
+52:50 
+
+52:50 shoulduling works on the principle of
+52:52 
+
+52:52 circular link list.
+52:55 
+
+52:55 Okay. Traffic signal. Yes, traffic
+52:58 
+
+52:58 signal is also one one of the example of
+53:00 
+
+53:00 circular link list. Okay. Because the
+53:03 
+
+53:03 traffic signal never goes off. Okay. It
+53:06 
+
+53:06 will change from red to green, green to
+53:09 
+
+53:09 yellow, yellow to red, red to yellow,
+53:11 
+
+53:11 yellow to green clock. Yes. Yes. So
+53:14 
+
+53:14 these are the example of circular link
+53:16 
+
+53:16 list.
+53:18 
+
+53:18 Now what is the major benefit of having
+53:20 
+
+53:20 a circular link list?
+53:24 
+
+53:24 What is the major benefit?
+53:34 
+
+53:34 No ending. Okay. Anyone else?
+53:41 
+
+53:41 Huh? In see, no null and no ending both
+53:44 
+
+53:44 are same.
+53:45 
+
+53:45 Okay. Uh
+53:48 
+
+53:48 continuous reversal. Uh-huh.
+53:52 
+
+53:52 Okay. So let me tell you the key benefit
+53:54 
+
+53:54 here. The benefit is I mean you all are
+53:56 
+
+53:56 right. The memory is saved. No null, no
+53:59 
+
+53:59 ending. Uh the key benefit here is that
+54:02 
+
+54:02 you can start your traversal from any
+54:03 
+
+54:03 node. You don't need to start with the
+54:05 
+
+54:05 start pointer. Okay? You I mean whatever
+54:08 
+
+54:08 we were studying so far that you have to
+54:10 
+
+54:10 start with the start pointer. No because
+54:13 
+
+54:13 all the nodes are connected from
+54:14 
+
+54:14 circular to end. So you can start your
+54:16 
+
+54:16 traversal from any node.
+54:19 
+
+54:19 Right? I can see ria. Yes. Here. Okay.
+54:22 
+
+54:22 You can start here. There's no ending
+54:24 
+
+54:24 and continuous.
+54:29 
+
+54:29 Okay. Now
+54:34 
+
+54:34 see what else we have.
+54:39 
+
+54:39 Okay. So we have 4 minutes left and let
+54:42 
+
+54:42 me see what are the other important
+54:45 
+
+54:45 we can use.
+54:49 
+
+54:49 uh uh uh uh uh uh okay so this is again
+54:52 
+
+54:52 an example to insert a new node into the
+54:55 
+
+54:55 beginning of a circular okay so again
+54:57 
+
+54:57 the insertion the deletion path will
+54:59 
+
+54:59 always be the same okay the insert in in
+55:01 
+
+55:01 the insertion as I mentioned first check
+55:04 
+
+55:04 the overflow conditions okay then check
+55:07 
+
+55:07 u whether uh the new node is available
+55:10 
+
+55:10 or not so if you understand the concept
+55:12 
+
+55:12 of singly link list and if you know the
+55:15 
+
+55:15 program you can just copy paste in all
+55:17 
+
+55:17 the link test.
+55:20 
+
+55:20 Okay. So, see, so insertion and deletion
+55:22 
+
+55:22 will always be the same. Okay. Here also
+55:24 
+
+55:24 you can see we are using the same thing.
+55:27 
+
+55:27 We are setting a new node data to the
+55:28 
+
+55:28 value the value I mean the whatever the
+55:30 
+
+55:30 value that we want to insert and then
+55:32 
+
+55:32 you are setting the pointer to start
+55:35 
+
+55:35 and then you are key you are repeating
+55:37 
+
+55:37 your step number seven. Okay. Step
+55:39 
+
+55:39 number seven is what you are keeping the
+55:41 
+
+55:41 value to the next node. Okay. until and
+55:44 
+
+55:44 unless the value is not equal to start.
+55:46 
+
+55:46 That means the value is keep on moving
+55:49 
+
+55:49 continuous.
+55:55 
+
+55:55 All right. I think uh we have uh only
+55:60 
+
+55:60 one topic that is pending that is the
+56:02 
+
+56:02 doubly link list otherwise everything is
+56:04 
+
+56:04 covered. Uh let me see if I we can cover
+56:08 
+
+56:08 the doubly link list in any way just for
+56:11 
+
+56:11 the just for the understanding.
+56:13 
+
+56:13 Uh yes, dl link list. So dl link list as
+56:17 
+
+56:17 I mentioned in the dl link list uh you
+56:19 
+
+56:19 can go both forward and backward.
+56:23 
+
+56:23 Okay.
+56:24 
+
+56:24 So each node has a next pointer also and
+56:27 
+
+56:27 each node has a previous pointer also.
+56:29 
+
+56:29 So so far whatever we have seen each
+56:32 
+
+56:32 node was having only two fields. Okay.
+56:34 
+
+56:34 Two partition the one for data. Okay.
+56:37 
+
+56:37 And one for the next node and doubly
+56:40 
+
+56:40 link list we have three. Okay, the
+56:43 
+
+56:43 middle one is for the data. Okay, this
+56:45 
+
+56:45 one for the next node and this one for
+56:48 
+
+56:48 the previous node just because we are
+56:50 
+
+56:50 marking it as null because there is no
+56:52 
+
+56:52 previous node.
+56:56 
+
+56:56 Okay, so that is why this is example of
+56:58 
+
+56:58 doubly links. But if you look at the
+56:60 
+
+57:00 insertion also, the logic will be the
+57:03 
+
+57:03 same. Okay, again the same thing will be
+57:05 
+
+57:05 there. If you look at the double link
+57:07 
+
+57:07 list code also, the logic will be the
+57:09 
+
+57:09 same. You just have to understand the
+57:13 
+
+57:13 value of the pointer, the address of the
+57:15 
+
+57:15 pointer. That's it.
+57:21 
+
+57:21 All right. So I think uh that was all
+57:24 
+
+57:24 from the link list standpoint. So before
+57:26 
+
+57:26 we wrap up the class, um do you have any
+57:29 
+
+57:29 questions
+57:32 
+
+57:32 which you want to discuss?
+57:37 
+
+57:37 I mean again I would recommend that you
+57:39 
+
+57:39 know just go to your SLM okay understand
+57:42 
+
+57:42 the concept first okay and then because
+57:45 
+
+57:45 now you have gone through my lecture
+57:47 
+
+57:47 also so you will be able to understand
+57:50 
+
+57:50 it more clearly from your SLM okay
+57:52 
+
+57:52 because now I have given you so many
+57:54 
+
+57:54 examples okay so now you will you can
+57:56 
+
+57:56 understand more better and then take a
+57:59 
+
+57:59 look of the program
+58:02 
+
+58:02 cool thank you so much guys and see you
+58:05 
+
+58:05 all in the next one. Thank you.

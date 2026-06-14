@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5 — Sorting</title>
+<style>
+  :root{--ink:#1a1a1a;--muted:#555;--accent:#2c5f8a;--bg:#faf9f7;--card:#fff;--border:#ddd;--code-bg:#f4f1eb;--correct:#2d6a4f;--wrong:#b5153f;--hl:#fff3cd}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Georgia','Times New Roman',serif;font-size:1.05rem;line-height:1.7;color:var(--ink);background:var(--bg);max-width:740px;margin:0 auto;padding:1.5rem 1.5rem 6rem}
+  .topbar{font-family:sans-serif;font-size:.8rem;padding:.5rem 0 1.5rem;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
+  .topbar a{color:var(--accent);text-decoration:none}.topbar a:hover{text-decoration:underline}
+  h1{font-size:1.9rem;font-weight:normal;color:var(--accent);margin-bottom:.2rem}
+  .meta{color:var(--muted);font-size:.82rem;font-family:sans-serif;margin-bottom:1.6rem}
+  h2{font-size:1.25rem;margin:2.3rem 0 .7rem;border-bottom:1px solid var(--border);padding-bottom:.25rem}
+  h3{font-size:1rem;margin:1.4rem 0 .4rem;color:var(--accent)}
+  p{margin-bottom:1rem}ul,ol{padding-left:1.5rem;margin-bottom:1rem}li{margin-bottom:.35rem}
+  code{font-family:'Courier New',monospace;font-size:.9rem;background:var(--code-bg);padding:.1em .35em;border-radius:3px}
+  pre{background:var(--code-bg);border-left:3px solid var(--accent);padding:1rem 1.2rem;overflow-x:auto;margin:1.2rem 0;border-radius:0 4px 4px 0}
+  pre code{background:none;padding:0;font-size:.86rem;line-height:1.55}
+  .cmt{color:#7a8a6a}
+  .callout{background:var(--hl);border-left:4px solid #e6a817;padding:.85rem 1.1rem;margin:1.2rem 0;border-radius:0 4px 4px 0;font-size:.95rem}
+  .exam{background:#e8f4f8;border-left:4px solid var(--accent);padding:.85rem 1.1rem;margin:1.2rem 0;border-radius:0 4px 4px 0;font-size:.92rem;font-family:sans-serif}
+  .exam::before{content:"📋 Exam: ";font-weight:bold}
+  table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.9rem}
+  th{background:var(--accent);color:#fff;text-align:left;padding:.55rem .7rem;font-family:sans-serif}
+  td{padding:.5rem .7rem;border-bottom:1px solid var(--border)}
+  tr:nth-child(even) td{background:#f7f5f2}
+  .trace th,.trace td{text-align:center;font-family:'Courier New',monospace;font-size:.9rem}
+  .trace td:last-child{text-align:left;font-family:sans-serif;font-size:.82rem;color:var(--muted)}
+  .quiz{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.6rem;margin-top:2.5rem}
+  .quiz h2{border:none;margin-top:0}
+  .q{margin-bottom:1.8rem}.q p{font-weight:bold;margin-bottom:.7rem}
+  .opts{list-style:none;padding:0}
+  .opts li{padding:.55rem .85rem;border:1px solid var(--border);border-radius:5px;margin-bottom:.4rem;cursor:pointer;font-family:'Courier New',monospace;font-size:.9rem;transition:background .15s;user-select:none}
+  .opts li:hover{background:#f0f0f0}
+  .opts li.correct{background:#d4edda;border-color:var(--correct);color:var(--correct);font-weight:bold}
+  .opts li.wrong{background:#fce4ec;border-color:var(--wrong);color:var(--wrong)}
+  .opts li.reveal{background:#d4edda;border-color:var(--correct)}
+  .fb{font-family:sans-serif;font-size:.86rem;margin-top:.5rem;min-height:1.1rem;color:var(--muted)}
+  .score{text-align:center;padding:1.4rem;display:none;background:#f0f7ff;border-radius:6px;margin-top:1.4rem;font-family:sans-serif}
+  .score h3{font-size:1.35rem;color:var(--accent)}
+  .src{background:#f0f7f0;border:1px solid #a8d5a2;border-radius:6px;padding:1rem 1.2rem;margin-top:2.4rem;font-family:sans-serif;font-size:.86rem}
+  .ask{background:#fdf0f5;border:1px solid #e0a0b8;border-radius:6px;padding:1rem 1.2rem;margin-top:1.2rem;font-family:sans-serif;font-size:.86rem}
+  .nav{display:flex;justify-content:space-between;margin-top:2.5rem;font-family:sans-serif;font-size:.85rem}
+  .nav a{color:var(--accent);text-decoration:none}.nav a:hover{text-decoration:underline}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<div class="topbar"><a href="../index.html">🏠 Home</a> &nbsp;·&nbsp; <a href="../reference/exam-blueprint.html">📋 Exam Blueprint</a></div>
+
+<p class="meta">Lesson 5 · Module 5 · BCA Exam Prep</p>
+<h1>Sorting</h1>
+
+<div class="exam">16th-May guidance: <em>"Go with the quick, merge, or insertion sort only — these are the important ones."</em> Case studies come "mostly from searching and sorting." Learn <strong>insertion sort cold</strong>; know the <em>idea</em> of quick &amp; merge.</div>
+
+<p>Sorting = arranging elements in order (ascending or descending). We'll use the list <code>23 78 45 8 32 56</code> throughout (the lecturer's example).</p>
+
+<h2>1. Selection Sort (the easy one)</h2>
+<p>Repeatedly find the <strong>smallest</strong> remaining element and swap it to the front.</p>
+<table class="trace">
+  <tr><th>Pass</th><th>Array</th><th>Did what</th></tr>
+  <tr><td>start</td><td>23 78 45 8 32 56</td><td></td></tr>
+  <tr><td>1</td><td>8 78 45 23 32 56</td><td>smallest 8 ↔ 23</td></tr>
+  <tr><td>2</td><td>8 23 45 78 32 56</td><td>next smallest 23 ↔ 78</td></tr>
+  <tr><td>3</td><td>8 23 32 78 45 56</td><td>32 ↔ 45</td></tr>
+  <tr><td>…</td><td>8 23 32 45 56 78</td><td>sorted</td></tr>
+</table>
+
+<h2>2. Insertion Sort (learn this cold)</h2>
+<div class="callout">Like sorting playing cards in your hand: take the next card and slide it back into its correct place among the cards already sorted.</div>
+<p>Grow a sorted block on the left. Take each next element, shift bigger ones right, drop it into place.</p>
+<table class="trace">
+  <tr><th>Step</th><th>Sorted block | rest</th></tr>
+  <tr><td>start</td><td>23 | 78 45 8 32 56</td></tr>
+  <tr><td>insert 78</td><td>23 78 | 45 8 32 56</td></tr>
+  <tr><td>insert 45</td><td>23 45 78 | 8 32 56</td></tr>
+  <tr><td>insert 8</td><td>8 23 45 78 | 32 56</td></tr>
+  <tr><td>insert 32</td><td>8 23 32 45 78 | 56</td></tr>
+  <tr><td>insert 56</td><td>8 23 32 45 56 78 |</td></tr>
+</table>
+<pre><code>void insertionSort(int a[], int n){
+    int i, j, temp;
+    for(i = 1; i < n; i++){
+        temp = a[i];                    <span class="cmt">// element to place</span>
+        j = i - 1;
+        while(j >= 0 && a[j] > temp){    <span class="cmt">// shift bigger ones right</span>
+            a[j+1] = a[j];
+            j--;
+        }
+        a[j+1] = temp;                  <span class="cmt">// drop into the gap</span>
+    }
+}</code></pre>
+
+<h2>3. Quick Sort (know the idea)</h2>
+<ul>
+  <li>Pick a <strong>pivot</strong>. <strong>Partition</strong>: smaller elements to its left, bigger to its right.</li>
+  <li>The pivot is now in its final place. <strong>Recurse</strong> on the left and right parts.</li>
+  <li>Also called <em>partition-exchange sort</em>. Average complexity <code>O(n log n)</code>.</li>
+</ul>
+
+<h2>4. Merge Sort (know the idea)</h2>
+<ul>
+  <li><strong>Divide</strong> the array into two halves, sort each half (recursively).</li>
+  <li><strong>Merge</strong> the two sorted halves into one sorted array.</li>
+  <li>Complexity <code>O(n log n)</code> in all cases.</li>
+</ul>
+
+<h2>5. Scoring in the exam</h2>
+<div class="exam">If asked to "write the selection/insertion sort code," you only need the <strong>sort function</strong> (the few lines above) + a short explanation of how it works — not a whole program with input scaffolding. Practice the trace tables; the examiner may give a list and ask for the array <em>after pass 2</em>.</div>
+
+<!-- QUIZ -->
+<div class="quiz">
+  <h2>Drill — recall, don't peek</h2>
+  <p style="color:var(--muted);font-family:sans-serif;font-size:.86rem;margin-bottom:1.4rem">Trace on paper where needed, then click.</p>
+
+  <div class="q" id="q1">
+    <p>1. Selection sort works by repeatedly selecting the…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q1','Correct — smallest remaining, swap to front.')">smallest</li>
+      <li onclick="ans(this,0,'q1','It selects the minimum, not a pivot.')">a pivot.</li>
+      <li onclick="ans(this,0,'q1','Merging is merge sort, not selection.')">to merge.</li>
+      <li onclick="ans(this,0,'q1','Halving is binary search.')">the half.</li>
+    </ul>
+    <div class="fb" id="q1f"></div>
+  </div>
+
+  <div class="q" id="q2">
+    <p>2. Insertion sort is most like…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q2','Correct — sorting cards in your hand.')">cards...</li>
+      <li onclick="ans(this,0,'q2','A queue is FIFO, unrelated.')">a queue.</li>
+      <li onclick="ans(this,0,'q2','Pivot/partition is quick sort.')">a pivot.</li>
+      <li onclick="ans(this,0,'q2','Divide+merge is merge sort.')">merging.</li>
+    </ul>
+    <div class="fb" id="q2f"></div>
+  </div>
+
+  <div class="q" id="q3">
+    <p>3. Quick sort's key step is…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q3','Correct — partition around a pivot.')">partitn.</li>
+      <li onclick="ans(this,0,'q3','Selecting the min is selection sort.')">find min</li>
+      <li onclick="ans(this,0,'q3','Shifting a block is insertion sort.')">shifting</li>
+      <li onclick="ans(this,0,'q3','Halving alone, no pivot, is merge sort.')">just halv</li>
+    </ul>
+    <div class="fb" id="q3f"></div>
+  </div>
+
+  <div class="q" id="q4">
+    <p>4. From 23 78 45 8 32 56, after selection-sort PASS 1 the array is…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q4','Correct — smallest (8) swapped with first (23).')">8 78 45..</li>
+      <li onclick="ans(this,0,'q4','That is the fully sorted array, not pass 1.')">8 23 32..</li>
+      <li onclick="ans(this,0,'q4','Pass 1 changes only the first position.')">23 78 45.</li>
+      <li onclick="ans(this,0,'q4','56 is not the smallest element.')">56 78 45.</li>
+    </ul>
+    <div class="fb" id="q4f"></div>
+  </div>
+
+  <div class="q" id="q5">
+    <p>5. Average complexity of merge sort?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q5','Correct — divide-and-merge gives n log n.')">O(nlogn).</li>
+      <li onclick="ans(this,0,'q5','O(n) is a single linear pass.')">O(n)....</li>
+      <li onclick="ans(this,0,'q5','log n alone is binary search.')">O(logn).</li>
+      <li onclick="ans(this,0,'q5','O(1) is constant time access.')">O(1)....</li>
+    </ul>
+    <div class="fb" id="q5f"></div>
+  </div>
+
+  <div class="score" id="score"><h3 id="st"></h3><p id="sm" style="margin-top:.4rem;color:var(--muted)"></p></div>
+</div>
+
+<div class="src"><strong>Primary source:</strong> SLM §5.1 (Insertion, Bubble, Selection, Quick, Merge sort). Animated: <a href="https://visualgo.net/en/sorting" target="_blank">VisuAlgo — Sorting</a>.</div>
+<div class="ask"><strong>Ask your teacher:</strong> <em>"trace insertion sort on [list]"</em> or <em>"write merge sort in full"</em> or <em>"what's the array after pass 2 of selection sort?"</em></div>
+
+<div class="nav">
+  <a href="0004-searching-and-complexity.html">← Lesson 4: Searching</a>
+  <a href="0006-arrays-and-linked-lists.html">Lesson 6: Arrays &amp; Linked Lists →</a>
+</div>
+
+<script>
+  const answered={}, correct={}, total=5;
+  function ans(el,ok,q,msg){
+    if(answered[q])return; answered[q]=true; correct[q]=!!ok;
+    const lis=el.parentElement.querySelectorAll('li'); lis.forEach(o=>o.style.pointerEvents='none');
+    if(ok){el.classList.add('correct');}else{el.classList.add('wrong');
+      lis.forEach(o=>{if(o!==el&&o.getAttribute('onclick').includes(',1,'))o.classList.add('reveal');});}
+    document.getElementById(q+'f').textContent=msg;
+    if(Object.keys(answered).length===total)show();
+  }
+  function show(){
+    const n=Object.values(correct).filter(Boolean).length;
+    const b=document.getElementById('score'); b.style.display='block';
+    document.getElementById('st').textContent=n+' / '+total+' correct';
+    const m={5:"Sorting locked. Case-study ready.",4:"Strong. Retrace the miss.",3:"Redo the trace tables, then retry.",2:"Re-read sections 1–2 slowly.",1:"Trace insertion sort by hand.",0:"Restart from selection sort."};
+    document.getElementById('sm').textContent=m[n];
+  }
+</script>
+</body>
+</html>

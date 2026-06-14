@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4 — Linear & Binary Search + Complexity</title>
+<style>
+  :root{--ink:#1a1a1a;--muted:#555;--accent:#2c5f8a;--bg:#faf9f7;--card:#fff;--border:#ddd;--code-bg:#f4f1eb;--correct:#2d6a4f;--wrong:#b5153f;--hl:#fff3cd}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Georgia','Times New Roman',serif;font-size:1.05rem;line-height:1.7;color:var(--ink);background:var(--bg);max-width:740px;margin:0 auto;padding:1.5rem 1.5rem 6rem}
+  .topbar{font-family:sans-serif;font-size:.8rem;padding:.5rem 0 1.5rem;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
+  .topbar a{color:var(--accent);text-decoration:none}.topbar a:hover{text-decoration:underline}
+  h1{font-size:1.9rem;font-weight:normal;color:var(--accent);margin-bottom:.2rem}
+  .meta{color:var(--muted);font-size:.82rem;font-family:sans-serif;margin-bottom:1.6rem}
+  h2{font-size:1.25rem;margin:2.3rem 0 .7rem;border-bottom:1px solid var(--border);padding-bottom:.25rem}
+  h3{font-size:1rem;margin:1.4rem 0 .4rem;color:var(--accent)}
+  p{margin-bottom:1rem}ul,ol{padding-left:1.5rem;margin-bottom:1rem}li{margin-bottom:.35rem}
+  code{font-family:'Courier New',monospace;font-size:.9rem;background:var(--code-bg);padding:.1em .35em;border-radius:3px}
+  pre{background:var(--code-bg);border-left:3px solid var(--accent);padding:1rem 1.2rem;overflow-x:auto;margin:1.2rem 0;border-radius:0 4px 4px 0}
+  pre code{background:none;padding:0;font-size:.86rem;line-height:1.55}
+  .cmt{color:#7a8a6a}
+  .callout{background:var(--hl);border-left:4px solid #e6a817;padding:.85rem 1.1rem;margin:1.2rem 0;border-radius:0 4px 4px 0;font-size:.95rem}
+  .exam{background:#e8f4f8;border-left:4px solid var(--accent);padding:.85rem 1.1rem;margin:1.2rem 0;border-radius:0 4px 4px 0;font-size:.92rem;font-family:sans-serif}
+  .exam::before{content:"📋 Exam: ";font-weight:bold}
+  table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.92rem}
+  th{background:var(--accent);color:#fff;text-align:left;padding:.55rem .7rem;font-family:sans-serif}
+  td{padding:.5rem .7rem;border-bottom:1px solid var(--border)}
+  tr:nth-child(even) td{background:#f7f5f2}
+  .trace th,.trace td{text-align:center;font-family:'Courier New',monospace;font-size:.93rem}
+  .trace td:last-child{text-align:left;font-family:sans-serif;font-size:.82rem;color:var(--muted)}
+  .quiz{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.6rem;margin-top:2.5rem}
+  .quiz h2{border:none;margin-top:0}
+  .q{margin-bottom:1.8rem}.q p{font-weight:bold;margin-bottom:.7rem}
+  .opts{list-style:none;padding:0}
+  .opts li{padding:.55rem .85rem;border:1px solid var(--border);border-radius:5px;margin-bottom:.4rem;cursor:pointer;font-family:'Courier New',monospace;font-size:.92rem;transition:background .15s;user-select:none}
+  .opts li:hover{background:#f0f0f0}
+  .opts li.correct{background:#d4edda;border-color:var(--correct);color:var(--correct);font-weight:bold}
+  .opts li.wrong{background:#fce4ec;border-color:var(--wrong);color:var(--wrong)}
+  .opts li.reveal{background:#d4edda;border-color:var(--correct)}
+  .fb{font-family:sans-serif;font-size:.86rem;margin-top:.5rem;min-height:1.1rem;color:var(--muted)}
+  .score{text-align:center;padding:1.4rem;display:none;background:#f0f7ff;border-radius:6px;margin-top:1.4rem;font-family:sans-serif}
+  .score h3{font-size:1.35rem;color:var(--accent)}
+  .src{background:#f0f7f0;border:1px solid #a8d5a2;border-radius:6px;padding:1rem 1.2rem;margin-top:2.4rem;font-family:sans-serif;font-size:.86rem}
+  .ask{background:#fdf0f5;border:1px solid #e0a0b8;border-radius:6px;padding:1rem 1.2rem;margin-top:1.2rem;font-family:sans-serif;font-size:.86rem}
+  .nav{display:flex;justify-content:space-between;margin-top:2.5rem;font-family:sans-serif;font-size:.85rem}
+  .nav a{color:var(--accent);text-decoration:none}.nav a:hover{text-decoration:underline}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<div class="topbar"><a href="../index.html">🏠 Home</a> &nbsp;·&nbsp; <a href="../reference/exam-blueprint.html">📋 Exam Blueprint</a></div>
+
+<p class="meta">Lesson 4 · Module 5 · BCA Exam Prep</p>
+<h1>Linear &amp; Binary Search + Complexity</h1>
+
+<div class="exam">From the 16th-May revision class: <em>"In your exam you can only expect the linear search and the binary search."</em> Plus the complexity values feed Section-A MCQs — and almost nobody in your class had read that chapter. This lesson nails both.</div>
+
+<h2>1. Linear (Sequential) Search</h2>
+<p>Check each element one by one from index 0 until you find the key (or run out). Works on <strong>any</strong> array — sorted or not.</p>
+<pre><code>int linearSearch(int a[], int n, int key){
+    int i, flag = 0;                  <span class="cmt">// flag optional</span>
+    for(i = 0; i < n; i++){
+        if(a[i] == key){ flag = 1; break; }  <span class="cmt">// found → stop</span>
+    }
+    if(flag == 0) printf("Not found");
+    else          printf("Found at index %d", i);
+}</code></pre>
+<p><strong>Complexity:</strong> best <code>O(1)</code> (key is first), worst &amp; average <code>O(n)</code> (key last or absent).</p>
+
+<h2>2. Binary Search</h2>
+<div class="callout"><strong>Pre-condition:</strong> the array MUST be sorted. If they hand you an unsorted array, binary search is invalid — say so.</div>
+<p>Repeatedly halve the range. <code>L</code> = first index (0), <code>U</code> = last index (n−1), <code>mid = (L + U) / 2</code>.</p>
+<table>
+  <tr><th>Compare key with a[mid]</th><th>Action</th></tr>
+  <tr><td>key == a[mid]</td><td>Found — stop.</td></tr>
+  <tr><td>key &lt; a[mid]</td><td>Search left half → <code>U = mid − 1</code></td></tr>
+  <tr><td>key &gt; a[mid]</td><td>Search right half → <code>L = mid + 1</code></td></tr>
+  <tr><td>L &gt; U</td><td>Range empty → not found.</td></tr>
+</table>
+<pre><code>int binarySearch(int a[], int n, int key){
+    int L = 0, U = n - 1, mid;
+    while(L <= U){
+        mid = (L + U) / 2;
+        if(a[mid] == key){ printf("Found at %d", mid + 1); return mid; }
+        else if(a[mid] < key) L = mid + 1;   <span class="cmt">// go right</span>
+        else                  U = mid - 1;   <span class="cmt">// go left</span>
+    }
+    printf("Not found");                      <span class="cmt">// L > U</span>
+    return -1;
+}</code></pre>
+<div class="exam">Write the <strong>iterative</strong> version above. The teacher said binary search <em>with recursion</em> will NOT be asked (that's the MCA syllabus).</div>
+
+<h3>Trace: find 23 in [8, 15, 23, 42, 56] (n=5)</h3>
+<table class="trace">
+  <tr><th>L</th><th>U</th><th>mid</th><th>a[mid]</th><th>vs key 23</th></tr>
+  <tr><td>0</td><td>4</td><td>2</td><td>23</td><td>equal → found at index 2</td></tr>
+</table>
+<p>One step here. Find 56: mid=23(&lt;56)→L=3; mid=(3+4)/2=3, a[3]=42(&lt;56)→L=4; mid=4, a[4]=56 → found.</p>
+
+<h2>3. Complexity values (memorise for MCQs)</h2>
+<table>
+  <tr><th>Algorithm</th><th>Best</th><th>Worst / Average</th></tr>
+  <tr><td>Linear search</td><td><code>O(1)</code></td><td><code>O(n)</code></td></tr>
+  <tr><td>Binary search</td><td><code>O(1)</code></td><td><code>O(log n + 1)</code></td></tr>
+  <tr><td>Array access by index</td><td><code>O(1)</code></td><td><code>O(1)</code></td></tr>
+</table>
+<p><strong>Why binary beats linear:</strong> halving the range each step gives a logarithmic count of comparisons instead of linear. That's the whole point of sorting first.</p>
+<div class="exam">Typical MCQ: <em>"Worst-case complexity of binary search?"</em> → <code>O(log n + 1)</code>. <em>"Of linear search?"</em> → <code>O(n)</code>.</div>
+
+<!-- QUIZ -->
+<div class="quiz">
+  <h2>Drill — recall, don't peek</h2>
+  <p style="color:var(--muted);font-family:sans-serif;font-size:.86rem;margin-bottom:1.4rem">Answer from memory, then click.</p>
+
+  <div class="q" id="q1">
+    <p>1. Binary search requires the array to be…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q1','Correct — sorted is the precondition.')">sorted..</li>
+      <li onclick="ans(this,0,'q1','Linear search works unsorted; binary does not.')">unsortd</li>
+      <li onclick="ans(this,0,'q1','Size is irrelevant to the requirement.')">size 100</li>
+      <li onclick="ans(this,0,'q1','Empty arrays have nothing to search.')">empty..</li>
+    </ul>
+    <div class="fb" id="q1f"></div>
+  </div>
+
+  <div class="q" id="q2">
+    <p>2. The mid index is computed as…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q2','Correct — average of the two bounds.')">(L+U)/2</li>
+      <li onclick="ans(this,0,'q2','That would always give the last index.')">(L+U)-1</li>
+      <li onclick="ans(this,0,'q2','Multiplying bounds is meaningless here.')">(L*U)/2</li>
+      <li onclick="ans(this,0,'q2','n/2 ignores the shrinking range.')">(n+1)/2</li>
+    </ul>
+    <div class="fb" id="q2f"></div>
+  </div>
+
+  <div class="q" id="q3">
+    <p>3. Worst-case complexity of linear search?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q3','Correct — may scan all n elements.')">O(n)....</li>
+      <li onclick="ans(this,0,'q3','O(1) is the best case (first element).')">O(1)....</li>
+      <li onclick="ans(this,0,'q3','log n is binary search, not linear.')">O(logn).</li>
+      <li onclick="ans(this,0,'q3','n squared is for nested-loop sorts.')">O(n*n)..</li>
+    </ul>
+    <div class="fb" id="q3f"></div>
+  </div>
+
+  <div class="q" id="q4">
+    <p>4. In binary search, if key &gt; a[mid], you set…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q4','Correct — discard left half, search right.')">L=mid+1</li>
+      <li onclick="ans(this,0,'q4','That searches left; key is bigger, go right.')">U=mid-1</li>
+      <li onclick="ans(this,0,'q4','Resetting to 0 loses progress.')">L=0,U=n</li>
+      <li onclick="ans(this,0,'q4','mid does not move on its own.')">mid=mid+</li>
+    </ul>
+    <div class="fb" id="q4f"></div>
+  </div>
+
+  <div class="q" id="q5">
+    <p>5. Worst-case complexity of binary search?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q5','Correct — the value to mark on the MCQ.')">O(logn+1)</li>
+      <li onclick="ans(this,0,'q5','O(n) is linear search.')">O(n).....</li>
+      <li onclick="ans(this,0,'q5','O(1) is only the best case.')">O(1).....</li>
+      <li onclick="ans(this,0,'q5','n log n is merge/quick sort.')">O(nlogn).</li>
+    </ul>
+    <div class="fb" id="q5f"></div>
+  </div>
+
+  <div class="score" id="score"><h3 id="st"></h3><p id="sm" style="margin-top:.4rem;color:var(--muted)"></p></div>
+</div>
+
+<div class="src"><strong>Primary source:</strong> SLM §5.2.1–5.2.2 (Linear &amp; Binary Search). Animated: <a href="https://visualgo.net/en/sorting" target="_blank">VisuAlgo</a>.</div>
+<div class="ask"><strong>Ask your teacher:</strong> <em>"trace binary search for [list], key X"</em> or <em>"why is the worst case log n + 1?"</em></div>
+
+<div class="nav">
+  <a href="0003-stack-push-pop.html">← Lesson 3: Stack push/pop</a>
+  <a href="0005-sorting.html">Lesson 5: Sorting →</a>
+</div>
+
+<script>
+  const answered={}, correct={}, total=5;
+  function ans(el,ok,q,msg){
+    if(answered[q])return; answered[q]=true; correct[q]=!!ok;
+    const lis=el.parentElement.querySelectorAll('li'); lis.forEach(o=>o.style.pointerEvents='none');
+    if(ok){el.classList.add('correct');}else{el.classList.add('wrong');
+      lis.forEach(o=>{if(o!==el&&o.getAttribute('onclick').includes(',1,'))o.classList.add('reveal');});}
+    document.getElementById(q+'f').textContent=msg;
+    if(Object.keys(answered).length===total)show();
+  }
+  function show(){
+    const n=Object.values(correct).filter(Boolean).length;
+    const b=document.getElementById('score'); b.style.display='block';
+    document.getElementById('st').textContent=n+' / '+total+' correct';
+    const m={5:"Search + complexity locked. MCQ marks secured.",4:"Strong. Retrace the miss.",3:"Redo the binary-search trace, then retry.",2:"Re-read sections 2–3 slowly.",1:"Trace binary search by hand on paper.",0:"Restart from linear search."};
+    document.getElementById('sm').textContent=m[n];
+  }
+</script>
+</body>
+</html>

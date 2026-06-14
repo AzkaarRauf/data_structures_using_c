@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3 — Stack push & pop in C</title>
+<style>
+  :root{--ink:#1a1a1a;--muted:#555;--accent:#2c5f8a;--bg:#faf9f7;--card:#fff;--border:#ddd;--code-bg:#f4f1eb;--correct:#2d6a4f;--wrong:#b5153f;--hl:#fff3cd}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Georgia','Times New Roman',serif;font-size:1.05rem;line-height:1.7;color:var(--ink);background:var(--bg);max-width:740px;margin:0 auto;padding:2.5rem 1.5rem 6rem}
+  h1{font-size:1.95rem;font-weight:normal;color:var(--accent);margin-bottom:.2rem}
+  .meta{color:var(--muted);font-size:.82rem;font-family:sans-serif;margin-bottom:2rem}
+  h2{font-size:1.25rem;margin:2.4rem 0 .7rem;border-bottom:1px solid var(--border);padding-bottom:.25rem}
+  h3{font-size:1rem;margin:1.4rem 0 .4rem;color:var(--accent)}
+  p{margin-bottom:1rem}
+  ul,ol{padding-left:1.5rem;margin-bottom:1rem}
+  li{margin-bottom:.35rem}
+  code{font-family:'Courier New',monospace;font-size:.9rem;background:var(--code-bg);padding:.1em .35em;border-radius:3px}
+  pre{background:var(--code-bg);border-left:3px solid var(--accent);padding:1rem 1.2rem;overflow-x:auto;margin:1.2rem 0;border-radius:0 4px 4px 0}
+  pre code{background:none;padding:0;font-size:.88rem;line-height:1.55}
+  .cmt{color:#7a8a6a}
+  .callout{background:var(--hl);border-left:4px solid #e6a817;padding:.85rem 1.1rem;margin:1.2rem 0;border-radius:0 4px 4px 0;font-size:.95rem}
+  .exam{background:#e8f4f8;border-left:4px solid var(--accent);padding:.85rem 1.1rem;margin:1.2rem 0;border-radius:0 4px 4px 0;font-size:.92rem;font-family:sans-serif}
+  .exam::before{content:"📋 Exam: ";font-weight:bold}
+  table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.92rem}
+  th{background:var(--accent);color:#fff;text-align:left;padding:.55rem .7rem;font-family:sans-serif}
+  td{padding:.5rem .7rem;border-bottom:1px solid var(--border)}
+  tr:nth-child(even) td{background:#f7f5f2}
+  .trace th,.trace td{text-align:center;font-family:'Courier New',monospace;font-size:.95rem}
+  .trace td:last-child{text-align:left;font-family:sans-serif;font-size:.82rem;color:var(--muted)}
+  .quiz{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.6rem;margin-top:2.5rem}
+  .quiz h2{border:none;margin-top:0}
+  .q{margin-bottom:1.8rem}
+  .q p{font-weight:bold;margin-bottom:.7rem}
+  .opts{list-style:none;padding:0}
+  .opts li{padding:.55rem .85rem;border:1px solid var(--border);border-radius:5px;margin-bottom:.4rem;cursor:pointer;font-family:'Courier New',monospace;font-size:.92rem;transition:background .15s;user-select:none}
+  .opts li:hover{background:#f0f0f0}
+  .opts li.correct{background:#d4edda;border-color:var(--correct);color:var(--correct);font-weight:bold}
+  .opts li.wrong{background:#fce4ec;border-color:var(--wrong);color:var(--wrong)}
+  .opts li.reveal{background:#d4edda;border-color:var(--correct)}
+  .fb{font-family:sans-serif;font-size:.86rem;margin-top:.5rem;min-height:1.1rem;color:var(--muted)}
+  .score{text-align:center;padding:1.4rem;display:none;background:#f0f7ff;border-radius:6px;margin-top:1.4rem;font-family:sans-serif}
+  .score h3{font-size:1.35rem;color:var(--accent)}
+  .src{background:#f0f7f0;border:1px solid #a8d5a2;border-radius:6px;padding:1rem 1.2rem;margin-top:2.4rem;font-family:sans-serif;font-size:.86rem}
+  .ask{background:#fdf0f5;border:1px solid #e0a0b8;border-radius:6px;padding:1rem 1.2rem;margin-top:1.2rem;font-family:sans-serif;font-size:.86rem}
+  .nav{display:flex;justify-content:space-between;margin-top:2.5rem;font-family:sans-serif;font-size:.85rem}
+  .nav a{color:var(--accent);text-decoration:none}
+  .nav a:hover{text-decoration:underline}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<div style="font-family:sans-serif;font-size:.8rem;padding:.5rem 0 1.2rem;border-bottom:1px solid var(--border);margin-bottom:1.3rem"><a href="../index.html" style="color:var(--accent);text-decoration:none">🏠 Home</a> &nbsp;·&nbsp; <a href="../reference/exam-blueprint.html" style="color:var(--accent);text-decoration:none">📋 Exam Blueprint</a></div>
+<p class="meta">Lesson 3 · Module 2 · Data Structures Using C · BCA Exam Prep</p>
+<h1>Stack <code>push</code> &amp; <code>pop</code> in C</h1>
+
+<div class="exam">From the 12th-April class: <em>"They may ask you to write a code where you are inserting the data into the stack → write the push code. Delete an element → write the pop code."</em> He also promised: <em>"the question will be pretty easy."</em> This is TIER 1 — learn both functions cold.</div>
+
+<h2>1. The mental model (LIFO)</h2>
+<p>A stack is a pile of plates. You add and remove only from the <strong>top</strong>. <strong>Last In, First Out.</strong> Only two operations matter:</p>
+<ul>
+  <li><strong>push</strong> = insert an item on top</li>
+  <li><strong>pop</strong> = remove the top item</li>
+</ul>
+<p>An array-based stack needs just two things: the array, and an integer <code>top</code> that holds the index of the current top element.</p>
+
+<pre><code>#define MAX 5      <span class="cmt">// capacity (array is static — size fixed)</span>
+int stack[MAX];
+int top = -1;      <span class="cmt">// -1 means EMPTY (no valid index yet)</span></code></pre>
+
+<div class="callout">Why <code>top = -1</code> for empty? Array indices start at 0. If the stack held one item it would sit at index 0. So "nothing yet" must be one below zero → <strong>−1</strong>. This single fact powers both checks below.</div>
+
+<h2>2. The two guard conditions</h2>
+<table>
+  <tr><th>Condition</th><th>Meaning</th><th>Test</th></tr>
+  <tr><td><strong>Overflow</strong></td><td>push onto a FULL stack</td><td><code>top == MAX - 1</code></td></tr>
+  <tr><td><strong>Underflow</strong></td><td>pop from an EMPTY stack</td><td><code>top == -1</code></td></tr>
+</table>
+<p>For <code>MAX = 5</code>, valid indices are 0,1,2,3,4. So full = top at <code>5 − 1 = 4</code>. Always check the guard <em>first</em>, before touching the array.</p>
+
+<h2>3. push() — insert</h2>
+<pre><code>void push(int item){
+    if(top == MAX - 1){            <span class="cmt">// 1. overflow guard</span>
+        printf("Stack Overflow");
+        return;
+    }
+    top = top + 1;                 <span class="cmt">// 2. move top up</span>
+    stack[top] = item;             <span class="cmt">// 3. place the item</span>
+}</code></pre>
+<p>Order matters: <strong>check → increment → assign</strong>. Increment <em>before</em> assigning, so <code>top</code> points at the new slot.</p>
+
+<h2>4. pop() — delete</h2>
+<pre><code>int pop(){
+    if(top == -1){                 <span class="cmt">// 1. underflow guard</span>
+        printf("Stack Underflow");
+        return 0;
+    }
+    int item = stack[top];         <span class="cmt">// 2. read the top item</span>
+    top = top - 1;                 <span class="cmt">// 3. move top down</span>
+    return item;                   <span class="cmt">// 4. hand it back</span>
+}</code></pre>
+<p>Mirror of push: <strong>check → read → decrement</strong>. We don't erase the old slot — moving <code>top</code> down makes it unreachable, which is enough.</p>
+
+<h2>5. Trace it (MAX = 5)</h2>
+<p>Operations: push 10, push 20, push 30, pop, push 40.</p>
+<table class="trace">
+  <tr><th>Operation</th><th>top</th><th>stack contents</th><th>note</th></tr>
+  <tr><td>start</td><td>-1</td><td>(empty)</td><td>top == -1</td></tr>
+  <tr><td>push 10</td><td>0</td><td>10</td><td>top→0, place 10</td></tr>
+  <tr><td>push 20</td><td>1</td><td>10 20</td><td></td></tr>
+  <tr><td>push 30</td><td>2</td><td>10 20 30</td><td></td></tr>
+  <tr><td>pop</td><td>1</td><td>10 20</td><td>returns 30, top→1</td></tr>
+  <tr><td>push 40</td><td>2</td><td>10 20 40</td><td>40 overwrites old slot 2</td></tr>
+</table>
+
+<h2>6. Linked-list version (1 line to remember)</h2>
+<p>If they ask for the linked-list stack, the empty test changes from <code>top == -1</code> to <code>top == NULL</code>. Push = new node points to old top, top = new node. No fixed size (dynamic). The teacher called the linked-list stack "comparatively easier."</p>
+
+<h2>7. Scoring this in the exam</h2>
+<div class="exam">Write both functions, keep the <strong>overflow/underflow guards</strong> (examiners look for them), and add one comment per line saying what it does. That comment line = the "explanation" that lifts you from ~5 to ~7 marks. Watch your semicolons — a missing one loses marks on a code answer.</div>
+
+<!-- QUIZ -->
+<div class="quiz">
+  <h2>Drill — recall, don't peek</h2>
+  <p style="color:var(--muted);font-family:sans-serif;font-size:.86rem;margin-bottom:1.4rem">Trace on paper where needed, then click.</p>
+
+  <div class="q" id="q1">
+    <p>1. Empty stack is marked by which value of top?</p>
+    <ul class="opts">
+      <li onclick="ans(this,0,'q1','0 is the index of the FIRST item, not empty.')">top == 00</li>
+      <li onclick="ans(this,1,'q1','Correct — -1 is one below the first index.')">top == -1</li>
+      <li onclick="ans(this,0,'q1','MAX is the capacity, unrelated to empty.')">top == MX</li>
+      <li onclick="ans(this,0,'q1','NULL is for the linked-list version, not array.')">top==NUL</li>
+    </ul>
+    <div class="fb" id="q1f"></div>
+  </div>
+
+  <div class="q" id="q2">
+    <p>2. For MAX = 5, the overflow (full) test is…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,0,'q2','top == 5 is one past the last valid index (4).')">top == 50</li>
+      <li onclick="ans(this,1,'q2','Correct — last valid index is 5-1 = 4.')">top==MAX-1</li>
+      <li onclick="ans(this,0,'q2','That is the empty (underflow) test.')">top == -1</li>
+      <li onclick="ans(this,0,'q2','top == 0 means one item present, not full.')">top == 00</li>
+    </ul>
+    <div class="fb" id="q2f"></div>
+  </div>
+
+  <div class="q" id="q3">
+    <p>3. Inside push, the correct order is…?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q3','Correct — guard, then ++top, then assign.')">check,++,set</li>
+      <li onclick="ans(this,0,'q3','Assigning before incrementing overwrites the wrong slot.')">set,++,chck</li>
+      <li onclick="ans(this,0,'q3','Skipping the guard risks overflow corruption.')">++,set,nogd</li>
+      <li onclick="ans(this,0,'q3','Decrement belongs to pop, not push.')">check,--,set</li>
+    </ul>
+    <div class="fb" id="q3f"></div>
+  </div>
+
+  <div class="q" id="q4">
+    <p>4. Start empty; push 7, push 9, pop. What does pop return?</p>
+    <ul class="opts">
+      <li onclick="ans(this,0,'q4','7 was pushed first — LIFO removes last, not first.')">returns 07</li>
+      <li onclick="ans(this,1,'q4','Correct — 9 was last in, so first out.')">returns 09</li>
+      <li onclick="ans(this,0,'q4','0 is the underflow return; stack is not empty.')">returns 00</li>
+      <li onclick="ans(this,0,'q4','16 would be a sum — pop returns one value.')">returns 16</li>
+    </ul>
+    <div class="fb" id="q4f"></div>
+  </div>
+
+  <div class="q" id="q5">
+    <p>5. After that pop, what is the value of top?</p>
+    <ul class="opts">
+      <li onclick="ans(this,1,'q5','Correct — 7 remains at index 0, so top = 0.')">top == 00</li>
+      <li onclick="ans(this,0,'q5','top = 1 was before the pop (9 present).')">top == 01</li>
+      <li onclick="ans(this,0,'q5','-1 would mean empty, but 7 is still there.')">top == -1</li>
+      <li onclick="ans(this,0,'q5','top = 2 was never reached with two items.')">top == 02</li>
+    </ul>
+    <div class="fb" id="q5f"></div>
+  </div>
+
+  <div class="score" id="score"><h3 id="st"></h3><p id="sm" style="margin-top:.4rem;color:var(--muted)"></p></div>
+</div>
+
+<div class="src"><strong>Primary source:</strong> SLM textbook §2.1.2–2.1.3 (Array-Based Stack, Push and Pop). Also: <a href="https://www.geeksforgeeks.org/stack-data-structure/" target="_blank">GeeksForGeeks — Stack</a> for more solved code.</div>
+
+<div class="ask"><strong>Want practice? Ask your teacher.</strong> In the Claude Code chat: <em>"give me a stack trace problem"</em> or <em>"show the linked-list push/pop in full"</em> or <em>"quiz me on overflow vs underflow."</em></div>
+
+<div class="nav">
+  <a href="0002-infix-to-postfix.html">← Lesson 2: Infix→Postfix</a>
+  <a href="0004-searching-and-complexity.html">Lesson 4: Searching →</a>
+</div>
+
+<script>
+  const answered={}, correct={}, total=5;
+  function ans(el,ok,q,msg){
+    if(answered[q])return; answered[q]=true; correct[q]=!!ok;
+    const lis=el.parentElement.querySelectorAll('li');
+    lis.forEach(o=>o.style.pointerEvents='none');
+    if(ok){el.classList.add('correct');}
+    else{el.classList.add('wrong');
+      lis.forEach(o=>{if(o!==el&&o.getAttribute('onclick').includes(',1,'))o.classList.add('reveal');});}
+    document.getElementById(q+'f').textContent=msg;
+    if(Object.keys(answered).length===total)show();
+  }
+  function show(){
+    const n=Object.values(correct).filter(Boolean).length;
+    const b=document.getElementById('score'); b.style.display='block';
+    document.getElementById('st').textContent=n+' / '+total+' correct';
+    const m={5:"Push/pop locked. TIER 1 marks secured.",4:"Strong. Retrace the miss.",3:"Redo the trace table, then retry.",2:"Re-read sections 2–4 slowly.",1:"Trace push/pop by hand, line by line.",0:"Restart from the mental model."};
+    document.getElementById('sm').textContent=m[n];
+  }
+</script>
+</body>
+</html>
